@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary-heading {
+  @apply text-3xl
+    font-mono font-bold
+    relative
+    before:absolute
+    before:bottom-0
+    before:left-0
+    before:h-2
+    before:w-40
+    before:bg-primary-darkgray
+    py-4
+    before:rounded-full;
+}
+
+.secondary-heading {
+  @apply text-3xl
+    font-mono font-bold
+    relative
+    before:absolute
+    before:bottom-0
+    before:left-0
+    before:h-2
+    before:bg-primary-yellow
+    py-2
+    before:rounded-full;
+}
+
+.primary-card {
+  @apply w-7/7 p-2.5 rounded-lg mx-auto relative shadow-md;
+}
+
+.primary-link {
+  @apply text-2xl
+                py-1.5
+                relative
+                font-bold font-mono
+                after:w-full
+                after:h-1
+                after:absolute
+                after:bottom-0
+                after:left-0
+                after:right-0
+                after:bg-primary-lightyellow
+                before:w-0
+                before:h-1
+                before:absolute
+                before:bottom-0
+                before:left-0
+                before:right-0
+                before:bg-primary-yellow
+                before:transition-all
+                before:duration-300
+                before:ease-in-out
+                hover:before:w-full;
+}
