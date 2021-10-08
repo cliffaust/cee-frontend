@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="w-full">
     <navbar @showUserOptions="showUserOptions"></navbar>
     <div class="h-500 bg-header-image relative bg-center bg-cover">
       <h1
@@ -238,7 +238,7 @@ export default {
 }
 
 .option-new {
-  @apply py-4 px-9 text-xl font-bold relative cursor-pointer rounded-full bg-primary-yellow;
+  @apply py-4 px-9 text-xl font-bold relative cursor-pointer rounded-full bg-primary-darkgray text-white;
 }
 
 .searchbar {
@@ -267,7 +267,7 @@ export default {
     content: '';
     border-left: 1.2rem solid transparent;
     border-right: 1.2rem solid transparent;
-    border-top: 1.2rem solid $primary-bgcolor-2;
+    border-top: 1.2rem solid #3d405b;
     border-bottom: 1.2rem solid transparent;
     position: absolute;
     bottom: -50%;

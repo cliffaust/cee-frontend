@@ -67,6 +67,6 @@ export default {
   build: {},
   env: {
     baseUrl:
-      process.env.BASE_URL || 'https://cee-project-1.herokuapp.com/api/v1',
+      process.env.BASE_URL || 'https://cee-test-project.herokuapp.com/api/v1',
   },
 }

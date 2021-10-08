@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer py-8 px-8 bg-gray-200 mt-12 flex flex-col">
+  <footer class="footer py-8 px-8 bg-gray-100 mt-12 flex flex-col">
     <!-- <div class="image-container self-center">
       <img
         class="logo"
@@ -43,7 +43,6 @@
         viewBox="0 0 24 24"
         version="1.1"
       >
-        <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
         <title>facebook</title>
         <desc>Created with Sketch.</desc>
         <defs />
@@ -79,7 +78,6 @@
         viewBox="0 0 24 24"
         version="1.1"
       >
-        <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
         <title>twitter</title>
         <desc>Created with Sketch.</desc>
         <defs />
@@ -116,7 +114,6 @@
         viewBox="0 0 24 24"
         version="1.1"
       >
-        <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
         <title>instagram</title>
         <desc>Created with Sketch.</desc>
         <defs />

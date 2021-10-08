@@ -3,7 +3,7 @@
     :class="[
       navbarSlider
         ? 'fixed top-0 right-0 bottom-0 left-0 z-10 transition duration-300 bg-black bg-opacity-60'
-        : 'fixed top-0 right-0 bottom-0 left-0 -z-1 transition-z-index duration-700',
+        : 'fixed top-0 right-0 bottom-0 left-0 -z-2 transition-z-index duration-700',
     ]"
     @click="changeNavbarSliderState"
   >
@@ -592,11 +592,7 @@ export default {
 
   methods: {
     changeNavbarSliderState() {
-      if (this.navbarSlider === true) {
-        this.$store.dispatch('changeNavbarState', false)
-      } else {
-        this.$store.dispatch('changeNavbarState', true)
-      }
+      this.$store.dispatch('changeNavbarState', false)
     },
 
     closeSlider() {

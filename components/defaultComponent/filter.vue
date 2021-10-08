@@ -1,36 +1,54 @@
 <template>
-  <div class="container">
-    <div class="home-status">
+  <div class="mt-10">
+    <div class="flex items-center justify-center gap-2">
       <nuxt-link
+        v-slot="{ href, navigate }"
         :to="{ path: `/homes/${this.$route.params.search}/buy/` }"
-        tag="p"
-        :class="[
-          $route.name === 'homes-search-buy' ? 'option-new' : 'option-old',
-        ]"
+        custom
       >
-        Buy
+        <div
+          :class="[
+            $route.name === 'homes-search-buy' ? 'option-new' : 'option-old',
+          ]"
+          :href="href"
+          @click="navigate"
+        >
+          Buy
+        </div>
       </nuxt-link>
       <nuxt-link
+        v-slot="{ href, navigate }"
         :to="{ path: `/homes/${this.$route.params.search}/rent/` }"
-        tag="p"
-        :class="[
-          $route.name === 'homes-search-rent' ? 'option-new' : 'option-old',
-        ]"
+        custom
       >
-        Rent
+        <div
+          :class="[
+            $route.name === 'homes-search-rent' ? 'option-new' : 'option-old',
+          ]"
+          :href="href"
+          @click="navigate"
+        >
+          Rent
+        </div>
       </nuxt-link>
       <nuxt-link
+        v-slot="{ href, navigate }"
         :to="{ path: `/homes/${this.$route.params.search}/land/` }"
-        tag="p"
-        :class="[
-          $route.name === 'homes-search-land' ? 'option-new' : 'option-old',
-        ]"
+        custom
       >
-        Land
+        <div
+          :class="[
+            $route.name === 'homes-search-land' ? 'option-new' : 'option-old',
+          ]"
+          :href="href"
+          @click="navigate"
+        >
+          Land
+        </div>
       </nuxt-link>
     </div>
     <div class="price">
-      <div class="text">Price</div>
+      <div class="text-2xl font-mono font-bold">Price</div>
       <div class="content">
         <div class="min-price">
           <baseSelect
@@ -39,7 +57,7 @@
             :options="minPrices"
           ></baseSelect>
         </div>
-        <div class="dash-line">&#8211;</div>
+        <div class="w-5 h-1 bg-gray-200 mt-6"></div>
         <div class="max-price">
           <baseSelect
             v-model="selectedMaxPrice"
@@ -49,49 +67,55 @@
         </div>
       </div>
     </div>
-    <div class="beds">
-      <div class="text">Beds</div>
-      <div class="selects">
+    <div class="mt-7">
+      <div class="text-2xl font-mono font-bold mb-3">Beds</div>
+      <div class="flex items-center justify-center gap-2">
         <div
-          :class="[!selectedBed ? 'bed-select-new' : 'bed-select-old']"
+          :class="[!selectedBed ? 'option-new !px-6' : 'option-old !px-6']"
           @click="bed('')"
         >
           Any
         </div>
         <div
-          :class="[selectedBed === '1+' ? 'bed-select-new' : 'bed-select-old']"
+          :class="[
+            selectedBed === '1+' ? 'option-new !px-6' : 'option-old !px-6',
+          ]"
           @click="bed('1+')"
         >
           1+
         </div>
         <div
-          :class="[selectedBed === '2+' ? 'bed-select-new' : 'bed-select-old']"
+          :class="[
+            selectedBed === '2+' ? 'option-new !px-6' : 'option-old !px-6',
+          ]"
           @click="bed('2+')"
         >
           2+
         </div>
         <div
-          :class="[selectedBed === '3+' ? 'bed-select-new' : 'bed-select-old']"
+          :class="[
+            selectedBed === '3+' ? 'option-new !px-6' : 'option-old !px-6',
+          ]"
           @click="bed('3+')"
         >
           3+
         </div>
         <div
-          :class="[selectedBed === '4+' ? 'bed-select-new' : 'bed-select-old']"
+          :class="[
+            selectedBed === '4+' ? 'option-new !px-6' : 'option-old !px-6',
+          ]"
           @click="bed('4+')"
         >
           4+
         </div>
       </div>
     </div>
-    <div class="bathrooms">
-      <div class="text">Bathrooms</div>
-      <div class="selects">
+    <div class="mt-7">
+      <div class="text-2xl font-mono font-bold mb-3">Bathrooms</div>
+      <div class="flex items-center justify-center gap-2">
         <div
           class="bathroom-select"
-          :class="[
-            !selectedBathroom ? 'bathroom-select-new' : 'bathroom-select-old',
-          ]"
+          :class="[!selectedBathroom ? 'option-new !px-6' : 'option-old !px-6']"
           @click="bathroom('')"
         >
           Any
@@ -99,9 +123,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '1+'
-              ? 'bathroom-select-new'
-              : 'bathroom-select-old',
+            selectedBathroom === '1+' ? 'option-new !px-6' : 'option-old !px-6',
           ]"
           @click="bathroom('1+')"
         >
@@ -110,9 +132,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '2+'
-              ? 'bathroom-select-new'
-              : 'bathroom-select-old',
+            selectedBathroom === '2+' ? 'option-new !px-6' : 'option-old !px-6',
           ]"
           @click="bathroom('2+')"
         >
@@ -121,9 +141,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '3+'
-              ? 'bathroom-select-new'
-              : 'bathroom-select-old',
+            selectedBathroom === '3+' ? 'option-new !px-6' : 'option-old !px-6',
           ]"
           @click="bathroom('3+')"
         >
@@ -132,9 +150,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '4+'
-              ? 'bathroom-select-new'
-              : 'bathroom-select-old',
+            selectedBathroom === '4+' ? 'option-new !px-6' : 'option-old !px-6',
           ]"
           @click="bathroom('4+')"
         >
@@ -143,7 +159,7 @@
       </div>
     </div>
     <div class="land-size">
-      <div class="text">Land Space</div>
+      <div class="text-2xl font-mono font-bold">Land Space</div>
       <div class="content">
         <div class="min-land-size">
           <baseSelect
@@ -152,7 +168,7 @@
             :options="minLandSizes"
           ></baseSelect>
         </div>
-        <div class="dash-line">&#8211;</div>
+        <div class="w-5 h-1 bg-gray-200 mt-6"></div>
         <div class="max-land-size">
           <baseSelect
             v-model="selectedMaxLandSize"
@@ -163,7 +179,7 @@
       </div>
     </div>
     <div class="lot-size">
-      <div class="text">Lot Size</div>
+      <div class="text-2xl font-mono font-bold">Lot Size</div>
       <div class="content">
         <div class="min-lot-size">
           <baseSelect
@@ -172,7 +188,7 @@
             :options="minLotSizes"
           ></baseSelect>
         </div>
-        <div class="dash-line">&#8211;</div>
+        <div class="w-5 h-1 bg-gray-200 mt-6"></div>
         <div class="max-lot-size">
           <baseSelect
             v-model="selectedMaxLotSize"
@@ -183,7 +199,7 @@
       </div>
     </div>
     <div class="year-built">
-      <div class="text">Year Built</div>
+      <div class="text-2xl font-mono font-bold">Year Built</div>
       <div class="content">
         <div class="min-year">
           <baseInput
@@ -192,7 +208,7 @@
             label="Min Year"
           ></baseInput>
         </div>
-        <div class="dash-line">&#8211;</div>
+        <div class="w-5 h-1 bg-gray-200 mt-6"></div>
         <div class="max-year">
           <baseInput
             v-model="selectedMaxYear"
@@ -202,12 +218,14 @@
         </div>
       </div>
     </div>
-    <div class="btn-container">
-      <div class="btn-reset" @click="reset">
-        <baseButton button-class="btn-open">Reset</baseButton>
+    <div class="flex mt-10 gap-6">
+      <div class="flex-grow">
+        <ButtonPrimary class="w-full h-16" @click="reset">Reset</ButtonPrimary>
       </div>
-      <div class="btn-done">
-        <baseButton button-class="btn-open" @click="filter">Filter</baseButton>
+      <div class="flex-grow">
+        <ButtonPrimaryOpen class="w-full h-16" @click="filter"
+          >Filter</ButtonPrimaryOpen
+        >
       </div>
     </div>
     <!-- <div class="checkbox-container">
@@ -218,13 +236,15 @@
 
 <script>
 import baseSelect from '~/components/defaultComponent/baseSelect'
-import baseButton from '~/components/defaultComponent/baseButton'
+import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
+import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open.vue'
 import baseInput from '~/components/defaultComponent/baseInput'
 // import baseCheckBox from '~/components/defaultComponent/baseCheckBox'
 export default {
   components: {
     baseSelect,
-    baseButton,
+    ButtonPrimary,
+    ButtonPrimaryOpen,
     baseInput,
     // baseCheckBox,
   },
@@ -518,158 +538,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin-top: 2.5rem;
-  .home-status {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .option-old {
-      padding: 1rem 2.2rem;
-      font-size: 1.6rem;
-      font-weight: 700;
-      border-radius: 8px;
-      transition: 0.4s ease;
-      margin-right: 1rem;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $dark-gray;
-      }
-    }
-
-    .option {
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-
-    .option-new {
-      padding: 1rem 2.2rem;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-right: 1rem;
-      background-color: $primary-bgcolor-2;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  }
+.option-old {
+  @apply py-4 px-9 text-xl font-bold rounded-2xl hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
 }
 
-.beds,
-.bathrooms {
-  margin-top: 1.8rem;
-  .text {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .selects {
-    display: flex;
-    justify-content: center;
-
-    .bathroom-select-new,
-    .bed-select-new {
-      padding: 1rem 2.2rem;
-      font-size: 1.6rem;
-      font-weight: 700;
-      background-color: $primary-bgcolor-2;
-      border-radius: 8px;
-      margin-right: 1rem;
-      cursor: pointer;
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-
-    .bed-select-old,
-    .bathroom-select-old {
-      padding: 1rem 2.2rem;
-      font-size: 1.6rem;
-      font-weight: 700;
-      border-radius: 8px;
-      transition: 0.4s ease;
-      margin-right: 1rem;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $dark-gray;
-      }
-
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-  }
+.option-new {
+  @apply py-4 px-9 text-xl font-bold relative cursor-pointer rounded-2xl bg-primary-darkgray text-white;
 }
+
+.content {
+  @apply flex items-center justify-center gap-2;
+}
+
 .price,
 .land-size,
 .lot-size,
 .year-built {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 1.8rem;
-
-  .text {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 0 0 100%;
-
-    .dash-line {
-      margin-top: 1.8rem;
-    }
-  }
-
-  .min-price,
-  .max-price,
-  .min-land-size,
-  .max-land-size,
-  .min-lot-size,
-  .max-lot-size,
-  .min-year,
-  .max-year {
-    flex: 0 0 48%;
-  }
+  @apply flex flex-col justify-center mt-7;
 }
-
-.btn-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1.8rem;
-  .btn-done,
-  .btn-reset {
-    flex: 0 0 35%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .container {
-    .beds,
-    .bathrooms {
-      .selects {
-        .bathroom-select-new,
-        .bed-select-new {
-          padding: 0.8rem 1.2rem;
-          background-color: $primary-bgcolor-2;
-        }
-
-        .bed-select-old,
-        .bathroom-select-old {
-          padding: 0.8rem 1.2rem;
-        }
-      }
-    }
-  }
+.min-price,
+.max-price,
+.min-land-size,
+.max-land-size,
+.min-lot-size,
+.max-lot-size,
+.min-year,
+.max-year {
+  flex: 0 0 45%;
 }
 </style>

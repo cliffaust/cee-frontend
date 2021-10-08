@@ -1,21 +1,31 @@
 <template>
   <div>
-    <div class="header">
-      <nuxt-link to="/" tag="div" class="logo">Cee</nuxt-link>
-      <div class="searchbar">
+    <div class="py-4 px-6 bg-white flex items-center relative gap-6">
+      <burger></burger>
+      <div class="searchbar flex-grow">
         <form @submit.prevent="searchLocation">
-          <font-awesome-icon
-            :icon="['fas', 'search']"
-            class="search-icon"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon left-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
             @click="searchLocation"
-          />
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
           <input
             v-model="search"
             type="text"
             placeholder="Enter an address or city or town"
             :class="[
               searchResults.length > 0 && search
-                ? 'search-result-open'
+                ? 'search-result-open !rounded-tr-lg !rounded-tl-lg !rounded-br-none !rounded-bl-none'
                 : 'search',
             ]"
             @input="searchApi"
@@ -31,32 +41,58 @@
               class="search-result"
               @click="apiSearchResult(searchResult)"
             >
-              <font-awesome-icon
-                :icon="['fas', 'map-marker-alt']"
-                class="icon"
-              />
-              <span class="text">{{ searchResult }}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-7 h-7 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <span class="text-xl">{{ searchResult }}</span>
             </div>
           </div>
-          <font-awesome-icon
+          <svg
             v-if="search"
-            :icon="['fas', 'times']"
-            class="search-cancel"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon right-7"
+            viewBox="0 0 20 20"
+            fill="currentColor"
             @click="removeSearchText"
-          />
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
         </form>
       </div>
-      <burger></burger>
     </div>
+    <NavbarSlider></NavbarSlider>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import burger from '~/components/defaultComponent/burger'
+import NavbarSlider from '~/components/defaultComponent/navbarSlider.vue'
 export default {
   components: {
     burger,
+    NavbarSlider,
   },
   props: {
     showResult: {
@@ -93,6 +129,7 @@ export default {
 
     apiSearchResult(result) {
       this.search = result
+      this.searchResults = []
       this.$router.push({ params: { search: this.search } })
     },
 
@@ -116,112 +153,22 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.header {
-  background-color: $primary-bgcolor-1;
-  display: flex;
-  padding: 1rem 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-
-  .logo {
-    font-size: 2.6rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: $secondary-font-2;
-    color: $color-white;
-  }
-  .searchbar {
-    width: 22rem;
-    position: relative;
-    .search,
-    .search-result-open {
-      width: 100%;
-      padding: 1.2rem 1rem 1.2rem 5rem;
-      border-radius: 50px;
-      border: none;
-      font-family: inherit;
-      font-size: 1.6rem;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .search-result-open {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      border: 1px solid #eee;
-    }
-
-    .search-icon {
-      color: $primary-text-color;
-      width: 17px;
-      height: 17px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 15px;
-      z-index: 5;
-      cursor: pointer;
-    }
-
-    .search-cancel {
-      color: $primary-text-color;
-      width: 17px;
-      height: 17px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 20px;
-      z-index: 5;
-      cursor: pointer;
-    }
-  }
-
-  .search-results {
-    width: 22rem;
-    padding: 1rem 0;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.105);
-    transform: translateX(-50%);
-    background-color: $color-white;
-    z-index: 10;
-
-    .search-result {
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-      transition: 0.2s ease;
-      cursor: pointer;
-
-      .text {
-        font-size: 1.6rem;
-      }
-
-      .icon {
-        width: 28px;
-        height: 28px;
-        margin-right: 10px;
-      }
-
-      &:hover {
-        background-color: $dark-gray;
-      }
-    }
-  }
+<style lang="postcss" scoped>
+.search,
+.search-result-open {
+  @apply w-full py-6 pl-16 pr-4 rounded-full text-xl outline-none border-2 border-gray-100;
+}
+.searchbar {
+  @apply relative;
+}
+.search-results {
+  @apply w-full py-4 absolute z-20 left-2/4 top-full rounded-br-lg rounded-bl-lg shadow-lg bg-white -translate-x-2/4;
 }
 
-@media screen and (min-width: 500px) {
-  .card {
-    width: 30rem;
-  }
+.search-result {
+  @apply p-4 transition-all duration-300 cursor-pointer ease-in-out flex items-center hover:bg-gray-200;
+}
+.icon {
+  @apply w-7 h-7 absolute top-2/4 -translate-y-2/4 z-10 cursor-pointer;
 }
 </style>

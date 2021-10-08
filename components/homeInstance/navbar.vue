@@ -1,31 +1,31 @@
 <template>
   <div>
-    <div class="header">
+    <div class="py-4 px-6 bg-white flex justify-between items-center">
       <burger></burger>
-      <nuxt-link to="/" tag="div" class="logo">Cee</nuxt-link>
+      <nuxt-link v-slot="{ href, navigate }" to="/" custom
+        ><div
+          :href="href"
+          class="text-primary-yellow text-5xl font-bold cursor-pointer font-spectral"
+          @click="navigate"
+        >
+          Cee
+        </div></nuxt-link
+      >
       <div>&nbsp;</div>
     </div>
+    <NavbarSlider></NavbarSlider>
   </div>
 </template>
 
 <script>
-export default {}
+import burger from '~/components/defaultComponent/burger.vue'
+import NavbarSlider from '~/components/defaultComponent/navbarSlider.vue'
+export default {
+  components: {
+    burger,
+    NavbarSlider,
+  },
+}
 </script>
 
-<style lang="scss" scoped>
-.header {
-  background-color: $primary-bgcolor-1;
-  display: flex;
-  padding: 0.8rem 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-
-  .logo {
-    font-size: 2.6rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: $secondary-font-2;
-    color: $color-white;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

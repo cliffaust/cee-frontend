@@ -2,7 +2,7 @@
   <client-only>
     <swiper :options="swiperOption">
       <swiper-slide v-for="(image, index) in images" :key="index">
-        <img :src="image.home_image" class="image" />
+        <img :src="image.home_image" class="w-full h-full" />
       </swiper-slide>
       <font-awesome-icon
         slot="button-prev"
@@ -21,7 +21,6 @@
 
 <script>
 export default {
-  name: 'HomeSwiper',
   props: {
     images: {
       type: [Array, Object],
@@ -39,7 +38,6 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        loop: true,
       },
     }
   },
@@ -48,14 +46,9 @@ export default {
 
 <style lang="scss" scoped>
 .swiper-container {
-  border-radius: 1rem;
   height: 100%;
   overflow: hidden;
-}
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  border-radius: 1rem;
 }
 
 .swiper-container:hover .swiper-button-next {

@@ -52,7 +52,7 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .card {
   @apply w-2/8 mx-auto mt-12 mb-8;
 }

@@ -3,45 +3,120 @@
     <nuxt-link
       :to="{ path: `/homeDetail/${home.slug}` }"
       tag="div"
-      class="card"
+      class="w-7/7 mx-auto cursor-pointer mb-16 relative shadow-md rounded-2xl"
       append
     >
-      <div class="icon-container-save" @click.stop>
-        <font-awesome-icon
+      <div class="absolute top-4 left-8 z-10" @click.stop>
+        <svg
           v-if="like"
-          :icon="['fas', 'heart']"
-          class="icon-like"
-          @click.stop="changeUnlikeState"
-        />
-        <font-awesome-icon
-          v-else
-          :icon="['far', 'heart']"
-          class="icon-unlike"
+          width="28px"
+          height="28px"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="#e63946"
           @click.stop="changeLikeState"
-        />
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <svg
+          v-else
+          width="28px"
+          height="28px"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#fff"
+          @click.stop="changeUnlikeState"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          />
+        </svg>
       </div>
-      <div class="card__image">
-        <ImageSwiper :images="home.home_images"></ImageSwiper>
+      <div
+        class="absolute py-1.5 px-2.5 top-6 text-xl right-8 z-10 bg-green-300 font-bold rounded-lg"
+      >
+        {{ home.home_status }}
       </div>
-      <div class="card__price">GH¢{{ home.home_price }}</div>
-      <div class="card__features">
-        <div class="icon-container">
-          <font-awesome-icon :icon="['fas', 'bed']" class="icon" />
-          <span class="text">{{ home.number_bedrooms }}bd</span>
-        </div>
-        <div class="icon-container">
-          <font-awesome-icon :icon="['fas', 'bath']" class="icon" />
-          <span class="text">{{ home.number_bathrooms }}ba</span>
-        </div>
-        <div class="icon-container">
-          <font-awesome-icon :icon="['fas', 'crop-alt']" class="icon" />
-          <span v-if="home.home_size" class="text"
-            >{{ home.home_size }}sqft</span
-          >
-          <span v-else class="text">No data</span>
-        </div>
+      <div class="h-88">
+        <ImageSwiper :images="home_images"></ImageSwiper>
       </div>
-      <div class="card__address">{{ home.address }}</div>
+      <div class="px-4 pb-6">
+        <div class="text-3xl my-3 font-bold font-mono">
+          GH¢{{ home.home_price.toLocaleString() }}
+        </div>
+        <div class="flex mb-3">
+          <div class="mr-4 flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6"></path>
+              <circle cx="7" cy="10" r="1"></circle>
+            </svg>
+            <span class="text-xl">{{ home.number_bedrooms }}bd</span>
+          </div>
+          <div class="mr-4 flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7"
+              ></path>
+              <path d="M11 13v2m0 3v2m4 -5v2m0 3v2"></path>
+            </svg>
+            <span class="text-xl">{{ home.number_bathrooms }}ba</span>
+          </div>
+          <div class="mr-4 flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M8 4h10a2 2 0 0 1 2 2v10m-.584 3.412a1.994 1.994 0 0 1 -1.416 .588h-12a2 2 0 0 1 -2 -2v-12c0 -.552 .224 -1.052 .586 -1.414"
+              ></path>
+              <path d="M3 3l18 18"></path>
+            </svg>
+            <span v-if="home.home_size" class="text-xl"
+              >{{ home.home_size }}sqft</span
+            >
+            <span v-else class="text-xl">No data</span>
+          </div>
+        </div>
+        <div class="text-xl font-bold">{{ home.address }}</div>
+      </div>
     </nuxt-link>
 
     <modal
@@ -73,7 +148,7 @@
             />
           </div>
           <div class="card__image">
-            <ImageSwiper :images="home.home_images"></ImageSwiper>
+            <ImageSwiper :images="home_images"></ImageSwiper>
           </div>
           <div class="card__price">GH¢{{ home.home_price }}</div>
           <div class="card__features">
@@ -132,6 +207,20 @@ export default {
     return {
       like: this.home.has_user_saved,
       unsaveModal: false,
+      home_images: [],
+    }
+  },
+  async mounted() {
+    try {
+      const { data } = await axios.get(
+        `${process.env.baseUrl}/homes/${this.home.slug}/home-images/`
+      )
+      this.home_images = [
+        { home_image: this.home.cover_image },
+        ...data.results,
+      ]
+    } catch (error) {
+      console.log(error.response)
     }
   },
   methods: {
@@ -154,55 +243,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  width: 32rem;
-  cursor: pointer;
-  margin: 4rem auto;
-  position: relative;
-  .icon-container-save {
-    position: absolute;
-    top: 4px;
-    left: 8px;
-    z-index: 10;
-    .icon {
-      width: 26px;
-      height: 26px;
-      color: #f4f4f4;
-    }
-  }
-  &__image {
-    height: 22rem;
-  }
-  &:first-child {
-    margin: 2rem auto 4rem auto;
-  }
-  &__price {
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin: 0.8rem 0;
-    font-family: $secondary-font-1;
-  }
-
-  &__address {
-    font-size: 1.6rem;
-    font-weight: 400;
-    width: 20rem;
-  }
-
-  &__features {
-    display: flex;
-    margin-bottom: 0.8rem;
-  }
-
-  .icon-container {
-    margin-right: 1rem;
-
-    .text {
-      font-size: 1.6rem;
-    }
-  }
-}
-
 .icon {
   width: 1.6rem;
   height: 1.6rem;

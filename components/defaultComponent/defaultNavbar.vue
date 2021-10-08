@@ -11,7 +11,7 @@
           Cee
         </div></nuxt-link
       >
-      <nuxt-link v-if="!login" v-slot="{ href, navigate }" to="/signup"
+      <nuxt-link v-if="!login" v-slot="{ href, navigate }" to="/signup" custom
         ><div
           :href="href"
           class="text-2xl font-bold hover:underline cursor-pointer"

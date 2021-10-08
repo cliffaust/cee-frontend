@@ -36,6 +36,7 @@ module.exports = {
         106: '280px',
         325: '325px',
         500: '500px',
+        88: '22rem',
       },
       backgroundImage: {
         'header-image': 'url(~assets/images/home-bg-image-small.jpg)',
