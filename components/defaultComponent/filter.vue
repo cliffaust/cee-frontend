@@ -188,7 +188,7 @@
             :options="minLotSizes"
           ></baseSelect>
         </div>
-        <div class="w-5 h-1 bg-gray-200 mt-6"></div>
+        <div class="w-5 h-1 bg-gray-200 mt-8"></div>
         <div class="max-lot-size">
           <baseSelect
             v-model="selectedMaxLotSize"

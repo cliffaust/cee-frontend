@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <label v-if="label" class="text-xl mb-2 font-bold">{{ label }}</label>
     <select
-      class="leading-tight bg-gray-200 border-2 border-gray-200 focus:outline-none rounded-lg py-5 px-4 text-gray-700 w-full text-xl"
+      class="leading-tight bg-gray-200 border-2 border-gray-200 focus:outline-none rounded-lg h-16 px-4 text-gray-700 w-full text-xl"
       :value="value"
       v-bind="$attrs"
       @input="updateValue"
