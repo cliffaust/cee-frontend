@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .burger-box {
-  z-index: 12;
+  z-index: 50;
 }
 .navigation-icon {
   cursor: pointer;
