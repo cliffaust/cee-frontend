@@ -220,10 +220,12 @@
     </div>
     <div class="flex mt-10 gap-6">
       <div class="flex-grow">
-        <ButtonPrimary class="w-full h-16" @click="reset">Reset</ButtonPrimary>
+        <ButtonPrimary class="w-full h-16 text-xl" @click="reset"
+          >Reset</ButtonPrimary
+        >
       </div>
       <div class="flex-grow">
-        <ButtonPrimaryOpen class="w-full h-16" @click="filter"
+        <ButtonPrimaryOpen class="w-full h-16 text-xl" @click="filter"
           >Filter</ButtonPrimaryOpen
         >
       </div>

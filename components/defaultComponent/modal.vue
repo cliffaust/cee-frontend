@@ -1,7 +1,10 @@
 <template>
   <transition name="fade">
     <div class="backdrop" @click="close">
-      <div class="container" @click.stop>
+      <div
+        class="bg-white fixed py-5 px-8 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-50 h-full w-full overflow-scroll"
+        @click.stop
+      >
         <slot></slot>
         <font-awesome-icon
           :icon="['fas', 'times']"
@@ -24,18 +27,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding: 1.2rem 2rem;
-  background-color: #fff;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9;
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
-}
+// .container {
+//   padding: 1.2rem 2rem;
+//   background-color: #fff;
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   z-index: 70;
+//   height: 100%;
+//   width: 100%;
+//   overflow-y: scroll;
+// }
 
 .backdrop {
   position: fixed;

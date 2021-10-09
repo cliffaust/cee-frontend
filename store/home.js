@@ -23,31 +23,31 @@ export const actions = {
         }
       )
       const homeVideo = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/home-videos/`
+        `${process.env.baseUrl}/homes/${payload.slug}/home-videos/`
       )
       const homeOpenDateTime = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/open-date-time/`
+        `${process.env.baseUrl}/homes/${payload.slug}/open-date-time/`
       )
       const homeContactNumber = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/contact-numbers/`
+        `${process.env.baseUrl}/homes/${payload.slug}/contact-numbers/`
       )
       const homeCoordinate = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/home-coordinate/`
+        `${process.env.baseUrl}/homes/${payload.slug}/home-coordinate/`
       )
       const homeReview = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/home-reviews/`
+        `${process.env.baseUrl}/homes/${payload.slug}/home-reviews/`
       )
       const homeRoomFeature = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/room-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/room-features/`
       )
       const homeKitchenFeature = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/kitchen-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/kitchen-features/`
       )
       const homeGeneralHomeFeatures = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/general-home-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/general-home-features/`
       )
       const homeSittingRoomFeature = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/sitting-room-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/sitting-room-features/`
       )
       data.push(home.data)
       data.push({ home_video: homeVideo.data.results })
@@ -66,31 +66,31 @@ export const actions = {
         `${process.env.baseUrl}/homes/${payload.slug}/`
       )
       const homeVideo = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/home-videos/`
+        `${process.env.baseUrl}/homes/${payload.slug}/home-videos/`
       )
       const homeOpenDateTime = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/open-date-time/`
+        `${process.env.baseUrl}/homes/${payload.slug}/open-date-time/`
       )
       const homeContactNumber = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/contact-numbers/`
+        `${process.env.baseUrl}/homes/${payload.slug}/contact-numbers/`
       )
       const homeCoordinate = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/home-coordinate/`
+        `${process.env.baseUrl}/homes/${payload.slug}/home-coordinate/`
       )
       const homeReview = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/home-reviews/`
+        `${process.env.baseUrl}/homes/${payload.slug}/home-reviews/`
       )
       const homeRoomFeature = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/room-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/room-features/`
       )
       const homeKitchenFeature = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/kitchen-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/kitchen-features/`
       )
       const homeGeneralHomeFeatures = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/general-home-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/general-home-features/`
       )
       const homeSittingRoomFeature = await axios.get(
-        `${process.env.baseUrl}/homes/${home.data.id}/sitting-room-features/`
+        `${process.env.baseUrl}/homes/${payload.slug}/sitting-room-features/`
       )
       data.push(home.data)
       data.push({ home_video: homeVideo.data.results })

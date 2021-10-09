@@ -2,7 +2,7 @@
   <div
     :class="[
       navbarSlider
-        ? 'fixed top-0 right-0 bottom-0 left-0 z-40 transition duration-300 bg-black bg-opacity-60'
+        ? 'fixed top-0 right-0 bottom-0 left-0 z-30 transition duration-300 bg-black bg-opacity-60'
         : 'fixed top-0 right-0 bottom-0 left-0 -z-2 transition-z-index duration-700',
     ]"
     @click="changeNavbarSliderState"

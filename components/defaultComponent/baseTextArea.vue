@@ -13,6 +13,7 @@
         'resize-none',
         'border-2',
         'border-gray-200',
+        'bg-gray-200',
         'focus:outline-none',
         'rounded',
         'py-5',
