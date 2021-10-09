@@ -1,6 +1,6 @@
 <template>
-  <div class="image-content" @click="selectImage">
-    <img :src="image" alt="Home Image" class="photo" />
+  <div class="cursor-pointer" @click="selectImage">
+    <img :src="image" alt="Home Image" class="w-full h-card" />
   </div>
 </template>
 
@@ -29,7 +29,6 @@ export default {
 .photo {
   width: 100%;
   height: 280px;
-  object-fit: cover;
 }
 
 .image-content {

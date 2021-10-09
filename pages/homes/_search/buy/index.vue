@@ -1,5 +1,8 @@
 <template>
-  <div :class="[{ 'main-container': showFilter }]" @click="showResults">
+  <div
+    :class="[{ 'h-screen overflow-hidden': showFilter }]"
+    @click="showResults"
+  >
     <navbar :show-result="showResult" @showResult="changeShowResult"></navbar>
     <div class="flex items-center my-4 ml-6">
       <div

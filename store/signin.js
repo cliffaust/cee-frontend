@@ -52,6 +52,23 @@ export const actions = {
       )
       Cookies.set('token', response.data.key)
       commit('ADD_TOKEN', response.data.key)
+      if (Cookies.get('homes')) {
+        let homes = Cookies.get('homes')
+        homes = JSON.parse(decodeURIComponent(homes))
+
+        for (const item of homes) {
+          await axios
+            .post(`${process.env.baseUrl}/homes/${item.slug}/save/`, {
+              headers: {
+                Authorization: 'Token ' + response.data.key,
+              },
+            })
+            .catch((err) => {
+              console.log(err.response)
+            })
+        }
+        Cookies.remove('homes')
+      }
       this.$router.replace(payload.redirect, () => this.$router.go(0))
     } catch (error) {
       commit('STOP_LOADING_STATE')
@@ -68,6 +85,23 @@ export const actions = {
       )
       Cookies.set('token', response.data.key)
       commit('ADD_TOKEN', response.data.key)
+      if (Cookies.get('homes')) {
+        let homes = Cookies.get('homes')
+        homes = JSON.parse(decodeURIComponent(homes))
+
+        for (const item of homes) {
+          await axios
+            .post(`${process.env.baseUrl}/homes/${item.slug}/save/`, {
+              headers: {
+                Authorization: 'Token ' + response.data.key,
+              },
+            })
+            .catch((err) => {
+              console.log(err.response)
+            })
+        }
+        Cookies.remove('homes')
+      }
       this.$router.replace(payload.redirect, () => this.$router.go(0))
     } catch (error) {
       commit('STOP_LOADING_STATE')

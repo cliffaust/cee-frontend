@@ -3,8 +3,9 @@ import axios from 'axios'
 export const state = () => ({
   homes: [],
   user_profile: [],
-  saved_homes: [],
+  saved_homes: null,
   navbarSlider: false,
+  inSaves: false,
 })
 
 export const mutations = {
@@ -17,8 +18,14 @@ export const mutations = {
   ADD_USER_PROFILE(state, data) {
     state.user_profile = data
   },
+  ADD_CART(state, value) {
+    state.cartVal = value
+  },
   ADD_SAVED_HOMES(state, data) {
     state.saved_homes = data
+  },
+  ALREADY_IN_SAVES(state, value) {
+    state.inSaves = value
   },
 }
 
@@ -52,6 +59,21 @@ export const actions = {
               context.redirect('/logout')
             }
           }
+        }
+      }
+    }
+  },
+
+  saveHomesInit({ commit }, req) {
+    let homes
+    if (req) {
+      if (req.headers.cookie) {
+        homes = req.headers.cookie.split(';').map((element) => element.trim())
+        homes = homes.find((c) => c.startsWith('homes='))
+
+        if (homes) {
+          homes = homes.split('=')[1]
+          commit('ADD_SAVED_HOMES', homes)
         }
       }
     }

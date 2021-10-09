@@ -2,10 +2,10 @@
   <div
     :class="[
       {
-        'main-container': modal,
+        'h-screen overflow-hidden': modal,
       },
-      { 'main-container': modalMessage },
-      { 'main-container': modalShare },
+      { 'h-screen overflow-hidden': modalMessage },
+      { 'h-screen overflow-hidden': modalShare },
     ]"
   >
     <navbar></navbar>
@@ -158,7 +158,9 @@
       </div>
       <div class="p-4" @click.self="modal = false">
         <div>
-          <div class="text-3xl font-mono font-bold">{{ home.address }}</div>
+          <div class="text-3xl truncate font-mono font-bold">
+            {{ home.address }}
+          </div>
           <div class="flex mb-3">
             <div class="mr-4 flex items-center gap-2 mt-2">
               <svg
@@ -225,6 +227,27 @@
           <div class="text-2xl font-mono font-bold">
             GH¢{{ home.home_price.toLocaleString() }}
           </div>
+          <nuxt-link
+            v-if="inSaves"
+            v-slot="{ href, navigate }"
+            to="/saved-homes"
+            custom
+          >
+            <button
+              :href="href"
+              class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+              @click="navigate"
+            >
+              View in saved homes
+            </button>
+          </nuxt-link>
+          <button
+            v-else
+            class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+            @click="saveHome"
+          >
+            Save this home
+          </button>
         </div>
         <div class="flex flex-col gap-4 my-4">
           <ButtonPrimary
@@ -325,7 +348,7 @@
           "
         >
           <div>
-            <h1 class="font-bold font-mono text-3xl">Fact and Features</h1>
+            <h1 class="font-bold font-mono text-3xl">Features</h1>
             <div class="shadow-md mt-4 p-4 rounded-lg">
               <div v-if="home.room_features.length > 0" class="features">
                 <div class="heading">Room Features</div>
@@ -609,14 +632,7 @@
             ></baseTextArea>
           </div>
           <div class="mt-8">
-            <ButtonPrimary
-              :class="[
-                'w-full',
-                '!py-5',
-                'text-xl',
-                'bg-primary-yellow',
-                '!text-primary-blue-200',
-              ]"
+            <ButtonPrimary :class="['w-full', '!py-5', 'text-xl']"
               >Send</ButtonPrimary
             >
           </div>
@@ -749,12 +765,10 @@
             @showModalShare="showModalShare"
           ></smallImageSelectedContainer>
         </div>
-        <div class="tour-container">
-          <div class="btn-container-tour">
-            <baseButton button-class="btn-close btn-rounded">
-              Request a tour</baseButton
-            >
-          </div>
+        <div class="w-full px-5 fixed bottom-10">
+          <ButtonPrimary class="w-full !py-5 text-xl">
+            Request a tour</ButtonPrimary
+          >
         </div>
       </div>
     </client-only>
@@ -763,11 +777,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import axios from 'axios'
 import navbar from '~/components/homeInstance/navbar'
 import modal from '~/components/defaultComponent/modal'
 import baseInput from '~/components/defaultComponent/baseInput'
 import baseTextArea from '~/components/defaultComponent/baseTextArea'
-import baseButton from '~/components/defaultComponent/baseButton'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open.vue'
 import smallImageContainer from '~/components/defaultComponent/smallImageContainer'
@@ -779,7 +793,6 @@ export default {
     modal,
     baseInput,
     baseTextArea,
-    baseButton,
     smallImageContainer,
     smallImageSelectedContainer,
     ButtonPrimary,
@@ -812,7 +825,36 @@ export default {
     }
   },
   async fetch({ store, params, error }) {
+    const token = store.state.signin.token
+    let exist = false
     try {
+      if (token) {
+        try {
+          const { data } = await axios.get(
+            `${process.env.baseUrl}/user-saved-homes/`,
+            {
+              headers: {
+                Authorization: 'Token ' + token,
+              },
+            }
+          )
+
+          exist = data.results.some((val) => {
+            return val.book.slug === params.address
+          })
+        } catch (error) {
+          console.log(error.response)
+        }
+        store.commit('ALREADY_IN_SAVES', exist)
+      } else if (store.state.saved_homes) {
+        let home = store.state.saved_homes
+        home = JSON.parse(decodeURIComponent(home))
+
+        exist = home.some((val) => {
+          return val.slug === params.address
+        })
+        store.commit('ALREADY_IN_SAVES', exist)
+      }
       await store.dispatch('home/addHome', {
         slug: params.address,
         token: store.state.signin.token,
@@ -825,6 +867,7 @@ export default {
     ...mapState({
       home: (state) => state.home.home,
     }),
+    ...mapState(['inSaves']),
     formatLink() {
       return process.client ? window.location.href : ''
     },
@@ -888,7 +931,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .list-features {
   @apply flex list-none mt-4 flex-wrap;
 }
@@ -911,499 +954,5 @@ export default {
 
 .copy-link {
   @apply inline-flex items-center justify-center h-auto px-3 text-center text-xl font-bold text-blue-700 cursor-pointer whitespace-nowrap;
-}
-
-// .copy-link {
-//   display: inline-flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: auto;
-//   padding-top: 8px;
-//   padding-bottom: 8px;
-//   color: inherit;
-//   text-align: center;
-//   font-size: 14px;
-//   font-weight: 500;
-//   line-height: 1.1;
-//   letter-spacing: 2px;
-//   text-transform: capitalize;
-//   text-decoration: none;
-//   white-space: nowrap;
-//   border-radius: 4px;
-//   border: 1px solid #333;
-//   cursor: pointer;
-// }
-
-// .image-container {
-//   height: 30rem;
-//   position: relative;
-
-//   .image {
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-//   }
-
-//   .icon-container-1 {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     cursor: pointer;
-//     background-color: #00233393;
-//     padding: 0.8rem 1rem;
-//     position: absolute;
-//     bottom: 10px;
-//     right: 10px;
-//     border-radius: 6px;
-//     width: 9.5rem;
-
-//     .icon {
-//       width: 15px;
-//       height: 15px;
-//       color: #ffffff;
-//     }
-
-//     .text {
-//       font-size: 1.6rem;
-//       color: #ffffff;
-//       font-weight: 600;
-//     }
-//   }
-//   .icon-container-2 {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     cursor: pointer;
-//     padding: 0.8rem 1rem;
-//     position: absolute;
-//     top: 10px;
-//     right: 10px;
-//     border-radius: 6px;
-//     width: 9rem;
-
-//     .icon {
-//       width: 25px;
-//       height: 25px;
-//       color: #ffffff;
-//       transition: 0.2s ease;
-
-//       &:hover {
-//         color: $primary-bgcolor-2;
-//       }
-//     }
-//   }
-// }
-
-// .container {
-//   padding: 1rem 2.5rem;
-// }
-
-// .description {
-//   .address {
-//     font-size: 2.3rem;
-//     font-weight: 500;
-//     margin-bottom: 1rem;
-//     font-family: $secondary-font-1;
-//   }
-//   .features {
-//     display: flex;
-//     align-items: center;
-//     margin: 1.5rem 0;
-
-//     .text {
-//       font-size: 1.6rem;
-//     }
-
-//     .icon {
-//       width: 1.6rem;
-//       height: 1.6rem;
-//     }
-
-//     .description-icon {
-//       margin-right: 1.5rem;
-//     }
-//   }
-
-//   .price {
-//     font-size: 2.5rem;
-//     font-weight: 700;
-//     font-family: $secondary-font-1;
-//     display: flex;
-//     align-items: center;
-
-//     .home-status-text {
-//       font-weight: 700;
-//       font-size: 1.3rem;
-//       display: block;
-//       margin-left: 7px;
-//       margin-bottom: -5px;
-//       font-family: $primary-font;
-//     }
-//   }
-// }
-
-// .btn-container {
-//   display: flex;
-//   flex-direction: column;
-//   width: 30rem;
-//   margin: 2rem auto;
-
-//   &-1 {
-//     display: flex;
-//     justify-content: space-between;
-//     margin-top: 0.8rem;
-
-//     .btn-call,
-//     .btn-tour {
-//       flex: 0 0 46%;
-//     }
-//   }
-// }
-
-// .popularity-report {
-//   .popularity,
-//   .report {
-//     font-size: 1.5rem;
-//   }
-
-//   .popularity {
-//     margin-bottom: 0.6rem;
-//   }
-// }
-
-// .overview {
-//   margin: 2rem 0;
-//   .heading {
-//     font-size: 2.2rem;
-//   }
-//   &__vitals {
-//     display: flex;
-//     align-items: center;
-//     margin-top: 2rem;
-
-//     .date-posted {
-//       font-size: 1.4rem;
-//       padding: 0 1rem 0 0;
-//       border-right: 1px solid #eee;
-//     }
-
-//     .dues {
-//       font-size: 1.4rem;
-//       padding: 0 0 0 1rem;
-//     }
-//   }
-//   &__description {
-//     margin-top: 2rem;
-
-//     .text {
-//       font-size: 1.4rem;
-//       white-space: pre-wrap;
-//     }
-//   }
-// }
-
-// .modal-heading {
-//   font-size: 2.2rem;
-// }
-
-// .contact-list {
-//   margin-top: 2.2rem;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-
-//   .text {
-//     font-size: 1.5rem;
-//     margin-top: 2rem;
-//   }
-
-//   .contact {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     position: relative;
-//     &:not(:last-child) {
-//       margin-bottom: 0.4rem;
-//     }
-
-//     // &::after {
-//     //   content: '';
-//     //   position: absolute;
-//     //   width: 75%;
-//     //   height: 1px;
-//     //   background-color: #eee;
-//     //   bottom: 0.2rem;
-//     //   left: 50%;
-//     //   right: 50%;
-//     //   transform: translateX(-50%);
-//     // }
-
-//     .number {
-//       font-size: 1.5rem;
-//       font-weight: 600;
-//     }
-
-//     .icon {
-//       width: 20px;
-//       height: 20px;
-//       color: $primary-bgcolor-2;
-//     }
-//   }
-// }
-
-// .phone-icon {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 45px;
-//   height: 45px;
-//   border-radius: 50px;
-//   transition: 0.4s ease;
-//   cursor: pointer;
-
-//   &:hover {
-//     background-color: #eee;
-//   }
-// }
-
-// .read-more {
-//   font-size: 1.8rem;
-//   margin-top: 0.8rem;
-//   cursor: pointer;
-//   padding: 1rem;
-//   border: none;
-//   background-color: #eee;
-//   transition: 0.3s ease;
-//   border-radius: 1rem;
-//   font-family: $secondary-font-1;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-
-//   .icon {
-//     width: 20px;
-//     height: 20px;
-//     margin-left: 0.8rem;
-//     margin-bottom: -4px;
-//   }
-
-//   &:focus {
-//     outline: none;
-//   }
-// }
-
-// .features {
-//   .heading {
-//     font-size: 2.2rem;
-//     font-weight: 700;
-//     margin-bottom: 1rem;
-//   }
-//   .room-features,
-//   .sitting-room-features,
-//   .kitchen-features,
-//   .general-features {
-//     margin-left: 1rem;
-//     margin-bottom: 2rem;
-//     .feature-heading {
-//       font-size: 1.8rem;
-//       padding: 3px;
-//       display: inline-block;
-//       border-bottom: 1px solid #eee;
-//     }
-
-//     .list-features {
-//       margin-top: 1rem;
-//       list-style: none;
-//       display: flex;
-//       flex-wrap: wrap;
-
-//       .item-features {
-//         font-size: 1.5rem;
-//         display: flex;
-//         align-items: center;
-//         margin-bottom: 1rem;
-//         flex: 0 0 50%;
-
-//         .icon {
-//           width: 10px;
-//           height: 20px;
-//           margin-right: 0.6rem;
-//         }
-//       }
-//     }
-//   }
-// }
-
-.share-social {
-  margin-top: 2rem;
-
-  .text {
-    font-size: 3rem;
-    display: block;
-    font-family: $secondary-font-3;
-  }
-
-  .icon-link {
-    display: flex;
-    justify-content: space-between;
-    width: 18rem;
-    margin-top: 0.8rem;
-
-    .icon-facebook {
-      color: #3b5998;
-    }
-    .icon-twitter {
-      color: #1da1f2;
-    }
-    .icon-whatsapp {
-      color: #25d366;
-    }
-
-    .icon-facebook,
-    .icon-twitter,
-    .icon-whatsapp {
-      width: 2.8rem;
-      height: 2.8rem;
-      cursor: pointer;
-      transition: 0.5s ease;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-  }
-}
-
-.link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #eee;
-  margin-top: 2rem;
-  position: relative;
-}
-
-.url {
-  margin-right: 10px;
-  font-size: 1.6rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-// .copy-link {
-//   display: inline-flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: auto;
-//   padding-top: 8px;
-//   padding-bottom: 8px;
-//   color: inherit;
-//   text-align: center;
-//   font-size: 14px;
-//   font-weight: 500;
-//   line-height: 1.1;
-//   letter-spacing: 2px;
-//   text-transform: capitalize;
-//   text-decoration: none;
-//   white-space: nowrap;
-//   border-radius: 4px;
-//   border: 1px solid #333;
-//   cursor: pointer;
-// }
-
-.copy-toolkit {
-  padding: 1rem 2.2rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-  width: 100px;
-  color: $color-white;
-  background-color: $primary-bgcolor-1;
-  border-radius: 50px;
-  position: absolute;
-  top: -82%;
-  right: 0;
-
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-top: 1rem solid $primary-bgcolor-1;
-    border-bottom: 1rem solid transparent;
-    position: absolute;
-    bottom: -46%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.message {
-  .send-btn {
-    margin-top: 1.5rem;
-  }
-}
-
-.input-container {
-  margin-top: 2rem;
-}
-
-.tour-container {
-  position: fixed;
-  margin-bottom: 0;
-  width: 100%;
-  padding: 1rem;
-  margin-top: 0;
-  bottom: 0;
-  z-index: 50;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-}
-
-.btn-container-tour {
-  width: 90%;
-}
-
-.main-container {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-}
-
-.icon-container-save {
-  padding: 1rem;
-}
-.icon-unlike {
-  width: 2.6rem;
-  height: 2.6rem;
-  color: #fff;
-  z-index: 100;
-}
-.icon-like {
-  width: 2.6rem;
-  height: 2.6rem;
-  color: #e63946;
-  z-index: 100;
-}
-
-.share {
-  padding: 1rem;
-  margin-top: 5rem;
-
-  &-header {
-    font-size: 2.2rem;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  .btn-cancel-share {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
 }
 </style>

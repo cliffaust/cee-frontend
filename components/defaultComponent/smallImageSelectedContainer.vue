@@ -1,38 +1,110 @@
 <template>
-  <div class="backdrop">
-    <div class="selected-image-option">
-      <div class="save-and-share">
-        <font-awesome-icon
-          v-if="like"
-          :icon="['fas', 'heart']"
-          class="icon-1 icon-like"
-          @click="changeUnlikeState"
-        />
-        <font-awesome-icon
-          v-else
-          :icon="['far', 'heart']"
-          class="icon-1 icon-unlike"
-          @click="changeLikeState"
-        />
-        <!-- <font-awesome-icon v-if="like" :icon="['far', 'heart']" class="icon-1 icon" /> -->
-        <font-awesome-icon
-          :icon="['far', 'share-square']"
-          class="icon icon-2"
-          @click="showModalShare"
-        />
+  <div class="bg-black bg-opacity-80 fixed top-0 left-0 right-0 bottom-0 z-50">
+    <div class="flex justify-between items-center px-6 mt-20">
+      <div class="flex gap-4 items-center">
+        <div class="cursor-pointer" @click.stop>
+          <svg
+            v-if="like"
+            width="28px"
+            height="28px"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="#e63946"
+            @click.stop="changeUnlikeState"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <svg
+            v-else
+            width="28px"
+            height="28px"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#fff"
+            @click.stop="changeLikeState"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          class="cursor-pointer"
+          width="24px"
+          height="24px"
+          viewBox="0 0 24 24"
+          version="1.1"
+          @click="modalShare = true"
+        >
+          <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+          <title>share</title>
+          <desc>Created with Sketch.</desc>
+          <defs />
+          <g
+            id="Page-1"
+            stroke="none"
+            stroke-width="1"
+            fill="none"
+            fill-rule="evenodd"
+            stroke-linecap="round"
+          >
+            <g
+              id="Artboard-4"
+              transform="translate(-312.000000, -203.000000)"
+              stroke="#fff"
+              stroke-width="2"
+            >
+              <g id="47" transform="translate(312.000000, 203.000000)">
+                <path
+                  id="Rectangle-460"
+                  d="M20,15 L20,18.0026083 C20,19.1057373 19.1073772,20 18.0049107,20 L5.99508929,20 C4.8932319,20 4,19.1073772 4,18.0049107 L4,5.99508929 C4,4.8932319 4.89585781,4 5.9973917,4 L9,4"
+                />
+                <polyline
+                  id="Path-93"
+                  stroke-linejoin="round"
+                  points="13 4 20.0207973 4 20.0207973 11.0191059"
+                />
+                <path id="Path-94" d="M19,5 L12,12" stroke-linejoin="round" />
+              </g>
+            </g>
+          </g>
+        </svg>
       </div>
-
-      <font-awesome-icon
-        :icon="['fas', 'times']"
-        class="icon"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="27px"
+        height="27px"
+        class="cursor-pointer z-50"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="#fff"
         @click="closeImage"
-      />
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
     </div>
-    <h3 class="total-images">
+    <h3 class="text-2xl font-mono font-bold mt-8 ml-8 text-white">
       {{ parseInt(selectedNumImage) + 1 }} of {{ totalImages }}
     </h3>
-    <div class="image-content">
-      <img :src="selectedImage" alt="Home Image" class="photo" />
+    <div
+      class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-full"
+    >
+      <img :src="selectedImage" alt="Home Image" class="w-full h-325" />
     </div>
   </div>
 </template>
@@ -76,88 +148,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.photo {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-}
-
-.total-images {
-  z-index: 30;
-  color: #fff;
-  font-size: 2rem;
-  margin-left: 20px;
-  margin-top: 30px;
-}
-
-.icon-1 {
-  transition: 0.2s ease;
-  margin-right: 10px;
-
-  &:hover {
-    color: none;
-  }
-}
-
-.icon-2 {
-  transition: 0.2s ease;
-
-  &:hover {
-    color: $primary-bgcolor-2;
-  }
-}
-
-.icon-unlike {
-  width: 2.6rem;
-  height: 2.6rem;
-  color: #fff;
-  z-index: 100;
-  cursor: pointer;
-}
-.icon-like {
-  width: 2.6rem;
-  height: 2.6rem;
-  color: #e63946;
-  z-index: 100;
-  cursor: pointer;
-}
-
-.image-content {
-  cursor: pointer;
-  position: fixed;
-  top: 50%;
-  width: 100%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9;
-}
-
-.backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 20;
-
-  .selected-image-option {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1.5rem;
-    margin-top: 70px;
-    .icon {
-      width: 27px;
-      height: 27px;
-
-      color: #fff;
-
-      z-index: 30;
-
-      cursor: pointer;
-    }
-  }
-}
-</style>

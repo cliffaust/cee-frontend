@@ -17,7 +17,7 @@ export default {
   },
 
   router: {
-    middleware: 'checkToken',
+    middleware: ['checkToken', 'addSaveHomes'],
   },
 
   loading: { color: '#fca311', height: '2px', duration: 5000 },
