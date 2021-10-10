@@ -173,14 +173,11 @@
 
 <script>
 import axios from 'axios'
-// import Cookies from 'js-cookies'
-// import { mapState } from 'vuex'
 import navbar from '~/components/buyComponent/navbar'
 import homeCard from '~/components/defaultComponent/homeCard'
 import filter from '~/components/defaultComponent/filter'
 import modal from '~/components/defaultComponent/modal'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
-// import skeletonLoader from '~/components/defaultComponent/skeletonLoader'
 export default {
   components: {
     navbar,

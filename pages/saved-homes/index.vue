@@ -1,28 +1,41 @@
 <template>
-  <div
-    :class="[
-      {
-        'main-container': unsaveModal,
-      },
-    ]"
-    @click="showOptionsMethod"
-  >
+  <div @click="showOptionsMethod">
     <navbar
       :show-options="showOptions"
       @showUserOptions="showUserOptions"
     ></navbar>
-    <div class="saved-content">
-      <div class="header-text">Saved Homes ({{ saved_homes.length }})</div>
+    <div v-if="saved_homes.length > 0" class="mt-8 ml-4">
+      <div class="font-bold text-2xl font-mono">
+        Saved Homes ({{ saved_homes.length }})
+      </div>
 
-      <div class="sort-container">
-        <div class="sort" @click.stop="showSort = !showSort">
-          <font-awesome-icon
-            :icon="['fas', 'sort-amount-down-alt']"
-            class="icon"
-          />
-          <span class="text">Sort</span>
+      <div class="relative w-32 my-6 ml-6">
+        <div
+          class="py-4 px-6 flex items-center rounded-lg bg-gray-100 cursor-pointer"
+          @click.stop="showSort = !showSort"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mr-4"
+            width="24px"
+            height="24px"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
+            />
+          </svg>
+          <span class="text-xl">Sort</span>
         </div>
-        <div v-if="showSort" class="sort-options">
+        <div
+          v-if="showSort"
+          class="sort-options-tooltip w-80 z-30 top-16 overflow-hidden bg-white shadow-lg absolute rounded-bl-lg rounded-br-lg"
+        >
           <div
             :class="[
               $route.query.ordering === '-date_posted'
@@ -86,57 +99,76 @@
           </div>
         </div>
       </div>
-      <template v-if="$fetchState.pending">
-        <div v-for="i in range(4)" :key="i" class="placeholder-container">
-          <SkeletonLoader></SkeletonLoader>
-        </div>
-      </template>
       <homeCard
         v-for="home in saved_homes"
-        v-else
         :key="home.id"
-        :home="home"
-        @showUnsaveModal="showUnsaveModal"
+        :home="home.home"
+        :save-home-id="home.id"
       ></homeCard>
+    </div>
+    <div v-if="!$store.state.signin.token" class="mt-4 mb-4 text-xl px-8">
+      You are currently not signed in. To checkout or save these items or see
+      your previously saved items,
+      <nuxt-link
+        :to="{ path: '/login', query: { redirect: `${$route.path}` } }"
+        class="text-blue-500 font-bold"
+        >sign in</nuxt-link
+      >
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-// import Cookies from 'js-cookies'
-import { mapState } from 'vuex'
 import navbar from '~/components/defaultComponent/defaultNavbar'
 import homeCard from '~/components/defaultComponent/homeCard'
-import skeletonLoader from '~/components/defaultComponent/skeletonLoader'
 export default {
   components: {
     navbar,
     homeCard,
-    skeletonLoader,
   },
-  middleware: ['checkUser'],
+  async asyncData({ store, route }) {
+    if (store.state.signin.token) {
+      const { data } = await axios.get(
+        `${process.env.baseUrl}/user-saved-homes/?ordering=${route.query.ordering}`,
+        {
+          headers: {
+            Authorization: 'Token ' + store.state.signin.token,
+          },
+        }
+      )
+      return {
+        saved_homes: data.results,
+      }
+    } else if (store.state.saved_homes_in_cookies) {
+      const homes = []
+
+      let savedHomes = store.state.saved_homes_in_cookies
+      savedHomes = JSON.parse(decodeURIComponent(savedHomes))
+
+      for (const item of savedHomes) {
+        await axios
+          .get(`${process.env.baseUrl}/homes/${item.slug}/`)
+          .then((res) => {
+            homes.push({ home: res.data })
+          })
+          .catch((err) => {
+            console.log(err.response)
+          })
+      }
+      return {
+        saved_homes: homes,
+      }
+    }
+    return {
+      saved_homes: [],
+    }
+  },
   data() {
     return {
       showOptions: false,
       showSort: false,
-      unsaveModal: false,
     }
-  },
-  async fetch() {
-    const { store, route } = this.$nuxt.context
-    const { data } = await axios.get(
-      `${process.env.baseUrl}/user-saved-homes/?ordering=${route.query.ordering}`,
-      {
-        headers: {
-          Authorization: 'Token ' + store.state.signin.token,
-        },
-      }
-    )
-    store.commit('ADD_SAVED_HOMES', data.results)
-  },
-  computed: {
-    ...mapState(['saved_homes']),
   },
   watch: {
     $route(to, from) {
@@ -152,9 +184,6 @@ export default {
     showOptionsMethod() {
       this.showSort = false
       this.showOptions = false
-    },
-    showUnsaveModal() {
-      this.unsaveModal = true
     },
     showResults() {
       this.showSort = false
@@ -233,99 +262,26 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.saved-content {
-  margin-top: 1.5rem;
-  .header-text {
-    font-size: 2.8rem;
-    font-weight: 500;
-    margin-left: 1rem;
-    font-family: $secondary-font-1;
-  }
+<style lang="postcss" scoped>
+.selected-sort {
+  @apply bg-primary-yellow text-xl py-4 px-3 cursor-pointer;
 }
 
-.sort-container {
-  position: relative;
-
-  &::before {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: $dark-gray;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -10px;
-  }
-
-  .sort {
-    padding: 0.8rem 1.5rem;
-    border: 1px solid #002333;
-    border-radius: 1rem;
-    transition: 0.4s ease;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    width: 80px;
-    margin-top: 2rem;
-    margin-left: 1rem;
-
-    &:hover {
-      background-color: #eee;
-    }
-    .text {
-      font-size: 1.5rem;
-    }
-    .icon {
-      width: 20px;
-      height: 20px;
-    }
-  }
+.option {
+  @apply text-xl py-4 px-6 cursor-pointer hover:bg-gray-50;
 }
 
-.main-container {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-}
-
-.sort-options {
-  background-color: #fff;
-  position: absolute;
-  box-shadow: 0px 2px 18px 2px rgba(0, 0, 0, 0.4);
-  width: 20rem;
-  top: 50px;
-  z-index: 100;
-
+.sort-options-tooltip {
   &::before {
     content: '';
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
     border-top: 1rem solid transparent;
-    border-bottom: 1rem solid $color-white;
+    border-bottom: 1rem solid #fff;
     position: absolute;
     top: -20px;
     left: 50px;
     transform: translateX(-50%);
-  }
-
-  .selected-sort {
-    background-color: $primary-bgcolor-2;
-    font-size: 1.6rem;
-    padding: 1rem 0.8rem;
-    cursor: pointer;
-  }
-
-  .option {
-    font-size: 1.6rem;
-    padding: 1rem 0.8rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #eee;
-    }
   }
 }
 </style>

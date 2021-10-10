@@ -35,7 +35,7 @@
             fill="none"
             viewBox="0 0 24 24"
             stroke="#fff"
-            @click.stop="changeUnlikeState"
+            @click.stop="changeUnLikeState"
           >
             <path
               stroke-linecap="round"
@@ -121,106 +121,28 @@
             </div>
           </div>
           <div class="text-xl font-bold">{{ home.address }}</div>
+          <ButtonPrimary
+            v-if="$route.name === 'saved-homes'"
+            class="!py-4 !px-8 text-xl mt-4 bg-red-400 ml-auto"
+            @click="sendUnsaveRequest"
+            >Unsave</ButtonPrimary
+          >
         </div>
       </div>
     </nuxt-link>
-
-    <modal
-      v-if="$route.name === 'saved-homes' && unsaveModal"
-      @close="closeModal"
-    >
-      <div class="unsave-container">
-        <div class="unsave-header-text">
-          Are you sure you want to unsave this home?
-        </div>
-        <nuxt-link
-          :to="{ path: `/homeDetail/${home.slug}` }"
-          tag="div"
-          class="card card-unsave"
-          append
-        >
-          <div class="icon-container-save">
-            <svg
-              v-if="like"
-              width="28px"
-              height="28px"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="#e63946"
-              @click.stop="changeUnlikeState"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <svg
-              v-else
-              width="28px"
-              height="28px"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="#fff"
-              @click.stop="changeLikeState"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
-          </div>
-          <div class="card__image">
-            <ImageSwiper :images="home_images"></ImageSwiper>
-          </div>
-          <div class="card__price">GH¢{{ home.home_price }}</div>
-          <div class="card__features">
-            <div class="icon-container">
-              <font-awesome-icon :icon="['fas', 'bed']" class="icon" />
-              <span class="text">{{ home.number_bedrooms }}bd</span>
-            </div>
-            <div class="icon-container">
-              <font-awesome-icon :icon="['fas', 'bath']" class="icon" />
-              <span class="text">{{ home.number_bathrooms }}ba</span>
-            </div>
-            <div class="icon-container">
-              <font-awesome-icon :icon="['fas', 'crop-alt']" class="icon" />
-              <span v-if="home.home_size" class="text"
-                >{{ home.home_size }}sqft</span
-              >
-              <span v-else class="text">No data</span>
-            </div>
-          </div>
-          <div class="card__address">{{ home.address }}</div>
-        </nuxt-link>
-        <div class="btn-cancel-unsave">
-          <baseButton button-class="btn-open" @click="closeModal"
-            >Cancel</baseButton
-          >
-          <baseButton button-class="btn-secondary" @click="sendUnsaveRequest"
-            >Unsave</baseButton
-          >
-        </div>
-      </div>
-    </modal>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import modal from '~/components/defaultComponent/modal'
-import baseButton from '~/components/defaultComponent/baseButton'
+import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 import ImageSwiper from '~/components/defaultComponent/ImageSwiper'
 import saveListing from '~/mixins/saveListing'
 export default {
   components: {
     ImageSwiper,
-    modal,
-    baseButton,
+    ButtonPrimary,
   },
   mixins: [saveListing],
   props: {
@@ -228,10 +150,14 @@ export default {
       type: [Array, Object],
       required: true,
     },
+    saveHomeId: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
-      like: this.home.has_user_saved,
+      like: this.home.has_user_liked,
       unsaveModal: false,
       home_images: [],
     }
@@ -251,15 +177,29 @@ export default {
   },
   methods: {
     sendUnsaveRequest() {
-      axios
-        .delete(`${process.env.baseUrl}/homes/${this.home.id}/save-like/`, {
-          headers: {
-            Authorization: 'Token ' + Cookies.get('token'),
-          },
-        })
-        .then((response) => {
-          location.reload()
-        })
+      if (Cookies.get('token')) {
+        axios
+          .delete(
+            `${process.env.baseUrl}/user-saved-homes/${this.saveHomeId}/`,
+            {
+              headers: {
+                Authorization: 'Token ' + Cookies.get('token'),
+              },
+            }
+          )
+          .then((response) => {
+            location.reload()
+          })
+      } else if (this.$store.state.saved_homes_in_cookies) {
+        let homes = this.$store.state.saved_homes_in_cookies
+        homes = JSON.parse(decodeURIComponent(homes))
+
+        const newHomes = homes.filter((el) => el.slug !== this.home.slug)
+
+        Cookies.set('homes', JSON.stringify(newHomes))
+
+        location.reload()
+      }
     },
     closeModal() {
       this.unsaveModal = false
@@ -267,58 +207,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.icon {
-  width: 1.6rem;
-  height: 1.6rem;
-  color: inherit;
-}
-
-.icon-container-save {
-  padding: 1rem;
-}
-.icon-unlike {
-  width: 2.6rem;
-  height: 2.6rem;
-  color: #fff;
-  z-index: 100;
-}
-.icon-like {
-  width: 2.6rem;
-  height: 2.6rem;
-  color: #e63946;
-  z-index: 100;
-}
-
-.placeholder-container {
-  width: 32rem;
-  margin: 0 auto 0 auto;
-}
-
-@media screen and (min-width: 500px) {
-  .card {
-    width: 45rem;
-  }
-}
-
-.card-unsave {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.unsave-container {
-  margin-top: 5rem;
-}
-
-.unsave-header-text {
-  font-size: 2.2rem;
-  text-align: center;
-  font-weight: 500;
-}
-
-.btn-cancel-unsave {
-  display: flex;
-  justify-content: space-between;
-}
-</style>

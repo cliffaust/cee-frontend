@@ -3,7 +3,8 @@ import axios from 'axios'
 export const state = () => ({
   homes: [],
   user_profile: [],
-  saved_homes: null,
+  saved_homes: [],
+  saved_homes_in_cookies: null,
   navbarSlider: false,
   inSaves: false,
 })
@@ -23,6 +24,9 @@ export const mutations = {
   },
   ADD_SAVED_HOMES(state, data) {
     state.saved_homes = data
+  },
+  ADD_SAVED_HOMES_IN_COOKIES(state, data) {
+    state.saved_homes_in_cookies = data
   },
   ALREADY_IN_SAVES(state, value) {
     state.inSaves = value
@@ -73,7 +77,7 @@ export const actions = {
 
         if (homes) {
           homes = homes.split('=')[1]
-          commit('ADD_SAVED_HOMES', homes)
+          commit('ADD_SAVED_HOMES_IN_COOKIES', homes)
         }
       }
     }

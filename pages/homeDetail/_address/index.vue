@@ -85,7 +85,7 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="#e63946"
-              @click.stop="changeUnlikeState"
+              @click.stop="changeLikeState"
             >
               <path
                 fill-rule="evenodd"
@@ -101,7 +101,7 @@
               fill="none"
               viewBox="0 0 24 24"
               stroke="#fff"
-              @click.stop="changeLikeState"
+              @click.stop="changeUnLikeState"
             >
               <path
                 stroke-linecap="round"
@@ -243,6 +243,7 @@
           </nuxt-link>
           <button
             v-else
+            :disabled="disableSaveBtn"
             class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
             @click="saveHome"
           >
@@ -820,8 +821,9 @@ export default {
       shareRecipientEmail: '',
       youShareEmail: this.$store.state.user_profile.email || '',
       modalShare: false,
-      like: this.$store.state.home.home.has_user_saved,
+      like: this.$store.state.home.home.has_user_liked,
       copyToolkit: false,
+      disableSaveBtn: false,
     }
   },
   async fetch({ store, params, error }) {
@@ -840,14 +842,14 @@ export default {
           )
 
           exist = data.results.some((val) => {
-            return val.book.slug === params.address
+            return val.home.slug === params.address
           })
         } catch (error) {
           console.log(error.response)
         }
         store.commit('ALREADY_IN_SAVES', exist)
-      } else if (store.state.saved_homes) {
-        let home = store.state.saved_homes
+      } else if (store.state.saved_homes_in_cookies) {
+        let home = store.state.saved_homes_in_cookies
         home = JSON.parse(decodeURIComponent(home))
 
         exist = home.some((val) => {

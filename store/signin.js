@@ -58,7 +58,7 @@ export const actions = {
 
         for (const item of homes) {
           await axios
-            .post(`${process.env.baseUrl}/homes/${item.slug}/save/`, {
+            .post(`${process.env.baseUrl}/homes/${item.slug}/save/`, '', {
               headers: {
                 Authorization: 'Token ' + response.data.key,
               },
@@ -91,7 +91,7 @@ export const actions = {
 
         for (const item of homes) {
           await axios
-            .post(`${process.env.baseUrl}/homes/${item.slug}/save/`, {
+            .post(`${process.env.baseUrl}/homes/${item.slug}/save/`, '', {
               headers: {
                 Authorization: 'Token ' + response.data.key,
               },
