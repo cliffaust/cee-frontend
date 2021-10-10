@@ -193,7 +193,7 @@ export default {
       const { data } = await axios.get(
         `${process.env.baseUrl}/homes/?search=${
           params.search
-        }&home_status=${1}&min_price=${
+        }&home_status=${'For Sale'}&min_price=${
           route.query.minPrice
             ? route.query.minPrice.replace(/[^0-9.]+/g, '')
             : ''
@@ -237,7 +237,7 @@ export default {
       const { data } = await axios.get(
         `${process.env.baseUrl}/homes/?search=${
           params.search
-        }&home_status=${1}&min_price=${
+        }&home_status=${'For Sale'}&min_price=${
           route.query.minPrice
             ? route.query.minPrice.replace(/[^0-9.]+/g, '')
             : ''
