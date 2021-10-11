@@ -241,14 +241,12 @@ import baseSelect from '~/components/defaultComponent/baseSelect'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open.vue'
 import baseInput from '~/components/defaultComponent/baseInput'
-// import baseCheckBox from '~/components/defaultComponent/baseCheckBox'
 export default {
   components: {
     baseSelect,
     ButtonPrimary,
     ButtonPrimaryOpen,
     baseInput,
-    // baseCheckBox,
   },
   data() {
     return {
@@ -539,7 +537,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .option-old {
   @apply py-4 px-9 text-xl font-bold rounded-2xl hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
 }

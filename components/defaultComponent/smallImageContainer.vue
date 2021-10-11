@@ -24,14 +24,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.photo {
-  width: 100%;
-  height: 280px;
-}
-
-.image-content {
-  cursor: pointer;
-}
-</style>

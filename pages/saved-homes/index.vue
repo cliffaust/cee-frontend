@@ -105,15 +105,33 @@
         :home="home.home"
         :save-home-id="home.id"
       ></homeCard>
+      <div v-if="!$store.state.signin.token" class="mt-4 mb-4 text-xl px-8">
+        You are currently not signed in. To save these items or see your
+        previously saved items across devices,
+        <nuxt-link
+          :to="{ path: '/login', query: { redirect: `${$route.path}` } }"
+          class="text-blue-500 font-bold"
+          >sign in</nuxt-link
+        >
+      </div>
     </div>
-    <div v-if="!$store.state.signin.token" class="mt-4 mb-4 text-xl px-8">
-      You are currently not signed in. To checkout or save these items or see
-      your previously saved items,
-      <nuxt-link
-        :to="{ path: '/login', query: { redirect: `${$route.path}` } }"
-        class="text-blue-500 font-bold"
-        >sign in</nuxt-link
-      >
+    <div v-else>
+      <div class="flex flex-col justify-between overflow-y-scroll">
+        <div class="font-bold text-2xl font-mono mt-6 ml-4">Saved Homes</div>
+        <div class="flex flex-col items-center">
+          <div class="w-7/7 h-96">
+            <img
+              class="h-full w-full"
+              src="~/assets/images/empty.png"
+              alt="No Item in saves"
+            />
+          </div>
+          <div class="text-center mt-8 text-xl font-bold">
+            Nothing in here. Don't worry!
+          </div>
+          <a href="#" class="primary-link">check these homes out</a>
+        </div>
+      </div>
     </div>
   </div>
 </template>

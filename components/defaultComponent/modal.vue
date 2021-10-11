@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="backdrop" @click="close">
+    <div class="fixed top-0 left-0 right-0 bottom-0 z-40" @click="close">
       <div
         class="bg-white fixed py-5 px-8 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-50 h-full w-full overflow-scroll"
         @click.stop
@@ -39,27 +39,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 40;
-}
-
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
 }
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-
-@media only screen and (max-width: 400px) {
-  .ps__rail-y {
-    display: none !important;
-  }
 }
 </style>

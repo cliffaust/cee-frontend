@@ -53,27 +53,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.input-container {
-  display: flex;
-  flex-direction: column;
-  .label {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid #e2e1e1;
-    font-family: inherit;
-    border-radius: 5px;
-    resize: none;
-
-    &:focus {
-      outline: none;
-    }
-  }
-}
-</style>

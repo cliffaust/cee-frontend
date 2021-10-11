@@ -268,7 +268,10 @@
           </div>
         </div>
         <div>
-          <div v-if="home.like_count > 0" class="text-xl mb-1">
+          <div
+            v-if="home.like_count > 4"
+            class="text-xl mb-2 font-bold text-blue-700"
+          >
             This listing has been liked by {{ home.like_count }} users
           </div>
           <div class="text-xl font-bold">

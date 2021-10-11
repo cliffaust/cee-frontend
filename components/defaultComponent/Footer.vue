@@ -1,12 +1,5 @@
 <template>
   <footer class="footer py-8 px-8 bg-gray-100 mt-12 flex flex-col">
-    <!-- <div class="image-container self-center">
-      <img
-        class="logo"
-        src="~/assets/logo/revolvemart-LOGO-B4.png"
-        alt="Logo"
-      />
-    </div> -->
     <div class="mt-4 flex flex-wrap mb-12">
       <div class="link-box">
         <a href="#" class="link">How we work</a>
