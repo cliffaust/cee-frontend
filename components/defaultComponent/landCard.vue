@@ -46,7 +46,7 @@
           </svg>
         </div>
         <div class="h-88">
-          <ImageSwiper :images="home_images"></ImageSwiper>
+          <ImageSwiper :images="land_images"></ImageSwiper>
         </div>
         <div class="px-4 pb-6">
           <div class="text-3xl my-3 font-bold font-mono">
