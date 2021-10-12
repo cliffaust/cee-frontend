@@ -2,7 +2,7 @@
   <div class="container-card noSelect">
     <nuxt-link
       v-slot="{ href, navigate }"
-      :to="{ path: `/homeDetail/${home.slug}` }"
+      :to="{ path: `/landDetail/${land.slug}` }"
       append
       custom
     >
@@ -103,7 +103,7 @@ export default {
   },
   mixins: [saveListing],
   props: {
-    home: {
+    land: {
       type: [Array, Object],
       required: true,
     },
@@ -114,7 +114,7 @@ export default {
   },
   data() {
     return {
-      like: this.home.has_user_liked,
+      like: this.land.has_user_liked,
       unsaveModal: false,
       home_images: [],
     }
