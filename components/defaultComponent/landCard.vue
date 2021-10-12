@@ -45,11 +45,6 @@
             />
           </svg>
         </div>
-        <div
-          class="absolute py-1.5 px-2.5 top-6 text-xl right-8 z-10 bg-green-300 font-bold rounded-lg"
-        >
-          {{ home.home_status }}
-        </div>
         <div class="h-88">
           <ImageSwiper :images="home_images"></ImageSwiper>
         </div>
