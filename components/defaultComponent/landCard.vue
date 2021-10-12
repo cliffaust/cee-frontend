@@ -71,15 +71,15 @@
                 ></path>
                 <path d="M3 3l18 18"></path>
               </svg>
-              <span v-if="home.home_size" class="text-xl"
-                >{{ home.home_size }}sqft</span
+              <span v-if="land.land_size" class="text-xl"
+                >{{ land.land_size }}sqft</span
               >
               <span v-else class="text-xl">No data</span>
             </div>
           </div>
-          <div class="text-xl font-bold">{{ home.address }}</div>
+          <div class="text-xl font-bold">{{ lands.address }}</div>
           <ButtonPrimary
-            v-if="$route.name === 'saved-homes'"
+            v-if="$route.name === 'saved-land'"
             class="!py-4 !px-8 text-xl mt-4 bg-red-400 ml-auto"
             @click="sendUnsaveRequest"
             >Unsave</ButtonPrimary
