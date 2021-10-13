@@ -135,15 +135,28 @@ export default {
 
     searchApi() {
       if (this.search) {
-        axios
-          .get(`${process.env.baseUrl}/homes/?search=${this.search}`)
-          .then((response) => {
-            const result = []
-            response.data.results.forEach((element) => {
-              result.push(element.city)
+        if (this.$route.name === 'lands-search') {
+          axios
+            .get(`${process.env.baseUrl}/lands/?search=${this.search}`)
+            .then((response) => {
+              const result = []
+              response.data.results.forEach((element) => {
+                result.push(element.city)
+              })
+              this.searchResults = [...result]
             })
-            this.searchResults = [...result]
-          })
+        } else {
+          axios
+            .get(`${process.env.baseUrl}/homes/?search=${this.search}`)
+            .then((response) => {
+              const result = []
+              response.data.results.forEach((element) => {
+                result.push(element.city)
+              })
+              this.searchResults = [...result]
+            })
+        }
+        console.log()
       } else {
         this.searchResults = []
       }

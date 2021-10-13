@@ -192,7 +192,7 @@ export default {
       } else if (this.search && this.optionState === 'rent') {
         this.$router.push(`homes/${this.search}/${this.optionState}`)
       } else if (this.search && this.optionState === 'land') {
-        this.$router.push(`lands/${this.search}/${this.optionState}`)
+        this.$router.push(`lands/${this.search}`)
       }
     },
 
