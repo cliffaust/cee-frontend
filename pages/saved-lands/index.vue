@@ -73,9 +73,9 @@
                 : 'option',
             ]"
             class="option"
-            @click="sortlandSize"
+            @click="sortLandSize"
           >
-            land Size
+            Land Size
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@
     </div>
     <div v-else>
       <div class="flex flex-col justify-between overflow-y-scroll">
-        <div class="font-bold text-2xl font-mono mt-6 ml-4">Saved Homes</div>
+        <div class="font-bold text-2xl font-mono mt-6 ml-4">Saved Land</div>
         <div class="flex flex-col items-center">
           <div class="w-7/7 h-96">
             <img
@@ -109,7 +109,7 @@
           <div class="text-center mt-8 text-xl font-bold">
             Nothing in here. Don't worry!
           </div>
-          <a href="#" class="primary-link">check these homes out</a>
+          <a href="#" class="primary-link">check these lands out</a>
         </div>
       </div>
     </div>
