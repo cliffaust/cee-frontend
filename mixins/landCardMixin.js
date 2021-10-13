@@ -38,5 +38,38 @@ export default {
         })
       }
     },
+
+    saveLand() {
+      if (Cookies.get('token')) {
+        this.disableSaveBtn = true
+        axios
+          .post(`${process.env.baseUrl}/lands/${this.land.slug}/save/`, '', {
+            headers: {
+              Authorization: 'Token ' + Cookies.get('token'),
+            },
+          })
+          .then(() => location.reload())
+          .catch((err) => {
+            console.log(err.response)
+            this.disableSaveBtn = false
+          })
+      } else if (!Cookies.get('token')) {
+        let cookieVal = Cookies.get('lands')
+
+        if (cookieVal !== undefined) {
+          cookieVal = JSON.parse(cookieVal)
+        }
+
+        const data = [...(cookieVal || [])]
+        const exist = data.some((val) => {
+          return val.slug === this.land.slug
+        })
+        if (!exist) {
+          data.push({ slug: this.land.slug })
+          Cookies.set('lands', JSON.stringify(data))
+          location.reload()
+        }
+      }
+    },
   },
 }

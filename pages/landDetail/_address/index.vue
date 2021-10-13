@@ -610,9 +610,7 @@ export default {
   },
   mounted() {
     const postUrl = encodeURI(location.href)
-    const postTitle = `Check out this land for ${
-      this.land.land_status === 1 ? 'sale' : 'rent'
-    } at ${postUrl}`
+    const postTitle = `Check out this land at ${postUrl}`
     this.$refs.facebookBtn.setAttribute(
       'href',
       `https://www.facebook.com/sharer.php?u=${postUrl}

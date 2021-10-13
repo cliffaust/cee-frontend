@@ -5,6 +5,7 @@ export const state = () => ({
   user_profile: [],
   saved_homes: [],
   saved_homes_in_cookies: null,
+  saved_land_in_cookies: null,
   navbarSlider: false,
   inSaves: false,
 })
@@ -27,6 +28,9 @@ export const mutations = {
   },
   ADD_SAVED_HOMES_IN_COOKIES(state, data) {
     state.saved_homes_in_cookies = data
+  },
+  ADD_SAVED_LANDS_IN_COOKIES(state, data) {
+    state.saved_lands_in_cookies = data
   },
   ALREADY_IN_SAVES(state, value) {
     state.inSaves = value
@@ -78,6 +82,21 @@ export const actions = {
         if (homes) {
           homes = homes.split('=')[1]
           commit('ADD_SAVED_HOMES_IN_COOKIES', homes)
+        }
+      }
+    }
+  },
+
+  saveLandsInit({ commit }, req) {
+    let lands
+    if (req) {
+      if (req.headers.cookie) {
+        lands = req.headers.cookie.split(';').map((element) => element.trim())
+        lands = lands.find((c) => c.startsWith('lands='))
+
+        if (lands) {
+          lands = lands.split('=')[1]
+          commit('ADD_SAVED_LANDS_IN_COOKIES', lands)
         }
       }
     }
