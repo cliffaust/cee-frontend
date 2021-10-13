@@ -2,7 +2,12 @@
   <client-only>
     <swiper :options="swiperOption">
       <swiper-slide v-for="(image, index) in images" :key="index">
-        <img :src="image.home_image" class="w-full h-full" />
+        <template v-if="$route.name === 'lands-search'">
+          <img :src="image.land_image" class="w-full h-full" />
+        </template>
+        <template v-else>
+          <img :src="image.home_image" class="w-full h-full" />
+        </template>
       </swiper-slide>
       <font-awesome-icon
         slot="button-prev"
