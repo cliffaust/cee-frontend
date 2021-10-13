@@ -145,9 +145,27 @@ export default {
               })
               this.searchResults = [...result]
             })
+        } else if (this.$route.name === 'homes-search-rent') {
+          axios
+            .get(
+              `${process.env.baseUrl}/lands/?search=${
+                this.search
+              }&home_status=${'For Rent'}`
+            )
+            .then((response) => {
+              const result = []
+              response.data.results.forEach((element) => {
+                result.push(element.city)
+              })
+              this.searchResults = [...result]
+            })
         } else {
           axios
-            .get(`${process.env.baseUrl}/homes/?search=${this.search}`)
+            .get(
+              `${process.env.baseUrl}/homes/?search=${
+                this.search
+              }&home_status=${'For Sale'}`
+            )
             .then((response) => {
               const result = []
               response.data.results.forEach((element) => {
