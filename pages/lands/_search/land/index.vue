@@ -83,7 +83,7 @@
           </div>
           <div
             :class="[
-              $route.query.ordering === '-home_price'
+              $route.query.ordering === '-land_price'
                 ? 'selected-sort'
                 : 'option',
             ]"
@@ -93,7 +93,7 @@
           </div>
           <div
             :class="[
-              $route.query.ordering === 'home_price'
+              $route.query.ordering === 'land_price'
                 ? 'selected-sort'
                 : 'option',
             ]"
@@ -108,9 +108,9 @@
                 : 'option',
             ]"
             class="option"
-            @click="sortHomeSize"
+            @click="sortLandSize"
           >
-            Home Size
+            Land Size
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@
       search results for
       <span class="font-bold">{{ $route.params.search }}</span>
     </h1>
-    <homeCard v-for="home in homes" :key="home.id" :home="home"></homeCard>
+    <landCard v-for="land in lands" :key="land.id" :land="land"></landCard>
     <modal v-if="showFilter" @close="closeFilter">
       <filterResults></filterResults>
     </modal>
@@ -153,14 +153,14 @@
 <script>
 import axios from 'axios'
 import navbar from '~/components/buyComponent/navbar'
-import homeCard from '~/components/defaultComponent/homeCard'
+import landCard from '~/components/defaultComponent/landCard'
 import filter from '~/components/defaultComponent/filter'
 import modal from '~/components/defaultComponent/modal'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 export default {
   components: {
     navbar,
-    homeCard,
+    landCard,
     modal,
     ButtonPrimary,
     // skeletonLoader,
@@ -193,11 +193,11 @@ export default {
         }
       )
       return {
-        homes: data.results,
+        lands: data.results,
       }
     } else {
       const { data } = await axios.get(
-        `${process.env.baseUrl}/homes/?search=${params.search}&min_price=${
+        `${process.env.baseUrl}/lands/?search=${params.search}&min_price=${
           route.query.minPrice
             ? route.query.minPrice.replace(/[^0-9.]+/g, '')
             : ''
@@ -216,7 +216,7 @@ export default {
         }&ordering=${route.query.ordering}`
       )
       return {
-        homes: data.results,
+        lands: data.results,
       }
     }
   },
@@ -283,7 +283,7 @@ export default {
       this.$router.push({
         path: this.$router.currentRoute.fullPath,
         query: {
-          ordering: '-home_price',
+          ordering: '-land_price',
         },
       })
     },
@@ -291,31 +291,15 @@ export default {
       this.$router.push({
         path: this.$router.currentRoute.fullPath,
         query: {
-          ordering: 'home_price',
+          ordering: 'land_price',
         },
       })
     },
-    sortBedroom() {
+    sortLandSize() {
       this.$router.push({
         path: this.$router.currentRoute.fullPath,
         query: {
-          ordering: '-number_bedrooms',
-        },
-      })
-    },
-    sortBathroom() {
-      this.$router.push({
-        path: this.$router.currentRoute.fullPath,
-        query: {
-          ordering: '-number_bathrooms',
-        },
-      })
-    },
-    sortHomeSize() {
-      this.$router.push({
-        path: this.$router.currentRoute.fullPath,
-        query: {
-          ordering: '-home_size',
+          ordering: '-land_size',
         },
       })
     },
