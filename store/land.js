@@ -55,6 +55,6 @@ export const actions = {
     data.push({ land_coordinate: landCoordinate.data.results })
     data.push({ land_reviews: landReview.data.results })
 
-    commit('ADD_HOME', data)
+    commit('ADD_LAND', data)
   },
 }

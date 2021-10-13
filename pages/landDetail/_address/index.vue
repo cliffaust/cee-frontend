@@ -304,7 +304,7 @@
         <h1 class="font-bold font-mono text-3xl mt-2">Contact List</h1>
         <div class="mt-10">
           <div
-            v-for="(contact_number, index) in home.contact_numbers"
+            v-for="(contact_number, index) in land.contact_numbers"
             :key="index"
             class="flex items-center mb-4 bg-gray-100 justify-between box-content px-4 py-4 rounded-lg"
           >
@@ -376,7 +376,7 @@
     </div>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
-        <h1 class="font-bold font-mono text-3xl mt-2">Email this home</h1>
+        <h1 class="font-bold font-mono text-3xl mt-2">Email this land</h1>
         <div class="input-container">
           <baseInput
             v-model="shareRecipientEmail"
@@ -418,7 +418,7 @@
         </div>
         <div class="flex flex-col mt-10">
           <div class="text-3xl font-bold font-mono">
-            Or, Share This Home Via:
+            Or, Share This Land Via:
           </div>
           <div class="flex gap-6 justify-center items-center mt-6">
             <a
