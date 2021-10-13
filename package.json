@@ -28,6 +28,7 @@
     "node-sass": "^5.0.0",
     "nuxt": "^2.15.3",
     "patch-package": "^6.4.7",
+    "sass": "^1.43.2",
     "sass-loader": "^10.1.1",
     "swiper": "^6.8.4",
     "vee-validate": "^3.4.5",
@@ -48,6 +49,7 @@
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.4.1",
+    "nuxt-vite": "^0.3.5",
     "postcss": "^8.3.9",
     "prettier": "^2.2.1",
     "tailwindcss": "^2.2.16"
