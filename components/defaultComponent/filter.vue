@@ -33,12 +33,12 @@
       </nuxt-link>
       <nuxt-link
         v-slot="{ href, navigate }"
-        :to="{ path: `/homes/${this.$route.params.search}/land/` }"
+        :to="{ path: `/lands/${this.$route.params.search}/` }"
         custom
       >
         <div
           :class="[
-            $route.name === 'homes-search-land' ? 'option-new' : 'option-old',
+            $route.name === 'lands-search' ? 'option-new' : 'option-old',
           ]"
           :href="href"
           @click="navigate"
