@@ -19,7 +19,7 @@
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="#e63946"
-            @click.stop="changeLikeState"
+            @click.stop="changeLandLikeState"
           >
             <path
               fill-rule="evenodd"
@@ -35,7 +35,7 @@
             fill="none"
             viewBox="0 0 24 24"
             stroke="#fff"
-            @click.stop="changeUnLikeState"
+            @click.stop="changeLandUnLikeState"
           >
             <path
               stroke-linecap="round"
@@ -95,13 +95,13 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 import ImageSwiper from '~/components/defaultComponent/ImageSwiper'
-import saveListing from '~/mixins/saveListing'
+import landCardMixin from '~/mixins/landCardMixin'
 export default {
   components: {
     ImageSwiper,
     ButtonPrimary,
   },
-  mixins: [saveListing],
+  mixins: [landCardMixin],
   props: {
     land: {
       type: [Array, Object],
