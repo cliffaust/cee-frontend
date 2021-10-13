@@ -107,7 +107,7 @@ export default {
       type: [Array, Object],
       required: true,
     },
-    saveHomeId: {
+    saveLandId: {
       type: Number,
       default: 0,
     },
@@ -116,16 +116,16 @@ export default {
     return {
       like: this.land.has_user_liked,
       unsaveModal: false,
-      home_images: [],
+      land_images: [],
     }
   },
   async mounted() {
     try {
       const { data } = await axios.get(
-        `${process.env.baseUrl}/homes/${this.home.slug}/home-images/`
+        `${process.env.baseUrl}/lands/${this.land.slug}/land-images/`
       )
-      this.home_images = [
-        { home_image: this.home.cover_image },
+      this.land_images = [
+        { land_image: this.land.cover_image },
         ...data.results,
       ]
     } catch (error) {
@@ -137,7 +137,7 @@ export default {
       if (Cookies.get('token')) {
         axios
           .delete(
-            `${process.env.baseUrl}/user-saved-homes/${this.saveHomeId}/`,
+            `${process.env.baseUrl}/user-saved-lands/${this.saveLandId}/`,
             {
               headers: {
                 Authorization: 'Token ' + Cookies.get('token'),
@@ -147,13 +147,13 @@ export default {
           .then((response) => {
             location.reload()
           })
-      } else if (this.$store.state.saved_homes_in_cookies) {
-        let homes = this.$store.state.saved_homes_in_cookies
-        homes = JSON.parse(decodeURIComponent(homes))
+      } else if (this.$store.state.saved_lands_in_cookies) {
+        let lands = this.$store.state.saved_lands_in_cookies
+        lands = JSON.parse(decodeURIComponent(lands))
 
-        const newHomes = homes.filter((el) => el.slug !== this.home.slug)
+        const newLands = lands.filter((el) => el.slug !== this.land.slug)
 
-        Cookies.set('homes', JSON.stringify(newHomes))
+        Cookies.set('lands', JSON.stringify(newLands))
 
         location.reload()
       }
