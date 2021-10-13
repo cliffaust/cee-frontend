@@ -97,7 +97,7 @@
     </div>
     <div v-else>
       <div class="flex flex-col justify-between overflow-y-scroll">
-        <div class="font-bold text-2xl font-mono mt-6 ml-4">Saved Land</div>
+        <div class="font-bold text-2xl font-mono mt-6 ml-4">Saved Lands</div>
         <div class="flex flex-col items-center">
           <div class="w-7/7 h-96">
             <img
@@ -148,7 +148,7 @@ export default {
         await axios
           .get(`${process.env.baseUrl}/lands/${item.slug}/`)
           .then((res) => {
-            lands.push({ home: res.data })
+            lands.push({ land: res.data })
           })
           .catch((err) => {
             console.log(err.response)
@@ -220,7 +220,7 @@ export default {
       this.$router.push({
         path: this.$router.currentRoute.fullPath,
         query: {
-          ordering: '-home_price',
+          ordering: '-land_price',
         },
       })
     },
@@ -228,31 +228,15 @@ export default {
       this.$router.push({
         path: this.$router.currentRoute.fullPath,
         query: {
-          ordering: 'home_price',
+          ordering: 'land_price',
         },
       })
     },
-    sortBedroom() {
+    sortLandSize() {
       this.$router.push({
         path: this.$router.currentRoute.fullPath,
         query: {
-          ordering: '-number_bedrooms',
-        },
-      })
-    },
-    sortBathroom() {
-      this.$router.push({
-        path: this.$router.currentRoute.fullPath,
-        query: {
-          ordering: '-number_bathrooms',
-        },
-      })
-    },
-    sortHomeSize() {
-      this.$router.push({
-        path: this.$router.currentRoute.fullPath,
-        query: {
-          ordering: '-home_size',
+          ordering: '-land_size',
         },
       })
     },

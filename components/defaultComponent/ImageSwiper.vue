@@ -2,7 +2,9 @@
   <client-only>
     <swiper :options="swiperOption">
       <swiper-slide v-for="(image, index) in images" :key="index">
-        <template v-if="$route.name === 'lands-search'">
+        <template
+          v-if="$route.name === 'lands-search' || $route.name === 'saved-lands'"
+        >
           <img :src="image.land_image" class="w-full h-full" />
         </template>
         <template v-else>
