@@ -1,5 +1,5 @@
 <template>
-  <div class="container-card noSelect">
+  <div>
     <nuxt-link
       v-slot="{ href, navigate }"
       :to="{ path: `/landDetail/${land.slug}` }"
@@ -50,7 +50,7 @@
         </div>
         <div class="px-4 pb-6">
           <div class="text-3xl my-3 font-bold font-mono">
-            GH¢{{ home.home_price.toLocaleString() }}
+            GH¢{{ land.land_price.toLocaleString() }}
           </div>
           <div class="flex mb-3">
             <div class="mr-4 flex items-center gap-2">
@@ -77,7 +77,7 @@
               <span v-else class="text-xl">No data</span>
             </div>
           </div>
-          <div class="text-xl font-bold">{{ lands.address }}</div>
+          <div class="text-xl font-bold">{{ land.address }}</div>
           <ButtonPrimary
             v-if="$route.name === 'saved-land'"
             class="!py-4 !px-8 text-xl mt-4 bg-red-400 ml-auto"
