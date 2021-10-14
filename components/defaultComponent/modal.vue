@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;

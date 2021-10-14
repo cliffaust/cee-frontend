@@ -118,7 +118,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import navbar from '~/components/defaultComponent/defaultNavbar'
 export default {
   components: {
@@ -211,7 +210,7 @@ export default {
     searchApi() {
       if (this.search) {
         if (this.optionState === 'land') {
-          axios
+          this.$axios
             .get(`${process.env.baseUrl}/lands/?search=${this.search}`)
             .then((response) => {
               const result = []
@@ -221,7 +220,7 @@ export default {
               this.searchResults = [...result]
             })
         } else if (this.optionState === 'rent') {
-          axios
+          this.$axios
             .get(
               `${process.env.baseUrl}/homes/?search=${
                 this.search
@@ -235,7 +234,7 @@ export default {
               this.searchResults = [...result]
             })
         } else {
-          axios
+          this.$axios
             .get(
               `${process.env.baseUrl}/homes/?search=${
                 this.search

@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .swiper-container {
   height: 100%;
   overflow: hidden;

@@ -1,5 +1,5 @@
 <template>
-  <div class="input-container">
+  <div class="flex items-center">
     <input
       id="others"
       v-bind="$attrs"
@@ -8,7 +8,9 @@
       :value="value"
       @change="change"
     />
-    <label v-if="label" for="others" class="label">{{ label }}</label>
+    <label v-if="label" for="others" class="font-bold ml-3 text-xl">{{
+      label
+    }}</label>
   </div>
 </template>
 
@@ -32,15 +34,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.input-container {
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
-  .label {
-    font-size: 1.5rem;
-    margin-left: 0.8rem;
-  }
-}
-</style>

@@ -11,5 +11,3 @@ export default {
   fetchOnServer: false,
 }
 </script>
-
-<style lang="scss" scoped></style>

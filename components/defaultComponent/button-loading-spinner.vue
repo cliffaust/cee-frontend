@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .sp {
   clear: both;
   margin: 0 auto;
@@ -28,8 +28,8 @@ export default {
 
 /* Spinner Circle Rotation */
 .sp-circle {
-  border: 4px rgba($primary-bgcolor-1, 0.25) solid;
-  border-top: 4px rgba($primary-bgcolor-1, 1) solid;
+  border: 4px rgba(#002333, 0.25) solid;
+  border-top: 4px rgba(#002333, 1) solid;
   border-radius: 50%;
   -webkit-animation: spCircRot 0.6s infinite linear;
   animation: spCircRot 0.6s infinite linear;

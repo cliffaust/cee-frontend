@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .burger-box {
   z-index: 40;
 }
@@ -46,13 +46,13 @@ export default {
   padding: 8px 7px 9px 5px;
 
   &:hover .burger::before {
-    background-color: $primary-bgcolor-2;
+    background-color: #fca311;
   }
   &:hover .burger::after {
-    background-color: $primary-bgcolor-2;
+    background-color: #fca311;
   }
   &:hover .burger {
-    background-color: $primary-bgcolor-2;
+    background-color: #fca311;
   }
   .burger {
     position: relative;
@@ -62,7 +62,7 @@ export default {
       width: 2.1rem;
       height: 2px;
       display: inline-block;
-      background-color: $primary-bgcolor-2;
+      background-color: #fca311;
       transition: 0.2s ease;
     }
 

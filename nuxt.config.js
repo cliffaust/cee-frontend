@@ -23,7 +23,7 @@ export default {
   loading: { color: '#fca311', height: '2px', duration: 5000 },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['~/assets/scss/variables.scss'],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -45,24 +45,14 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
+    'nuxt-vite',
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
-    'nuxt-vite',
   ],
-
-  styleResources: {
-    scss: ['./assets/scss/*.scss'],
-  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    '@nuxtjs/style-resources',
-  ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
