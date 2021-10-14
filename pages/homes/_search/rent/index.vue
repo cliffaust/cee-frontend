@@ -4,136 +4,141 @@
     @click="showResults"
   >
     <navbar :show-result="showResult" @showResult="changeShowResult"></navbar>
-    <div class="flex items-center my-4 ml-6">
-      <div
-        class="py-4 px-6 flex items-center rounded-lg mr-4 bg-gray-100 cursor-pointer"
-        @click="showFilter = true"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          class="mr-4"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-          version="1.1"
-        >
-          <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-          <title>filter</title>
-          <desc>Created with Sketch.</desc>
-          <defs />
-          <g
-            id="Page-1"
-            stroke="none"
-            stroke-width="1"
-            fill="none"
-            fill-rule="evenodd"
-          >
-            <g
-              id="Artboard-4"
-              transform="translate(-444.000000, -247.000000)"
-              fill="#333333"
-            >
-              <g id="70" transform="translate(444.000000, 247.000000)">
-                <path
-                  id="Combined-Shape"
-                  d="M8.82929429,17 L20.0066023,17 C20.5552407,17 21,17.4438648 21,18 C21,18.5522847 20.5550537,19 20.0066023,19 L8.82929429,19 C8.41745788,20.1651924 7.30621883,21 6,21 C4.34314575,21 3,19.6568542 3,18 C3,16.3431458 4.34314575,15 6,15 C7.30621883,15 8.41745788,15.8348076 8.82929429,17 Z M9.17070571,13 L3.99339768,13 C3.44475929,13 3,12.5561352 3,12 C3,11.4477153 3.44494629,11 3.99339768,11 L9.17070571,11 C9.58254212,9.83480763 10.6937812,9 12,9 C13.3062188,9 14.4174579,9.83480763 14.8292943,11 L20.0066023,11 C20.5552407,11 21,11.4438648 21,12 C21,12.5522847 20.5550537,13 20.0066023,13 L14.8292943,13 C14.4174579,14.1651924 13.3062188,15 12,15 C10.6937812,15 9.58254212,14.1651924 9.17070571,13 Z M15.1659641,6.98648118 C15.1124525,6.99537358 15.05751,7 15.0014977,7 L3.99850233,7 C3.44704472,7 3,6.55613518 3,6 C3,5.44771525 3.44748943,5 3.99850233,5 L15.0014977,5 C15.0575314,5 15.1124871,5.00458274 15.1660053,5.01340035 C15.5740343,3.84121344 16.6887792,3 18,3 C19.6568542,3 21,4.34314575 21,6 C21,7.65685425 19.6568542,9 18,9 C16.688735,9 15.5739592,8.15872988 15.1659641,6.98648118 Z M18,7 C18.5522847,7 19,6.55228475 19,6 C19,5.44771525 18.5522847,5 18,5 C17.4477153,5 17,5.44771525 17,6 C17,6.55228475 17.4477153,7 18,7 Z M12,13 C12.5522847,13 13,12.5522847 13,12 C13,11.4477153 12.5522847,11 12,11 C11.4477153,11 11,11.4477153 11,12 C11,12.5522847 11.4477153,13 12,13 Z M6,19 C6.55228475,19 7,18.5522847 7,18 C7,17.4477153 6.55228475,17 6,17 C5.44771525,17 5,17.4477153 5,18 C5,18.5522847 5.44771525,19 6,19 Z"
-                />
-              </g>
-            </g>
-          </g>
-        </svg>
-        <span class="text-xl">Filter</span>
-      </div>
-      <div class="relative">
+    <div class="flex items-center justify-between my-4 ml-6">
+      <div class="flex items-center">
         <div
-          class="py-4 px-6 flex items-center rounded-lg bg-gray-100 cursor-pointer"
-          @click.stop="showSort = !showSort"
+          class="py-4 px-6 flex items-center rounded-lg mr-4 bg-gray-100 cursor-pointer"
+          @click="showFilter = true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
             class="mr-4"
             width="24px"
             height="24px"
-            fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
+            version="1.1"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
-            />
+            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+            <title>filter</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Artboard-4"
+                transform="translate(-444.000000, -247.000000)"
+                fill="#333333"
+              >
+                <g id="70" transform="translate(444.000000, 247.000000)">
+                  <path
+                    id="Combined-Shape"
+                    d="M8.82929429,17 L20.0066023,17 C20.5552407,17 21,17.4438648 21,18 C21,18.5522847 20.5550537,19 20.0066023,19 L8.82929429,19 C8.41745788,20.1651924 7.30621883,21 6,21 C4.34314575,21 3,19.6568542 3,18 C3,16.3431458 4.34314575,15 6,15 C7.30621883,15 8.41745788,15.8348076 8.82929429,17 Z M9.17070571,13 L3.99339768,13 C3.44475929,13 3,12.5561352 3,12 C3,11.4477153 3.44494629,11 3.99339768,11 L9.17070571,11 C9.58254212,9.83480763 10.6937812,9 12,9 C13.3062188,9 14.4174579,9.83480763 14.8292943,11 L20.0066023,11 C20.5552407,11 21,11.4438648 21,12 C21,12.5522847 20.5550537,13 20.0066023,13 L14.8292943,13 C14.4174579,14.1651924 13.3062188,15 12,15 C10.6937812,15 9.58254212,14.1651924 9.17070571,13 Z M15.1659641,6.98648118 C15.1124525,6.99537358 15.05751,7 15.0014977,7 L3.99850233,7 C3.44704472,7 3,6.55613518 3,6 C3,5.44771525 3.44748943,5 3.99850233,5 L15.0014977,5 C15.0575314,5 15.1124871,5.00458274 15.1660053,5.01340035 C15.5740343,3.84121344 16.6887792,3 18,3 C19.6568542,3 21,4.34314575 21,6 C21,7.65685425 19.6568542,9 18,9 C16.688735,9 15.5739592,8.15872988 15.1659641,6.98648118 Z M18,7 C18.5522847,7 19,6.55228475 19,6 C19,5.44771525 18.5522847,5 18,5 C17.4477153,5 17,5.44771525 17,6 C17,6.55228475 17.4477153,7 18,7 Z M12,13 C12.5522847,13 13,12.5522847 13,12 C13,11.4477153 12.5522847,11 12,11 C11.4477153,11 11,11.4477153 11,12 C11,12.5522847 11.4477153,13 12,13 Z M6,19 C6.55228475,19 7,18.5522847 7,18 C7,17.4477153 6.55228475,17 6,17 C5.44771525,17 5,17.4477153 5,18 C5,18.5522847 5.44771525,19 6,19 Z"
+                  />
+                </g>
+              </g>
+            </g>
           </svg>
-          <span class="text-xl">Sort</span>
+          <span class="text-xl">Filter</span>
         </div>
-        <div
-          v-if="showSort"
-          class="sort-options-tooltip w-80 z-30 top-16 overflow-hidden bg-white shadow-lg absolute rounded-bl-lg rounded-br-lg"
-        >
+        <div class="relative">
           <div
-            :class="[
-              $route.query.ordering === '-date_posted'
-                ? 'selected-sort'
-                : 'option',
-            ]"
-            @click="sortNewest"
+            class="py-4 px-6 flex items-center rounded-lg bg-gray-100 cursor-pointer"
+            @click.stop="showSort = !showSort"
           >
-            Newest
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-4"
+              width="24px"
+              height="24px"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
+              />
+            </svg>
+            <span class="text-xl">Sort</span>
           </div>
           <div
-            :class="[
-              $route.query.ordering === '-home_price'
-                ? 'selected-sort'
-                : 'option',
-            ]"
-            @click="sortPriceHigh"
+            v-if="showSort"
+            class="sort-options-tooltip w-80 z-30 top-16 overflow-hidden bg-white shadow-lg absolute rounded-bl-lg rounded-br-lg"
           >
-            Price(High to Low)
-          </div>
-          <div
-            :class="[
-              $route.query.ordering === 'home_price'
-                ? 'selected-sort'
-                : 'option',
-            ]"
-            @click="sortPriceLow"
-          >
-            Price(Low to High)
-          </div>
-          <div
-            :class="[
-              $route.query.ordering === '-number_bedrooms'
-                ? 'selected-sort'
-                : 'option',
-            ]"
-            @click="sortBedroom"
-          >
-            Bedrooms
-          </div>
-          <div
-            :class="[
-              $route.query.ordering === '-number_bathrooms'
-                ? 'selected-sort'
-                : 'option',
-            ]"
-            @click="sortBathroom"
-          >
-            Bathrooms
-          </div>
-          <div
-            :class="[
-              $route.query.ordering === '-home_size'
-                ? 'selected-sort'
-                : 'option',
-            ]"
-            class="option"
-            @click="sortHomeSize"
-          >
-            Home Size
+            <div
+              :class="[
+                $route.query.ordering === '-date_posted'
+                  ? 'selected-sort'
+                  : 'option',
+              ]"
+              @click="sortNewest"
+            >
+              Newest
+            </div>
+            <div
+              :class="[
+                $route.query.ordering === '-home_price'
+                  ? 'selected-sort'
+                  : 'option',
+              ]"
+              @click="sortPriceHigh"
+            >
+              Price(High to Low)
+            </div>
+            <div
+              :class="[
+                $route.query.ordering === 'home_price'
+                  ? 'selected-sort'
+                  : 'option',
+              ]"
+              @click="sortPriceLow"
+            >
+              Price(Low to High)
+            </div>
+            <div
+              :class="[
+                $route.query.ordering === '-number_bedrooms'
+                  ? 'selected-sort'
+                  : 'option',
+              ]"
+              @click="sortBedroom"
+            >
+              Bedrooms
+            </div>
+            <div
+              :class="[
+                $route.query.ordering === '-number_bathrooms'
+                  ? 'selected-sort'
+                  : 'option',
+              ]"
+              @click="sortBathroom"
+            >
+              Bathrooms
+            </div>
+            <div
+              :class="[
+                $route.query.ordering === '-home_size'
+                  ? 'selected-sort'
+                  : 'option',
+              ]"
+              class="option"
+              @click="sortHomeSize"
+            >
+              Home Size
+            </div>
           </div>
         </div>
+      </div>
+      <div class="text-blue-700 font-bold text-xl mr-4 cursor-pointer">
+        Remove sort
       </div>
     </div>
     <h1 class="text-3xl font-mono mt-6 ml-8 mb-8">
