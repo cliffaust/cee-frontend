@@ -20,7 +20,7 @@ export default {
     middleware: ['checkToken', 'addSaveListings'],
   },
 
-  loading: { color: '#fca311', height: '2px', duration: 5000 },
+  loading: { color: '#3d405b', height: '3px', duration: 5000 },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
