@@ -391,17 +391,15 @@ export default {
   @apply text-xl py-4 px-6 cursor-pointer hover:bg-gray-50;
 }
 
-.sort-options-tooltip {
-  &::before {
-    content: '';
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-top: 1rem solid transparent;
-    border-bottom: 1rem solid #fff;
-    position: absolute;
-    top: -20px;
-    left: 50px;
-    transform: translateX(-50%);
-  }
+.sort-options-tooltip::before {
+  content: '';
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid #fff;
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  transform: translateX(-50%);
 }
 </style>

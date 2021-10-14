@@ -1,5 +1,5 @@
 <template>
-  <div class="burger-box">
+  <div class="z-40">
     <input
       id="nav-toggle"
       v-model="navbarSlider"
@@ -36,55 +36,54 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.burger-box {
-  z-index: 40;
-}
 .navigation-icon {
   cursor: pointer;
   height: 1.8rem;
   width: 2rem;
   padding: 8px 7px 9px 5px;
+}
 
-  &:hover .burger::before {
-    background-color: #fca311;
-  }
-  &:hover .burger::after {
-    background-color: #fca311;
-  }
-  &:hover .burger {
-    background-color: #fca311;
-  }
-  .burger {
-    position: relative;
-    &,
-    &::before,
-    &::after {
-      width: 2.1rem;
-      height: 2px;
-      display: inline-block;
-      background-color: #fca311;
-      transition: 0.2s ease;
-    }
+.burger {
+  position: relative;
+}
 
-    & {
-      width: 1.6rem;
-    }
+.burger,
+.burger::before,
+.burger::after {
+  width: 2.1rem;
+  height: 2px;
+  display: inline-block;
+  background-color: #fca311;
+  transition: 0.2s ease;
+}
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-    }
+.burger {
+  width: 1.6rem;
+}
 
-    &::before {
-      top: -0.8rem;
-    }
+.burger::before,
+.burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
 
-    &::after {
-      top: 0.8rem;
-    }
-  }
+.burger::before {
+  top: -0.8rem;
+}
+
+.burger::after {
+  top: 0.8rem;
+}
+
+.navigation-icon:hover .burger::before {
+  background-color: #fca311;
+}
+.navigation-icon:hover .burger::after {
+  background-color: #fca311;
+}
+.navigation-icon:hover .burger {
+  background-color: #fca311;
 }
 
 .navigation-checkbox:checked + .navigation-icon .burger {

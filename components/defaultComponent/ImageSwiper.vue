@@ -90,13 +90,13 @@ export default {
   visibility: hidden;
 }
 
-.swiper-pagination {
-  /deep/ &-bullet {
-    opacity: 0.8;
-    &-active {
-      background-color: $primary-bgcolor-2;
-    }
-  }
+.swiper-pagination >>> .swiper-pagination-bullet {
+  opacity: 1;
+  border: #fca311 solid 1px;
+  background-color: transparent;
+}
+.swiper-pagination >>> .swiper-pagination-bullet-active {
+  background-color: #fca311;
 }
 
 @media only screen and (max-width: 400px) {

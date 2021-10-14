@@ -118,6 +118,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import navbar from '~/components/defaultComponent/defaultNavbar'
 export default {
   components: {
@@ -210,7 +211,7 @@ export default {
     searchApi() {
       if (this.search) {
         if (this.optionState === 'land') {
-          this.$axios
+          axios
             .get(`${process.env.baseUrl}/lands/?search=${this.search}`)
             .then((response) => {
               const result = []
@@ -220,7 +221,7 @@ export default {
               this.searchResults = [...result]
             })
         } else if (this.optionState === 'rent') {
-          this.$axios
+          axios
             .get(
               `${process.env.baseUrl}/homes/?search=${
                 this.search
@@ -234,7 +235,7 @@ export default {
               this.searchResults = [...result]
             })
         } else {
-          this.$axios
+          axios
             .get(
               `${process.env.baseUrl}/homes/?search=${
                 this.search
@@ -291,17 +292,15 @@ export default {
   @apply p-4 transition-all duration-300 cursor-pointer ease-in-out flex items-center hover:bg-gray-200;
 }
 
-.option-new-tooltip {
-  &::before {
-    content: '';
-    border-left: 1.2rem solid transparent;
-    border-right: 1.2rem solid transparent;
-    border-top: 1.2rem solid #3d405b;
-    border-bottom: 1.2rem solid transparent;
-    position: absolute;
-    bottom: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.option-new-tooltip::before {
+  content: '';
+  border-left: 1.2rem solid transparent;
+  border-right: 1.2rem solid transparent;
+  border-top: 1.2rem solid #3d405b;
+  border-bottom: 1.2rem solid transparent;
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
