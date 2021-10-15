@@ -19,7 +19,6 @@
             viewBox="0 0 24 24"
             version="1.1"
           >
-            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
             <title>filter</title>
             <desc>Created with Sketch.</desc>
             <defs />
