@@ -55,7 +55,7 @@ export default {
 .swiper-container {
   height: 100%;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
 }
 
 .swiper-container:hover .swiper-button-next {
@@ -72,8 +72,8 @@ export default {
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 2rem;
+  height: 2rem;
   color: #eee;
   transition: 0.2s ease;
 }

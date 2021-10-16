@@ -6,7 +6,7 @@
     <navbar :show-result="showResult" @showResult="changeShowResult"></navbar>
     <div class="flex items-center my-4 ml-6">
       <div
-        class="py-4 px-6 flex items-center rounded-lg mr-4 bg-gray-100 cursor-pointer"
+        class="py-2.5 px-3 flex items-center rounded-md mr-4 bg-gray-100 cursor-pointer"
         @click="showFilter = true"
       >
         <svg
@@ -46,7 +46,7 @@
       </div>
       <div class="relative">
         <div
-          class="py-4 px-6 flex items-center rounded-lg bg-gray-100 cursor-pointer"
+          class="py-2.5 px-3 flex items-center rounded-md bg-gray-100 cursor-pointer"
           @click.stop="showSort = !showSort"
         >
           <svg
@@ -69,7 +69,7 @@
         </div>
         <div
           v-if="showSort"
-          class="sort-options-tooltip w-80 z-30 top-16 overflow-hidden bg-white shadow-lg absolute rounded-bl-lg rounded-br-lg"
+          class="w-52 z-30 top-14 overflow-hidden bg-white shadow-md absolute rounded-bl-md rounded-br-md"
         >
           <div
             :class="[
@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <h1 class="text-sm font-mono mt-6 ml-8 mb-8">
+    <h1 class="text-lg font-mono mt-4 ml-5 mb-5">
       search results for
       <span class="font-bold">{{ $route.params.search }}</span>
     </h1>
@@ -124,10 +124,10 @@
       <filterResults></filterResults>
     </modal>
     <div
-      class="w-64 fixed bottom-2 left-2/4 -translate-x-2/4 -translate-y-2/4 z-20"
+      class="w-40 fixed bottom-2 left-2/4 -translate-x-2/4 -translate-y-2/4 z-20"
     >
       <ButtonPrimary
-        class="flex items-center justify-center gap-4 !py-4 w-full"
+        class="flex items-center justify-center gap-4 !py-2.5 w-full"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -4,10 +4,10 @@
     @click="showResults"
   >
     <navbar :show-result="showResult" @showResult="changeShowResult"></navbar>
-    <div class="flex items-center justify-between my-4 ml-6">
+    <div class="flex items-center my-4 ml-6">
       <div class="flex items-center">
         <div
-          class="py-4 px-6 flex items-center rounded-lg mr-4 bg-gray-100 cursor-pointer"
+          class="py-2.5 px-3 flex items-center rounded-md mr-4 bg-gray-100 cursor-pointer"
           @click="showFilter = true"
         >
           <svg
@@ -19,7 +19,6 @@
             viewBox="0 0 24 24"
             version="1.1"
           >
-            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
             <title>filter</title>
             <desc>Created with Sketch.</desc>
             <defs />
@@ -48,7 +47,7 @@
         </div>
         <div class="relative">
           <div
-            class="py-4 px-6 flex items-center rounded-lg bg-gray-100 cursor-pointer"
+            class="py-2.5 px-3 flex items-center rounded-md bg-gray-100 cursor-pointer"
             @click.stop="showSort = !showSort"
           >
             <svg
@@ -71,7 +70,7 @@
           </div>
           <div
             v-if="showSort"
-            class="sort-options-tooltip w-80 z-30 top-16 overflow-hidden bg-white shadow-lg absolute rounded-bl-lg rounded-br-lg"
+            class="w-52 z-30 top-14 overflow-hidden bg-white shadow-md absolute rounded-bl-md rounded-br-md"
           >
             <div
               :class="[
@@ -137,11 +136,8 @@
           </div>
         </div>
       </div>
-      <div class="text-blue-700 font-bold text-sm mr-4 cursor-pointer">
-        Remove sort
-      </div>
     </div>
-    <h1 class="text-sm font-mono mt-6 ml-8 mb-8">
+    <h1 class="text-lg font-mono mt-4 ml-5 mb-5">
       search results for
       <span class="font-bold">{{ $route.params.search }}</span>
     </h1>
@@ -150,10 +146,10 @@
       <filterResults></filterResults>
     </modal>
     <div
-      class="w-64 fixed bottom-2 left-2/4 -translate-x-2/4 -translate-y-2/4 z-20"
+      class="w-40 fixed bottom-2 left-2/4 -translate-x-2/4 -translate-y-2/4 z-20"
     >
       <ButtonPrimary
-        class="flex items-center justify-center gap-4 !py-4 w-full"
+        class="flex items-center justify-center gap-4 !py-2.5 w-full"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -193,11 +189,12 @@ export default {
     filterResults: filter,
   },
   async asyncData({ store, params, route }) {
+    // const { store, params, route } = this.$nuxt.context
     if (store.state.signin.token) {
       const { data } = await axios.get(
         `${process.env.baseUrl}/homes/?search=${
           params.search
-        }&home_status=${'For Rent'}&min_price=${
+        }&home_status=${'For Sale'}&min_price=${
           route.query.minPrice
             ? route.query.minPrice.replace(/[^0-9.]+/g, '')
             : ''
@@ -285,6 +282,10 @@ export default {
       showSort: false,
     }
   },
+  // computed: {
+  //   ...mapState(['homes']),
+  // },
+
   watch: {
     $route(to, from) {
       if (to !== from) {
@@ -384,22 +385,10 @@ export default {
 
 <style lang="postcss" scoped>
 .selected-sort {
-  @apply bg-primary-yellow text-sm py-4 px-3 cursor-pointer;
+  @apply bg-primary-yellow text-sm py-2.5 px-4 cursor-pointer;
 }
 
 .option {
-  @apply text-sm py-4 px-6 cursor-pointer hover:bg-gray-50;
-}
-
-.sort-options-tooltip::before {
-  content: '';
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  border-top: 1rem solid transparent;
-  border-bottom: 1rem solid #fff;
-  position: absolute;
-  top: -20px;
-  left: 50px;
-  transform: translateX(-50%);
+  @apply text-sm py-2.5 px-4 cursor-pointer hover:bg-gray-50;
 }
 </style>

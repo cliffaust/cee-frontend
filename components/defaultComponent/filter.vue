@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10">
+  <div class="mt-6">
     <div class="flex items-center justify-center gap-2">
       <nuxt-link
         v-slot="{ href, navigate }"
@@ -57,7 +57,7 @@
             :options="minPrices"
           ></baseSelect>
         </div>
-        <div class="w-5 h-1 bg-gray-200 mt-6"></div>
+        <div class="w-5 h-0.5 bg-gray-200 mt-6"></div>
         <div class="max-price">
           <baseSelect
             v-model="selectedMaxPrice"
@@ -67,18 +67,18 @@
         </div>
       </div>
     </div>
-    <div class="mt-7">
-      <div class="text-sm font-mono font-bold mb-3">Beds</div>
+    <div class="mt-4">
+      <div class="text-sm font-mono font-bold mb-2">Beds</div>
       <div class="flex items-center justify-center gap-2">
         <div
-          :class="[!selectedBed ? 'option-new !px-6' : 'option-old !px-6']"
+          :class="[!selectedBed ? 'option-new !px-3' : 'option-old !px-3']"
           @click="bed('')"
         >
           Any
         </div>
         <div
           :class="[
-            selectedBed === '1+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBed === '1+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bed('1+')"
         >
@@ -86,7 +86,7 @@
         </div>
         <div
           :class="[
-            selectedBed === '2+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBed === '2+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bed('2+')"
         >
@@ -94,7 +94,7 @@
         </div>
         <div
           :class="[
-            selectedBed === '3+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBed === '3+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bed('3+')"
         >
@@ -102,7 +102,7 @@
         </div>
         <div
           :class="[
-            selectedBed === '4+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBed === '4+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bed('4+')"
         >
@@ -110,12 +110,12 @@
         </div>
       </div>
     </div>
-    <div class="mt-7">
-      <div class="text-sm font-mono font-bold mb-3">Bathrooms</div>
+    <div class="mt-4">
+      <div class="text-sm font-mono font-bold mb-2">Bathrooms</div>
       <div class="flex items-center justify-center gap-2">
         <div
           class="bathroom-select"
-          :class="[!selectedBathroom ? 'option-new !px-6' : 'option-old !px-6']"
+          :class="[!selectedBathroom ? 'option-new !px-3' : 'option-old !px-3']"
           @click="bathroom('')"
         >
           Any
@@ -123,7 +123,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '1+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBathroom === '1+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bathroom('1+')"
         >
@@ -132,7 +132,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '2+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBathroom === '2+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bathroom('2+')"
         >
@@ -141,7 +141,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '3+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBathroom === '3+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bathroom('3+')"
         >
@@ -150,7 +150,7 @@
         <div
           class="bathroom-select"
           :class="[
-            selectedBathroom === '4+' ? 'option-new !px-6' : 'option-old !px-6',
+            selectedBathroom === '4+' ? 'option-new !px-3' : 'option-old !px-3',
           ]"
           @click="bathroom('4+')"
         >
@@ -220,19 +220,16 @@
     </div>
     <div class="flex mt-10 gap-6">
       <div class="flex-grow">
-        <ButtonPrimary class="w-full h-16 text-sm" @click="reset"
+        <ButtonPrimary class="w-full h-10 text-sm" @click="reset"
           >Reset</ButtonPrimary
         >
       </div>
       <div class="flex-grow">
-        <ButtonPrimaryOpen class="w-full h-16 text-sm" @click="filter"
+        <ButtonPrimaryOpen class="w-full h-10 text-sm" @click="filter"
           >Filter</ButtonPrimaryOpen
         >
       </div>
     </div>
-    <!-- <div class="checkbox-container">
-      <baseCheckBox v-model="ammenities" label="Air Condition"></baseCheckBox>
-    </div> -->
   </div>
 </template>
 
@@ -539,11 +536,11 @@ export default {
 
 <style lang="postcss" scoped>
 .option-old {
-  @apply py-4 px-9 text-sm font-bold rounded-2xl hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
+  @apply py-2.5 px-5 text-sm font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
 }
 
 .option-new {
-  @apply py-4 px-9 text-sm font-bold relative cursor-pointer rounded-2xl bg-primary-darkgray text-white;
+  @apply py-2.5 px-5 text-sm font-bold relative cursor-pointer rounded-lg bg-primary-darkgray text-white;
 }
 
 .content {
@@ -554,7 +551,7 @@ export default {
 .land-size,
 .lot-size,
 .year-built {
-  @apply flex flex-col justify-center mt-7;
+  @apply flex flex-col justify-center mt-4;
 }
 .min-price,
 .max-price,
