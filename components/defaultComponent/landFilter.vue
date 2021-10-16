@@ -173,37 +173,7 @@ export default {
         '11000',
         '12000',
       ],
-
-      minLotSizes: [
-        'Any Size',
-        '100',
-        '200',
-        '300',
-        '500',
-        '700',
-        '1000',
-        '1200',
-        '1500',
-      ],
-      maxLotSizes: [
-        'Any Size',
-        '2000',
-        '2200',
-        '2500',
-        '3000',
-        '3500',
-        '4000',
-        '5000',
-        '6000',
-      ],
     }
-  },
-  watch: {
-    $route(to, from) {
-      if (to !== from) {
-        location.reload()
-      }
-    },
   },
 
   methods: {
@@ -226,8 +196,6 @@ export default {
           maxPrice: this.selectedMaxPrice,
           minLandSize: this.selectedMinLandSize,
           maxLandSize: this.selectedMaxLandSize,
-          minLotSize: this.selectedMinLotSize,
-          maxLotSize: this.selectedMaxLotSize,
         },
       })
     },
@@ -239,14 +207,10 @@ export default {
           maxPrice: null,
           minLandSize: null,
           maxLandSize: null,
-          minLotSize: null,
-          maxLotSize: null,
         },
       })
       this.selectedMinLandSize = 'Any Size'
       this.selectedMaxLandSize = 'Any Size'
-      this.selectedMinLotSize = 'Any Size'
-      this.selectedMaxLotSize = 'Any Size'
       this.selectedMinPrice = 'Any Price'
       this.selectedMaxPrice = 'Any Price'
     },

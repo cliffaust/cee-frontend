@@ -336,111 +336,7 @@ export default {
       ],
     }
   },
-  watch: {
-    $route(to, from) {
-      if (to !== from) {
-        location.reload()
-      }
-    },
-  },
-  // watch: {
-  //   selectedMinPrice(value) {
-  //     this.$router.push({
-  //       query: {
-  //         minPrice: value,
-  //         maxPrice: this.$route.query.maxPrice,
-  //         bathrooms: this.$route.query.bathrooms,
-  //         beds: this.$route.query.beds,
-  //         minLandSize: this.$route.query.minLandSize,
-  //         maxLandSize: this.$route.query.maxLandSize,
-  //         minLotSize: this.$route.query.minLotSize,
-  //         maxLotSize: this.$route.query.maxLotSize,
-  //         minYear: this.$route.query.minYear,
-  //         maxYear: this.$route.query.maxYear,
-  //       },
-  //     })
-  //   },
-  //   selectedMaxPrice(value) {
-  //     this.$router.push({
-  //       query: {
-  //         maxPrice: value,
-  //         minPrice: this.$route.query.minPrice,
-  //         bathrooms: this.$route.query.bathrooms,
-  //         beds: this.$route.query.beds,
-  //         minLandSize: this.$route.query.minLandSize,
-  //         maxLandSize: this.$route.query.maxLandSize,
-  //         minLotSize: this.$route.query.minLotSize,
-  //         maxLotSize: this.$route.query.maxLotSize,
-  //         minYear: this.$route.query.minYear,
-  //         maxYear: this.$route.query.maxYear,
-  //       },
-  //     })
-  //   },
-  //   selectedMinLandSize(value) {
-  //     this.$router.push({
-  //       query: {
-  //         maxPrice: this.$route.query.maxPrice,
-  //         minPrice: this.$route.query.minPrice,
-  //         bathrooms: this.$route.query.bathrooms,
-  //         beds: this.$route.query.beds,
-  //         minLandSize: value,
-  //         maxLandSize: this.$route.query.maxLandSize,
-  //         minLotSize: this.$route.query.minLotSize,
-  //         maxLotSize: this.$route.query.maxLotSize,
-  //         minYear: this.$route.query.minYear,
-  //         maxYear: this.$route.query.maxYear,
-  //       },
-  //     })
-  //   },
-  //   selectedMaxLandSize(value) {
-  //     this.$router.push({
-  //       query: {
-  //         maxPrice: this.$route.query.maxPrice,
-  //         minPrice: this.$route.query.minPrice,
-  //         bathrooms: this.$route.query.bathrooms,
-  //         beds: this.$route.query.beds,
-  //         minLandSize: this.$route.query.minLandSize,
-  //         maxLandSize: value,
-  //         minLotSize: this.$route.query.minLotSize,
-  //         maxLotSize: this.$route.query.maxLotSize,
-  //         minYear: this.$route.query.minYear,
-  //         maxYear: this.$route.query.maxYear,
-  //       },
-  //     })
-  //   },
-  //   selectedMinLotSize(value) {
-  //     this.$router.push({
-  //       query: {
-  //         maxPrice: this.$route.query.maxPrice,
-  //         minPrice: this.$route.query.minPrice,
-  //         bathrooms: this.$route.query.bathrooms,
-  //         beds: this.$route.query.beds,
-  //         minLandSize: this.$route.query.minLandSize,
-  //         maxLandSize: this.$route.query.maxLandSize,
-  //         minLotSize: value,
-  //         maxLotSize: this.$route.query.maxLotSize,
-  //         minYear: this.$route.query.minYear,
-  //         maxYear: this.$route.query.maxYear,
-  //       },
-  //     })
-  //   },
-  //   selectedMaxLotSize(value) {
-  //     this.$router.push({
-  //       query: {
-  //         maxPrice: this.$route.query.maxPrice,
-  //         minPrice: this.$route.query.minPrice,
-  //         bathrooms: this.$route.query.bathrooms,
-  //         beds: this.$route.query.beds,
-  //         minLandSize: this.$route.query.minLandSize,
-  //         maxLandSize: this.$route.query.maxLandSize,
-  //         minLotSize: this.$route.query.minLotSize,
-  //         maxLotSize: value,
-  //         minYear: this.$route.query.minYear,
-  //         maxYear: this.$route.query.maxYear,
-  //       },
-  //     })
-  //   },
-  // },
+
   methods: {
     numFormatter(num) {
       if (num >= 1000000000) {
@@ -454,37 +350,9 @@ export default {
     },
 
     bed(num) {
-      // this.$router.push({
-      //   query: {
-      //     beds: num,
-      //     bathrooms: this.$route.query.bathrooms,
-      //     minPrice: this.$route.query.minPrice,
-      //     maxPrice: this.$route.query.maxPrice,
-      //     minLandSize: this.$route.query.minLandSize,
-      //     maxLandSize: this.$route.query.maxLandSize,
-      //     minLotSize: this.$route.query.minLotSize,
-      //     maxLotSize: this.$route.query.maxLotSize,
-      //     minYear: this.$route.query.minYear,
-      //     maxYear: this.$route.query.maxYear,
-      //   },
-      // })
       this.selectedBed = num
     },
     bathroom(num) {
-      // this.$router.push({
-      //   query: {
-      //     bathrooms: num,
-      //     beds: this.$route.query.beds,
-      //     minPrice: this.$route.query.minPrice,
-      //     maxPrice: this.$route.query.maxPrice,
-      //     minLandSize: this.$route.query.minLandSize,
-      //     maxLandSize: this.$route.query.maxLandSize,
-      //     minLotSize: this.$route.query.minLotSize,
-      //     maxLotSize: this.$route.query.maxLotSize,
-      //     minYear: this.$route.query.minYear,
-      //     maxYear: this.$route.query.maxYear,
-      //   },
-      // })
       this.selectedBathroom = num
     },
     filter() {
