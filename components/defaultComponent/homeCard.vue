@@ -1,5 +1,5 @@
 <template>
-  <div class="container-card noSelect">
+  <div>
     <nuxt-link
       v-slot="{ href, navigate }"
       :to="{ path: `/homeDetail/${home.slug}` }"
@@ -8,10 +8,10 @@
     >
       <div
         :href="href"
-        class="w-7/7 mx-auto cursor-pointer mb-16 relative shadow-md rounded-2xl"
+        class="w-7/7 mx-auto cursor-pointer mb-8 relative shadow-md rounded-xl"
         @click="navigate"
       >
-        <div class="absolute top-4 left-8 z-10" @click.stop>
+        <div class="absolute top-2 left-4 z-10" @click.stop>
           <svg
             v-if="like"
             width="28px"
@@ -46,18 +46,18 @@
           </svg>
         </div>
         <div
-          class="absolute py-1.5 px-2.5 top-6 text-sm right-8 z-10 bg-green-300 font-bold rounded-lg"
+          class="absolute py-1 px-1.5 top-3 text-sm right-4 z-10 bg-green-300 font-bold rounded-md"
         >
           {{ home.home_status }}
         </div>
-        <div class="h-88">
+        <div class="h-56">
           <ImageSwiper :images="home_images"></ImageSwiper>
         </div>
-        <div class="px-4 pb-6">
-          <div class="text-sm my-3 font-bold font-mono">
+        <div class="px-2 pb-3">
+          <div class="text-lg my-2 font-bold font-mono">
             GH¢{{ home.home_price.toLocaleString() }}
           </div>
-          <div class="flex mb-3">
+          <div class="flex mb-2">
             <div class="mr-4 flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
