@@ -289,7 +289,7 @@
               Common monthly dues: GH¢{{ home.hoa_dues }}
             </div>
           </div>
-          <div class="mt-3">
+          <div class="mt-4">
             <h1 class="font-bold font-mono text-base">Description</h1>
             <p v-if="home.describe_home.length < 500" class="text-sm mt-3">
               {{ home.describe_home }}

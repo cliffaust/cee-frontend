@@ -11,7 +11,7 @@
         class="w-7/7 mx-auto cursor-pointer mb-16 relative shadow-md rounded-xl"
         @click="navigate"
       >
-        <div class="absolute top-4 left-8 z-10" @click.stop>
+        <div class="absolute top-2 left-4 z-10" @click.stop>
           <svg
             v-if="like"
             width="28px"
@@ -48,11 +48,11 @@
         <div class="h-56">
           <ImageSwiper :images="land_images"></ImageSwiper>
         </div>
-        <div class="px-4 pb-6">
-          <div class="text-sm my-3 font-bold font-mono">
+        <div class="px-2 pb-3">
+          <div class="text-lg my-2 font-bold font-mono">
             GH¢{{ land.land_price.toLocaleString() }}
           </div>
-          <div class="flex mb-3">
+          <div class="flex mb-2">
             <div class="mr-4 flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
