@@ -645,7 +645,7 @@
     </div>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
-        <h1 class="font-bold font-mono text-md mt-1">Email this home</h1>
+        <h1 class="font-bold font-mono text-base mt-1">Email this home</h1>
         <div class="input-container">
           <baseInput
             v-model="shareRecipientEmail"
@@ -765,7 +765,7 @@
           ></smallImageSelectedContainer>
         </div>
         <div class="w-full px-5 fixed bottom-10">
-          <ButtonPrimary class="w-full !py-5 text-sm">
+          <ButtonPrimary class="w-full !py-3 text-sm">
             Request a tour</ButtonPrimary
           >
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-black bg-opacity-80 fixed top-0 left-0 right-0 bottom-0 z-50">
-    <div class="flex justify-between items-center px-6 mt-20">
+    <div class="flex justify-between items-center px-4 mt-12">
       <div class="flex gap-4 items-center">
         <div class="cursor-pointer" @click.stop>
           <svg
@@ -46,7 +46,6 @@
           version="1.1"
           @click="modalShare = true"
         >
-          <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
           <title>share</title>
           <desc>Created with Sketch.</desc>
           <defs />
@@ -98,7 +97,7 @@
         />
       </svg>
     </div>
-    <h3 class="text-sm font-mono font-bold mt-8 ml-8 text-white">
+    <h3 class="text-base font-mono font-bold mt-6 ml-4 text-white">
       {{ parseInt(selectedNumImage) + 1 }} of {{ totalImages }}
     </h3>
     <div

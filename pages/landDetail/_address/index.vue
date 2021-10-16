@@ -334,7 +334,7 @@
       </modal>
       <modal v-if="modalMessage" @close="closeMessage">
         <div>
-          <h1 class="font-bold font-mono text-sm mt-2">
+          <h1 class="font-bold font-mono text-base mt-1">
             Request on this listing
           </h1>
           <div class="input-container">
@@ -367,7 +367,7 @@
             ></baseTextArea>
           </div>
           <div class="mt-8">
-            <ButtonPrimary :class="['w-full', '!py-5', 'text-sm']"
+            <ButtonPrimary :class="['w-full', '!py-3', 'text-sm']"
               >Send</ButtonPrimary
             >
           </div>
@@ -376,7 +376,7 @@
     </div>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
-        <h1 class="font-bold font-mono text-sm mt-2">Email this land</h1>
+        <h1 class="font-bold font-mono text-base mt-1">Email this land</h1>
         <div class="input-container">
           <baseInput
             v-model="shareRecipientEmail"
@@ -393,15 +393,10 @@
           ></baseInput>
         </div>
         <div class="mt-8">
-          <ButtonPrimary class="w-full h-16 text-sm">Share</ButtonPrimary>
-          <ButtonPrimaryOpen
-            class="w-full h-16 text-sm mt-4"
-            @click="closeShareModal"
-            >Cancel</ButtonPrimaryOpen
-          >
+          <ButtonPrimary class="w-full h-10 text-sm">Share</ButtonPrimary>
         </div>
         <div
-          class="flex items-center gap-1 px-4 py-4 rounded-lg bg-gray-100 mt-6"
+          class="flex items-center gap-1 px-4 py-4 rounded-md bg-gray-100 mt-4"
         >
           <div class="text-sm font-bold truncate">
             {{ formatLink }}
@@ -416,14 +411,14 @@
           </button>
           <div v-if="copyToolkit" class="copy-toolkit">Copied!</div>
         </div>
-        <div class="flex flex-col mt-10">
-          <div class="text-sm font-bold font-mono">
+        <div class="flex flex-col mt-6">
+          <div class="text-base font-bold font-mono">
             Or, Share This Land Via:
           </div>
           <div class="flex gap-6 justify-center items-center mt-6">
             <a
               ref="facebookBtn"
-              class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+              class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
             >
               <svg
                 width="32px"
@@ -443,7 +438,7 @@
             </a>
             <a
               ref="twitterBtn"
-              class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+              class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
             >
               <svg
                 width="32px"
@@ -462,7 +457,7 @@
 
             <a
               ref="whatsappBtn"
-              class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+              class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
             >
               <svg
                 width="32px"
@@ -501,7 +496,7 @@
           ></smallImageSelectedContainer>
         </div>
         <div class="w-full px-5 fixed bottom-10">
-          <ButtonPrimary class="w-full !py-5 text-sm">
+          <ButtonPrimary class="w-full !py-3 text-sm">
             Request a tour</ButtonPrimary
           >
         </div>
@@ -667,7 +662,7 @@ export default {
 
 <style lang="postcss" scoped>
 .list-features {
-  @apply flex list-none mt-4 flex-wrap;
+  @apply flex list-none mt-3 flex-wrap;
 }
 
 .item-features {
@@ -675,11 +670,11 @@ export default {
 }
 
 .features {
-  @apply mb-4;
+  @apply mb-3;
 }
 
 .input-container {
-  @apply mt-8;
+  @apply mt-4;
 }
 
 .heading {
@@ -687,6 +682,6 @@ export default {
 }
 
 .copy-link {
-  @apply inline-flex items-center justify-center h-auto px-3 text-center text-sm font-bold text-blue-700 cursor-pointer whitespace-nowrap;
+  @apply inline-flex items-center justify-center h-auto px-2 text-center text-sm font-bold text-blue-700 cursor-pointer whitespace-nowrap;
 }
 </style>

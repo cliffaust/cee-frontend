@@ -9,9 +9,9 @@
         Saved Homes ({{ saved_homes.length }})
       </div>
 
-      <div class="relative w-32 my-6 ml-6">
+      <div class="relative w-24 my-4 ml-4">
         <div
-          class="py-4 px-6 flex items-center rounded-lg bg-gray-100 cursor-pointer"
+          class="py-2.5 px-3 flex items-center rounded-md bg-gray-100 cursor-pointer"
           @click.stop="showSort = !showSort"
         >
           <svg
@@ -34,7 +34,7 @@
         </div>
         <div
           v-if="showSort"
-          class="sort-options-tooltip w-80 z-30 top-16 overflow-hidden bg-white shadow-lg absolute rounded-bl-lg rounded-br-lg"
+          class="w-52 z-30 top-14 overflow-hidden bg-white shadow-md absolute rounded-bl-md rounded-br-md"
         >
           <div
             :class="[
@@ -105,7 +105,7 @@
         :home="home.home"
         :save-home-id="home.id"
       ></homeCard>
-      <div v-if="!$store.state.signin.token" class="mt-4 mb-4 text-sm px-8">
+      <div v-if="!$store.state.signin.token" class="mt-2 mb-2 text-sm px-5">
         You are currently not signed in. To save these items or see your
         previously saved items across devices,
         <nuxt-link
@@ -117,9 +117,9 @@
     </div>
     <div v-else>
       <div class="flex flex-col justify-between overflow-y-scroll">
-        <div class="font-bold text-sm font-mono mt-6 ml-4">Saved Homes</div>
-        <div class="flex flex-col items-center">
-          <div class="w-7/7 h-96">
+        <div class="font-bold text-base font-mono mt-4 ml-3">Saved Homes</div>
+        <div class="flex flex-col mt-10 items-center">
+          <div class="w-7/7 h-52">
             <img
               class="h-full w-full"
               src="~/assets/images/empty.png"
@@ -282,22 +282,10 @@ export default {
 
 <style lang="postcss" scoped>
 .selected-sort {
-  @apply bg-primary-yellow text-sm py-4 px-3 cursor-pointer;
+  @apply bg-primary-yellow text-sm py-2.5 px-4 cursor-pointer;
 }
 
 .option {
-  @apply text-sm py-4 px-6 cursor-pointer hover:bg-gray-50;
-}
-
-.sort-options-tooltip::before {
-  content: '';
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  border-top: 1rem solid transparent;
-  border-bottom: 1rem solid #fff;
-  position: absolute;
-  top: -20px;
-  left: 50px;
-  transform: translateX(-50%);
+  @apply text-sm py-2.5 px-4 cursor-pointer hover:bg-gray-50;
 }
 </style>

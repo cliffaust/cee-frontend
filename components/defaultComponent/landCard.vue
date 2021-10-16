@@ -8,7 +8,7 @@
     >
       <div
         :href="href"
-        class="w-7/7 mx-auto cursor-pointer mb-16 relative shadow-md rounded-xl"
+        class="w-7/7 mx-auto cursor-pointer mb-6 relative shadow-md rounded-xl"
         @click="navigate"
       >
         <div class="absolute top-2 left-4 z-10" @click.stop>
@@ -79,8 +79,8 @@
           </div>
           <div class="text-sm font-bold">{{ land.address }}</div>
           <ButtonPrimary
-            v-if="$route.name === 'saved-land'"
-            class="!py-4 !px-8 text-sm mt-4 bg-red-400 ml-auto"
+            v-if="$route.name === 'saved-lands'"
+            class="!py-2 !px-5 text-sm mt-4 bg-red-400 ml-auto"
             @click="sendUnsaveRequest"
             >Unsave</ButtonPrimary
           >
