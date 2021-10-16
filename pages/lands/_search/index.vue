@@ -309,22 +309,10 @@ export default {
 
 <style lang="postcss" scoped>
 .selected-sort {
-  @apply bg-primary-yellow text-sm py-4 px-3 cursor-pointer;
+  @apply bg-primary-yellow text-sm py-2.5 px-4 cursor-pointer;
 }
 
 .option {
-  @apply text-sm py-4 px-6 cursor-pointer hover:bg-gray-50;
-}
-
-.sort-options-tooltip::before {
-  content: '';
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  border-top: 1rem solid transparent;
-  border-bottom: 1rem solid #fff;
-  position: absolute;
-  top: -20px;
-  left: 50px;
-  transform: translateX(-50%);
+  @apply text-sm py-2.5 px-4 cursor-pointer hover:bg-gray-50;
 }
 </style>
