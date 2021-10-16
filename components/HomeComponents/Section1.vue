@@ -58,14 +58,14 @@ export default {}
 }
 
 .image {
-  @apply w-52;
+  @apply w-40;
 }
 
 .card-heading {
-  @apply text-4xl font-mono font-bold text-center mt-6;
+  @apply text-2xl font-mono font-bold text-center mt-3;
 }
 
 .card-text {
-  @apply text-xl text-left my-6;
+  @apply text-sm text-left my-3;
 }
 </style>

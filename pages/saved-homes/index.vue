@@ -5,7 +5,7 @@
       @showUserOptions="showUserOptions"
     ></navbar>
     <div v-if="saved_homes.length > 0" class="mt-8 ml-4">
-      <div class="font-bold text-2xl font-mono">
+      <div class="font-bold text-sm font-mono">
         Saved Homes ({{ saved_homes.length }})
       </div>
 
@@ -30,7 +30,7 @@
               d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
             />
           </svg>
-          <span class="text-xl">Sort</span>
+          <span class="text-sm">Sort</span>
         </div>
         <div
           v-if="showSort"
@@ -105,7 +105,7 @@
         :home="home.home"
         :save-home-id="home.id"
       ></homeCard>
-      <div v-if="!$store.state.signin.token" class="mt-4 mb-4 text-xl px-8">
+      <div v-if="!$store.state.signin.token" class="mt-4 mb-4 text-sm px-8">
         You are currently not signed in. To save these items or see your
         previously saved items across devices,
         <nuxt-link
@@ -117,7 +117,7 @@
     </div>
     <div v-else>
       <div class="flex flex-col justify-between overflow-y-scroll">
-        <div class="font-bold text-2xl font-mono mt-6 ml-4">Saved Homes</div>
+        <div class="font-bold text-sm font-mono mt-6 ml-4">Saved Homes</div>
         <div class="flex flex-col items-center">
           <div class="w-7/7 h-96">
             <img
@@ -126,7 +126,7 @@
               alt="No Item in saves"
             />
           </div>
-          <div class="text-center mt-8 text-xl font-bold">
+          <div class="text-center mt-8 text-sm font-bold">
             Nothing in here. Don't worry!
           </div>
           <a href="#" class="primary-link">check these homes out</a>
@@ -282,11 +282,11 @@ export default {
 
 <style lang="postcss" scoped>
 .selected-sort {
-  @apply bg-primary-yellow text-xl py-4 px-3 cursor-pointer;
+  @apply bg-primary-yellow text-sm py-4 px-3 cursor-pointer;
 }
 
 .option {
-  @apply text-xl py-4 px-6 cursor-pointer hover:bg-gray-50;
+  @apply text-sm py-4 px-6 cursor-pointer hover:bg-gray-50;
 }
 
 .sort-options-tooltip::before {

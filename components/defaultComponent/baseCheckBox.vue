@@ -8,7 +8,7 @@
       :value="value"
       @change="change"
     />
-    <label v-if="label" for="others" class="font-bold ml-3 text-xl">{{
+    <label v-if="label" for="others" class="font-bold ml-2 text-sm">{{
       label
     }}</label>
   </div>

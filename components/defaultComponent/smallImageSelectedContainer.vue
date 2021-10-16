@@ -98,7 +98,7 @@
         />
       </svg>
     </div>
-    <h3 class="text-2xl font-mono font-bold mt-8 ml-8 text-white">
+    <h3 class="text-sm font-mono font-bold mt-8 ml-8 text-white">
       {{ parseInt(selectedNumImage) + 1 }} of {{ totalImages }}
     </h3>
     <div

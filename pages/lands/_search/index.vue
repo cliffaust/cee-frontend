@@ -42,7 +42,7 @@
             </g>
           </g>
         </svg>
-        <span class="text-xl">Filter</span>
+        <span class="text-sm">Filter</span>
       </div>
       <div class="relative">
         <div
@@ -65,7 +65,7 @@
               d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
             />
           </svg>
-          <span class="text-xl">Sort</span>
+          <span class="text-sm">Sort</span>
         </div>
         <div
           v-if="showSort"
@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <h1 class="text-3xl font-mono mt-6 ml-8 mb-8">
+    <h1 class="text-sm font-mono mt-6 ml-8 mb-8">
       search results for
       <span class="font-bold">{{ $route.params.search }}</span>
     </h1>
@@ -144,7 +144,7 @@
             d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
           />
         </svg>
-        <span class="text-xl">Map</span>
+        <span class="text-sm">Map</span>
       </ButtonPrimary>
     </div>
   </div>
@@ -309,11 +309,11 @@ export default {
 
 <style lang="postcss" scoped>
 .selected-sort {
-  @apply bg-primary-yellow text-xl py-4 px-3 cursor-pointer;
+  @apply bg-primary-yellow text-sm py-4 px-3 cursor-pointer;
 }
 
 .option {
-  @apply text-xl py-4 px-6 cursor-pointer hover:bg-gray-50;
+  @apply text-sm py-4 px-6 cursor-pointer hover:bg-gray-50;
 }
 
 .sort-options-tooltip::before {

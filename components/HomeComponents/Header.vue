@@ -3,10 +3,10 @@
     <navbar @showUserOptions="showUserOptions"></navbar>
     <div class="h-500 bg-header-image relative bg-center bg-cover">
       <h1
-        class="text-6xl font-standard-tt absolute text-center w-2/8 left-2/4 top-1/3 -translate-y-2/4 -translate-x-2/4"
+        class="text-4xl font-standard-tt absolute text-center w-2/8 left-2/4 top-1/3 -translate-y-2/4 -translate-x-2/4"
       >
         Your path to the perfect
-        <span class="secondary-heading before:w-32 !text-5xl">home</span>
+        <span class="secondary-heading before:w-20 !text-3xl">home</span>
       </h1>
       <div class="options">
         <p
@@ -39,7 +39,7 @@
         <form @submit.prevent="searchLocation">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon left-7"
+            class="icon left-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -58,7 +58,7 @@
             placeholder="Enter an address or city or town"
             :class="[
               searchResults.length > 0 && search
-                ? 'search-result-open !rounded-tr-lg !rounded-tl-lg !rounded-br-none !rounded-bl-none !border-gray-100 !border-2'
+                ? 'search-result-open !rounded-tr-md !rounded-tl-md !rounded-br-none !rounded-bl-none !border-gray-100 !border-2'
                 : 'search',
             ]"
             @input="searchApi"
@@ -76,7 +76,7 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-8 h-8 mr-4"
+                class="w-5 h-5 mr-6 ml-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -94,7 +94,7 @@
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <span class="text-xl">{{ searchResult }}</span>
+              <span class="text-sm">{{ searchResult }}</span>
             </div>
           </div>
           <svg
@@ -264,11 +264,11 @@ export default {
 }
 
 .option-old {
-  @apply py-4 px-9 text-xl font-bold rounded-full hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
+  @apply py-3 px-6 text-sm font-bold rounded-full hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
 }
 
 .option-new {
-  @apply py-4 px-9 text-xl font-bold relative cursor-pointer rounded-full bg-primary-darkgray text-white;
+  @apply py-3 px-6 text-sm font-bold relative cursor-pointer rounded-full bg-primary-darkgray text-white;
 }
 
 .searchbar {
@@ -277,27 +277,27 @@ export default {
 
 .search,
 .search-result-open {
-  @apply w-full py-6 pl-20 pr-4 rounded-full text-xl outline-none;
+  @apply w-full py-4 pl-12 pr-2 rounded-full text-sm outline-none;
 }
 
 .icon {
-  @apply w-8 h-8 absolute top-2/4 -translate-y-2/4 z-10 cursor-pointer;
+  @apply w-5 h-5 absolute top-2/4 -translate-y-2/4 z-10 cursor-pointer;
 }
 
 .search-results {
-  @apply w-full py-4 absolute left-2/4 top-full rounded-br-lg rounded-bl-lg shadow-lg bg-white -translate-x-2/4;
+  @apply w-full py-2 absolute left-2/4 top-full rounded-br-md rounded-bl-md shadow-md bg-white -translate-x-2/4;
 }
 
 .search-result {
-  @apply p-4 transition-all duration-300 cursor-pointer ease-in-out flex items-center hover:bg-gray-200;
+  @apply p-2 transition-all duration-300 cursor-pointer ease-in-out flex items-center hover:bg-gray-200;
 }
 
 .option-new-tooltip::before {
   content: '';
-  border-left: 1.2rem solid transparent;
-  border-right: 1.2rem solid transparent;
-  border-top: 1.2rem solid #3d405b;
-  border-bottom: 1.2rem solid transparent;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-top: 1rem solid #3d405b;
+  border-bottom: 1rem solid transparent;
   position: absolute;
   bottom: -50%;
   left: 50%;

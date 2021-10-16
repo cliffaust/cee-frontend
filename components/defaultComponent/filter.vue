@@ -48,7 +48,7 @@
       </nuxt-link>
     </div>
     <div class="price">
-      <div class="text-2xl font-mono font-bold">Price</div>
+      <div class="text-sm font-mono font-bold">Price</div>
       <div class="content">
         <div class="min-price">
           <baseSelect
@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="mt-7">
-      <div class="text-2xl font-mono font-bold mb-3">Beds</div>
+      <div class="text-sm font-mono font-bold mb-3">Beds</div>
       <div class="flex items-center justify-center gap-2">
         <div
           :class="[!selectedBed ? 'option-new !px-6' : 'option-old !px-6']"
@@ -111,7 +111,7 @@
       </div>
     </div>
     <div class="mt-7">
-      <div class="text-2xl font-mono font-bold mb-3">Bathrooms</div>
+      <div class="text-sm font-mono font-bold mb-3">Bathrooms</div>
       <div class="flex items-center justify-center gap-2">
         <div
           class="bathroom-select"
@@ -159,7 +159,7 @@
       </div>
     </div>
     <div class="land-size">
-      <div class="text-2xl font-mono font-bold">Land Space</div>
+      <div class="text-sm font-mono font-bold">Land Space</div>
       <div class="content">
         <div class="min-land-size">
           <baseSelect
@@ -179,7 +179,7 @@
       </div>
     </div>
     <div class="lot-size">
-      <div class="text-2xl font-mono font-bold">Lot Size</div>
+      <div class="text-sm font-mono font-bold">Lot Size</div>
       <div class="content">
         <div class="min-lot-size">
           <baseSelect
@@ -199,7 +199,7 @@
       </div>
     </div>
     <div class="year-built">
-      <div class="text-2xl font-mono font-bold">Year Built</div>
+      <div class="text-sm font-mono font-bold">Year Built</div>
       <div class="content">
         <div class="min-year">
           <baseInput
@@ -220,12 +220,12 @@
     </div>
     <div class="flex mt-10 gap-6">
       <div class="flex-grow">
-        <ButtonPrimary class="w-full h-16 text-xl" @click="reset"
+        <ButtonPrimary class="w-full h-16 text-sm" @click="reset"
           >Reset</ButtonPrimary
         >
       </div>
       <div class="flex-grow">
-        <ButtonPrimaryOpen class="w-full h-16 text-xl" @click="filter"
+        <ButtonPrimaryOpen class="w-full h-16 text-sm" @click="filter"
           >Filter</ButtonPrimaryOpen
         >
       </div>
@@ -539,11 +539,11 @@ export default {
 
 <style lang="postcss" scoped>
 .option-old {
-  @apply py-4 px-9 text-xl font-bold rounded-2xl hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
+  @apply py-4 px-9 text-sm font-bold rounded-2xl hover:bg-gray-200 transition-all duration-300 cursor-pointer ease-in-out;
 }
 
 .option-new {
-  @apply py-4 px-9 text-xl font-bold relative cursor-pointer rounded-2xl bg-primary-darkgray text-white;
+  @apply py-4 px-9 text-sm font-bold relative cursor-pointer rounded-2xl bg-primary-darkgray text-white;
 }
 
 .content {

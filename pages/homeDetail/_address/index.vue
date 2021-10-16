@@ -13,7 +13,7 @@
       <div class="h-325 relative">
         <img :src="home.cover_image" class="w-full h-full" alt="Home Image" />
         <div
-          class="absolute py-1.5 px-2.5 top-6 text-xl left-8 z-10 bg-green-300 font-bold rounded-lg"
+          class="absolute py-1.5 px-2.5 top-6 text-sm left-8 z-10 bg-green-300 font-bold rounded-lg"
         >
           {{ home.home_status }}
         </div>
@@ -74,7 +74,7 @@
               </g>
             </g>
           </svg>
-          <p class="text-xl text-white font-bold">See all</p>
+          <p class="text-sm text-white font-bold">See all</p>
         </div>
         <div class="flex absolute top-6 right-4 gap-4 items-center">
           <div class="cursor-pointer" @click.stop>
@@ -158,7 +158,7 @@
       </div>
       <div class="p-4" @click.self="modal = false">
         <div>
-          <div class="text-3xl truncate font-mono font-bold">
+          <div class="text-sm truncate font-mono font-bold">
             {{ home.address }}
           </div>
           <div class="flex mb-3">
@@ -178,7 +178,7 @@
                 <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6"></path>
                 <circle cx="7" cy="10" r="1"></circle>
               </svg>
-              <span class="text-xl">{{ home.number_bedrooms }}bd</span>
+              <span class="text-sm">{{ home.number_bedrooms }}bd</span>
             </div>
             <div class="mr-4 flex items-center gap-2">
               <svg
@@ -198,7 +198,7 @@
                 ></path>
                 <path d="M11 13v2m0 3v2m4 -5v2m0 3v2"></path>
               </svg>
-              <span class="text-xl">{{ home.number_bathrooms }}ba</span>
+              <span class="text-sm">{{ home.number_bathrooms }}ba</span>
             </div>
             <div class="mr-4 flex items-center gap-2">
               <svg
@@ -218,13 +218,13 @@
                 ></path>
                 <path d="M3 3l18 18"></path>
               </svg>
-              <span v-if="home.home_size" class="text-xl"
+              <span v-if="home.home_size" class="text-sm"
                 >{{ home.home_size }}sqft</span
               >
-              <span v-else class="text-xl">No data</span>
+              <span v-else class="text-sm">No data</span>
             </div>
           </div>
-          <div class="text-2xl font-mono font-bold">
+          <div class="text-sm font-mono font-bold">
             GH¢{{ home.home_price.toLocaleString() }}
           </div>
           <nuxt-link
@@ -235,7 +235,7 @@
           >
             <button
               :href="href"
-              class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+              class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
               @click="navigate"
             >
               View in saved homes
@@ -244,7 +244,7 @@
           <button
             v-else
             :disabled="disableSaveBtn"
-            class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+            class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
             @click="saveHome"
           >
             Save this home
@@ -252,17 +252,17 @@
         </div>
         <div class="flex flex-col gap-4 my-4">
           <ButtonPrimary
-            class="w-full !py-5 text-xl"
+            class="w-full !py-5 text-sm"
             @click="modalMessage = true"
             >Message</ButtonPrimary
           >
           <div class="flex gap-4">
             <ButtonPrimaryOpen
-              class="w-full !py-5 text-xl"
+              class="w-full !py-5 text-sm"
               @click="modal = true"
               >Call</ButtonPrimaryOpen
             >
-            <ButtonPrimaryOpen class="w-full !py-5 text-xl"
+            <ButtonPrimaryOpen class="w-full !py-5 text-sm"
               >Tour</ButtonPrimaryOpen
             >
           </div>
@@ -270,40 +270,40 @@
         <div>
           <div
             v-if="home.like_count > 4"
-            class="text-xl mb-2 font-bold text-blue-700"
+            class="text-sm mb-2 font-bold text-blue-700"
           >
             This listing has been liked by {{ home.like_count }} users
           </div>
-          <div class="text-xl font-bold">
+          <div class="text-sm font-bold">
             You have a problem with this listing? Report it
             <a href="#" class="underline text-blue-600">here</a>
           </div>
         </div>
         <div class="mt-6">
-          <h1 class="font-bold font-mono text-3xl">Overview</h1>
+          <h1 class="font-bold font-mono text-sm">Overview</h1>
           <div class="flex mt-2 gap-4">
-            <div class="p-4 text-xl bg-gray-50 rounded-lg">
+            <div class="p-4 text-sm bg-gray-50 rounded-lg">
               Posted on 2nd September 2020
             </div>
-            <div class="p-4 text-xl bg-gray-50 rounded-lg">
+            <div class="p-4 text-sm bg-gray-50 rounded-lg">
               Common monthly dues: GH¢{{ home.hoa_dues }}
             </div>
           </div>
           <div class="mt-6">
-            <h1 class="font-bold font-mono text-3xl">Description</h1>
-            <p v-if="home.describe_home.length < 500" class="text-xl mt-4">
+            <h1 class="font-bold font-mono text-sm">Description</h1>
+            <p v-if="home.describe_home.length < 500" class="text-sm mt-4">
               {{ home.describe_home }}
             </p>
             <template v-if="home.describe_home.length >= 500">
-              <p v-if="readMore" class="text-xl mt-4">
+              <p v-if="readMore" class="text-sm mt-4">
                 {{ home.describe_home }}
               </p>
-              <p v-else class="text-xl mt-4">
+              <p v-else class="text-sm mt-4">
                 {{ home.describe_home.slice(0, 500) }}....
               </p>
               <button
                 v-if="readMore"
-                class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+                class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
                 @click="readMore = false"
               >
                 Read Less
@@ -322,7 +322,7 @@
               </button>
               <button
                 v-else
-                class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+                class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
                 @click="readMore = true"
               >
                 Read More
@@ -352,7 +352,7 @@
           "
         >
           <div>
-            <h1 class="font-bold font-mono text-3xl">Features</h1>
+            <h1 class="font-bold font-mono text-sm">Features</h1>
             <div class="shadow-md mt-4 p-4 rounded-lg">
               <div v-if="home.room_features.length > 0" class="features">
                 <div class="heading">Room Features</div>
@@ -528,7 +528,7 @@
               >
                 <button
                   v-if="readMore"
-                  class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+                  class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
                   @click="readMoreFeature = false"
                 >
                   Read Less Features
@@ -547,7 +547,7 @@
                 </button>
                 <button
                   v-else
-                  class="text-xl my-4 text-blue-700 font-bold flex items-center gap-2"
+                  class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
                   @click="readMoreFeature = true"
                 >
                   Read More Features
@@ -570,14 +570,14 @@
         </template>
       </div>
       <modal v-if="modal" @close="close">
-        <h1 class="font-bold font-mono text-3xl mt-2">Contact List</h1>
+        <h1 class="font-bold font-mono text-sm mt-2">Contact List</h1>
         <div class="mt-10">
           <div
             v-for="(contact_number, index) in home.contact_numbers"
             :key="index"
             class="flex items-center mb-4 bg-gray-100 justify-between box-content px-4 py-4 rounded-lg"
           >
-            <div class="text-xl font-bold">{{ contact_number.number }}</div>
+            <div class="text-sm font-bold">{{ contact_number.number }}</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -595,7 +595,7 @@
               />
             </svg>
           </div>
-          <div class="text-xl font-bold mt-6">
+          <div class="text-sm font-bold mt-6">
             By making a call, you are agreeing to our
             <a class="text-blue-700" href="#">call terms and conditions</a>
           </div>
@@ -603,7 +603,7 @@
       </modal>
       <modal v-if="modalMessage" @close="closeMessage">
         <div>
-          <h1 class="font-bold font-mono text-3xl mt-2">
+          <h1 class="font-bold font-mono text-sm mt-2">
             Request on this listing
           </h1>
           <div class="input-container">
@@ -636,7 +636,7 @@
             ></baseTextArea>
           </div>
           <div class="mt-8">
-            <ButtonPrimary :class="['w-full', '!py-5', 'text-xl']"
+            <ButtonPrimary :class="['w-full', '!py-5', 'text-sm']"
               >Send</ButtonPrimary
             >
           </div>
@@ -645,7 +645,7 @@
     </div>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
-        <h1 class="font-bold font-mono text-3xl mt-2">Email this home</h1>
+        <h1 class="font-bold font-mono text-sm mt-2">Email this home</h1>
         <div class="input-container">
           <baseInput
             v-model="shareRecipientEmail"
@@ -662,9 +662,9 @@
           ></baseInput>
         </div>
         <div class="mt-8">
-          <ButtonPrimary class="w-full h-16 text-xl">Share</ButtonPrimary>
+          <ButtonPrimary class="w-full h-16 text-sm">Share</ButtonPrimary>
           <ButtonPrimaryOpen
-            class="w-full h-16 text-xl mt-4"
+            class="w-full h-16 text-sm mt-4"
             @click="closeShareModal"
             >Cancel</ButtonPrimaryOpen
           >
@@ -672,7 +672,7 @@
         <div
           class="flex items-center gap-1 px-4 py-4 rounded-lg bg-gray-100 mt-6"
         >
-          <div class="text-xl font-bold truncate">
+          <div class="text-sm font-bold truncate">
             {{ formatLink }}
           </div>
           <button
@@ -686,7 +686,7 @@
           <div v-if="copyToolkit" class="copy-toolkit">Copied!</div>
         </div>
         <div class="flex flex-col mt-10">
-          <div class="text-3xl font-bold font-mono">
+          <div class="text-sm font-bold font-mono">
             Or, Share This Home Via:
           </div>
           <div class="flex gap-6 justify-center items-center mt-6">
@@ -770,7 +770,7 @@
           ></smallImageSelectedContainer>
         </div>
         <div class="w-full px-5 fixed bottom-10">
-          <ButtonPrimary class="w-full !py-5 text-xl">
+          <ButtonPrimary class="w-full !py-5 text-sm">
             Request a tour</ButtonPrimary
           >
         </div>
@@ -942,7 +942,7 @@ export default {
 }
 
 .item-features {
-  @apply flex items-center gap-2 text-xl w-6/12;
+  @apply flex items-center gap-2 text-sm w-6/12;
 }
 
 .features {
@@ -954,10 +954,10 @@ export default {
 }
 
 .heading {
-  @apply font-bold text-2xl;
+  @apply font-bold text-sm;
 }
 
 .copy-link {
-  @apply inline-flex items-center justify-center h-auto px-3 text-center text-xl font-bold text-blue-700 cursor-pointer whitespace-nowrap;
+  @apply inline-flex items-center justify-center h-auto px-3 text-center text-sm font-bold text-blue-700 cursor-pointer whitespace-nowrap;
 }
 </style>

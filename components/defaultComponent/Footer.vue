@@ -169,15 +169,15 @@ export default {
 
 <style lang="postcss" scoped>
 .link-box {
-  @apply my-4 mx-auto relative items-center flex-grow-0 flex-shrink-0 w-2/4 pt-2;
+  @apply my-2 mx-auto relative items-center flex-grow-0 flex-shrink-0 w-2/4 pt-2;
 }
 
 .link {
-  @apply text-2xl font-bold;
+  @apply text-sm font-bold;
 }
 
 .social-icon {
-  @apply w-9 h-9 mr-4 last:mr-0;
+  @apply w-6 h-6 mr-4 last:mr-0;
 }
 
 .logo {

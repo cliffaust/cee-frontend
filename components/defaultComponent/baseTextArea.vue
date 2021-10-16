@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <label v-if="label" class="block text-gray-700 text-xl font-bold mb-2">{{
+    <label v-if="label" class="block text-gray-700 text-sm font-bold mb-2">{{
       label
     }}</label>
     <textarea
@@ -16,11 +16,11 @@
         'bg-gray-200',
         'focus:outline-none',
         'rounded',
-        'py-5',
-        'px-4',
+        'py-3',
+        'px-2',
         'text-gray-700',
         'w-full',
-        'text-xl',
+        'text-sm',
         { 'border-red-300': errorStyle },
       ]"
       :value="value"

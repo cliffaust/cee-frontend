@@ -5,10 +5,10 @@
       <div v-if="error.statusCode === 404">
         <pageNotFound></pageNotFound>
       </div>
-      <h1 v-else class="text-xl">An error occurred</h1>
+      <h1 v-else class="text-sm">An error occurred</h1>
       <div v-if="error.statusCode === 404">
-        <p class="text-xl">Sorry for that! This page doesn't exist</p>
-        <p class="text-xl">
+        <p class="text-sm">Sorry for that! This page doesn't exist</p>
+        <p class="text-sm">
           But don't worry, you can go to the
           <NuxtLink to="/" class="primary-link">Home page</NuxtLink>
         </p>

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="py-4 px-6 bg-white flex items-center relative gap-6">
+    <div class="py-2 px-5 bg-white flex items-center relative gap-6">
       <burger></burger>
       <div class="searchbar flex-grow">
         <form @submit.prevent="searchLocation">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon left-7"
+            class="icon left-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -25,7 +25,7 @@
             placeholder="Enter an address or city or town"
             :class="[
               searchResults.length > 0 && search
-                ? 'search-result-open !rounded-tr-lg !rounded-tl-lg !rounded-br-none !rounded-bl-none'
+                ? 'search-result-open !rounded-tr-md !rounded-tl-md !rounded-br-none !rounded-bl-none'
                 : 'search',
             ]"
             @input="searchApi"
@@ -43,7 +43,7 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-7 h-7 mr-4"
+                class="w-5 h-5 mr-6 ml-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -61,13 +61,13 @@
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <span class="text-xl">{{ searchResult }}</span>
+              <span class="text-sm">{{ searchResult }}</span>
             </div>
           </div>
           <svg
             v-if="search"
             xmlns="http://www.w3.org/2000/svg"
-            class="icon right-7"
+            class="icon right-4"
             viewBox="0 0 20 20"
             fill="currentColor"
             @click="removeSearchText"
@@ -187,19 +187,19 @@ export default {
 <style lang="postcss" scoped>
 .search,
 .search-result-open {
-  @apply w-full py-6 pl-16 pr-4 rounded-full text-xl outline-none border-2 border-gray-100;
+  @apply w-full py-3 pl-12 pr-2 rounded-full text-sm outline-none border-2 border-gray-100;
 }
 .searchbar {
   @apply relative;
 }
 .search-results {
-  @apply w-full py-4 absolute z-20 left-2/4 top-full rounded-br-lg rounded-bl-lg shadow-lg bg-white -translate-x-2/4;
+  @apply w-full py-3 absolute z-20 left-2/4 top-full rounded-br-md rounded-bl-md shadow-sm bg-white -translate-x-2/4;
 }
 
 .search-result {
-  @apply p-4 transition-all duration-300 cursor-pointer ease-in-out flex items-center hover:bg-gray-200;
+  @apply p-2 transition-all duration-300 cursor-pointer ease-in-out flex items-center hover:bg-gray-200;
 }
 .icon {
-  @apply w-7 h-7 absolute top-2/4 -translate-y-2/4 z-10 cursor-pointer;
+  @apply w-5 h-5 absolute top-2/4 -translate-y-2/4 z-10 cursor-pointer;
 }
 </style>

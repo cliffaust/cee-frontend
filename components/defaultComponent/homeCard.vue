@@ -46,7 +46,7 @@
           </svg>
         </div>
         <div
-          class="absolute py-1.5 px-2.5 top-6 text-xl right-8 z-10 bg-green-300 font-bold rounded-lg"
+          class="absolute py-1.5 px-2.5 top-6 text-sm right-8 z-10 bg-green-300 font-bold rounded-lg"
         >
           {{ home.home_status }}
         </div>
@@ -54,7 +54,7 @@
           <ImageSwiper :images="home_images"></ImageSwiper>
         </div>
         <div class="px-4 pb-6">
-          <div class="text-3xl my-3 font-bold font-mono">
+          <div class="text-sm my-3 font-bold font-mono">
             GH¢{{ home.home_price.toLocaleString() }}
           </div>
           <div class="flex mb-3">
@@ -74,7 +74,7 @@
                 <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6"></path>
                 <circle cx="7" cy="10" r="1"></circle>
               </svg>
-              <span class="text-xl">{{ home.number_bedrooms }}bd</span>
+              <span class="text-sm">{{ home.number_bedrooms }}bd</span>
             </div>
             <div class="mr-4 flex items-center gap-2">
               <svg
@@ -94,7 +94,7 @@
                 ></path>
                 <path d="M11 13v2m0 3v2m4 -5v2m0 3v2"></path>
               </svg>
-              <span class="text-xl">{{ home.number_bathrooms }}ba</span>
+              <span class="text-sm">{{ home.number_bathrooms }}ba</span>
             </div>
             <div class="mr-4 flex items-center gap-2">
               <svg
@@ -114,16 +114,16 @@
                 ></path>
                 <path d="M3 3l18 18"></path>
               </svg>
-              <span v-if="home.home_size" class="text-xl"
+              <span v-if="home.home_size" class="text-sm"
                 >{{ home.home_size }}sqft</span
               >
-              <span v-else class="text-xl">No data</span>
+              <span v-else class="text-sm">No data</span>
             </div>
           </div>
-          <div class="text-xl font-bold">{{ home.address }}</div>
+          <div class="text-sm font-bold">{{ home.address }}</div>
           <ButtonPrimary
             v-if="$route.name === 'saved-homes'"
-            class="!py-4 !px-8 text-xl mt-4 bg-red-400 ml-auto"
+            class="!py-4 !px-8 text-sm mt-4 bg-red-400 ml-auto"
             @click="sendUnsaveRequest"
             >Unsave</ButtonPrimary
           >

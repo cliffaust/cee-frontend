@@ -6,8 +6,8 @@
       type="checkbox"
       class="navigation-checkbox"
     />
-    <label for="nav-toggle" class="navigation-icon noSelect">
-      <div class="burger noSelect"></div>
+    <label for="nav-toggle" class="navigation-icon">
+      <div class="burger"></div>
     </label>
   </div>
 </template>
@@ -38,9 +38,9 @@ export default {
 <style lang="postcss" scoped>
 .navigation-icon {
   cursor: pointer;
-  height: 1.8rem;
-  width: 2rem;
-  padding: 8px 7px 9px 5px;
+  height: 1.2rem;
+  width: 1.4rem;
+  padding: 4px 3px 4px 2px;
 }
 
 .burger {
@@ -50,7 +50,7 @@ export default {
 .burger,
 .burger::before,
 .burger::after {
-  width: 2.1rem;
+  width: 1.4rem;
   height: 2px;
   display: inline-block;
   background-color: #fca311;
@@ -58,7 +58,7 @@ export default {
 }
 
 .burger {
-  width: 1.6rem;
+  width: 1rem;
 }
 
 .burger::before,
@@ -69,11 +69,11 @@ export default {
 }
 
 .burger::before {
-  top: -0.8rem;
+  top: -0.6rem;
 }
 
 .burger::after {
-  top: 0.8rem;
+  top: 0.6rem;
 }
 
 .navigation-icon:hover .burger::before {

@@ -49,7 +49,7 @@
           <ImageSwiper :images="land_images"></ImageSwiper>
         </div>
         <div class="px-4 pb-6">
-          <div class="text-3xl my-3 font-bold font-mono">
+          <div class="text-sm my-3 font-bold font-mono">
             GH¢{{ land.land_price.toLocaleString() }}
           </div>
           <div class="flex mb-3">
@@ -71,16 +71,16 @@
                 ></path>
                 <path d="M3 3l18 18"></path>
               </svg>
-              <span v-if="land.land_size" class="text-xl"
+              <span v-if="land.land_size" class="text-sm"
                 >{{ land.land_size }}sqft</span
               >
-              <span v-else class="text-xl">No data</span>
+              <span v-else class="text-sm">No data</span>
             </div>
           </div>
-          <div class="text-xl font-bold">{{ land.address }}</div>
+          <div class="text-sm font-bold">{{ land.address }}</div>
           <ButtonPrimary
             v-if="$route.name === 'saved-land'"
-            class="!py-4 !px-8 text-xl mt-4 bg-red-400 ml-auto"
+            class="!py-4 !px-8 text-sm mt-4 bg-red-400 ml-auto"
             @click="sendUnsaveRequest"
             >Unsave</ButtonPrimary
           >

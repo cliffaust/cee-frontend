@@ -3,13 +3,13 @@
     <navbar></navbar>
     <div
       v-if="loginError"
-      class="text-white text-xl py-3 px-4 bg-red-500 font-bold"
+      class="text-white text-sm py-3 px-4 bg-red-500 font-bold"
     >
       We couldn’t find an account matching the email or password you entered.
       Please check your email or password and try again.
     </div>
-    <div class="py-0 px-8 mt-8">
-      <div class="font-bold text-4xl font-mono text-center mb-5">Login</div>
+    <div class="py-0 px-8 mt-4">
+      <div class="font-bold text-2xl font-mono text-center mb-5">Login</div>
       <ValidationObserver v-slot="{ handleSubmit }">
         <ValidationProvider
           v-slot="{ errors }"
@@ -25,7 +25,7 @@
               :error-style="Boolean(errors[0])"
               label="Email"
             ></baseInput>
-            <span class="text-xl mt-3 font-bold text-red-400">{{
+            <span class="text-sm mt-3 font-bold text-red-400">{{
               errors[0]
             }}</span>
           </div>
@@ -48,12 +48,12 @@
               @changeShowPasswordToFalse="changeShowPasswordToFalse"
             ></baseInput>
 
-            <span class="text-xl mt-3 font-bold text-red-400">{{
+            <span class="text-sm mt-3 font-bold text-red-400">{{
               errors[0]
             }}</span>
           </div>
         </ValidationProvider>
-        <div class="float-right text-xl font-bold mb-6 text-blue-500">
+        <div class="float-right text-sm font-bold mb-6 text-blue-500">
           Forgot your password?
         </div>
         <div>
@@ -61,8 +61,8 @@
             :disabled="loading"
             :class="[
               'w-full',
-              '!py-5',
-              'text-2xl',
+              '!py-3',
+              'text-sm',
               'bg-primary-yellow',
               '!text-primary-blue-200',
               { 'bg-opacity-30': loading },
@@ -76,13 +76,13 @@
           </ButtonPrimary>
         </div>
         <div class="mt-10 flex gap-4 items-center">
-          <div class="flex-grow h-1 bg-gray-200"></div>
-          <div class="text-xl font-bold text-center">Or Sign in With</div>
-          <div class="flex-grow h-1 bg-gray-300"></div>
+          <div class="flex-grow h-0.5 bg-gray-200"></div>
+          <div class="text-sm font-bold text-center">Or Sign in With</div>
+          <div class="flex-grow h-0.5 bg-gray-300"></div>
         </div>
         <div class="mt-10 flex items-center gap-8 justify-center">
           <div
-            class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+            class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@
             </svg>
           </div>
           <div
-            class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+            class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
           >
             <svg
               width="32px"
@@ -139,14 +139,14 @@
               path: '/signup',
               query: { redirect: `${$route.query.redirect}` },
             }"
-            class="text-xl font-bold ml-2 text-blue-500"
+            class="text-sm font-bold ml-2 text-blue-500"
           >
             Register</nuxt-link
           >
         </div>
-        <div v-else class="mt-12 flex justify-center">
-          <span class="text-xl font-bold">Don't have an account? </span
-          ><nuxt-link to="/signup" class="text-xl font-bold ml-2 text-blue-500">
+        <div v-else class="mt-6 mb-6 flex justify-center">
+          <span class="text-sm font-bold">Don't have an account? </span
+          ><nuxt-link to="/signup" class="text-sm font-bold ml-2 text-blue-500">
             Register</nuxt-link
           >
         </div>

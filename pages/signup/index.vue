@@ -1,8 +1,8 @@
 <template>
   <div>
     <navbar></navbar>
-    <div class="py-0 px-8 mt-8">
-      <div class="font-bold text-4xl font-mono text-center mb-5">Register</div>
+    <div class="py-0 px-8 mt-4">
+      <div class="font-bold text-2xl font-mono text-center mb-5">Register</div>
       <ValidationObserver ref="form" v-slot="{ handleSubmit }">
         <div class="flex justify-between mb-6">
           <div class="w-48p">
@@ -19,7 +19,7 @@
                 label="First Name"
               ></baseInput>
 
-              <span class="text-xl mt-3 font-bold text-red-400">{{
+              <span class="text-sm mt-3 font-bold text-red-400">{{
                 errors[0]
               }}</span>
             </ValidationProvider>
@@ -38,7 +38,7 @@
                 label="Last Name"
               ></baseInput>
 
-              <span class="text-xl mt-3 font-bold text-red-400">{{
+              <span class="text-sm mt-3 font-bold text-red-400">{{
                 errors[0]
               }}</span>
             </ValidationProvider>
@@ -58,7 +58,7 @@
               :error-style="Boolean(errors[0])"
               label="Email"
             ></baseInput>
-            <span class="text-xl mt-3 font-bold text-red-400">{{
+            <span class="text-sm mt-3 font-bold text-red-400">{{
               errors[0]
             }}</span>
           </div>
@@ -81,7 +81,7 @@
               @changeShowPasswordToFalse="changeShowPasswordToFalse"
             ></baseInput>
 
-            <span class="text-xl mt-3 font-bold text-red-400">{{
+            <span class="text-sm mt-3 font-bold text-red-400">{{
               errors[0]
             }}</span>
           </div>
@@ -104,7 +104,7 @@
               @changeShowPasswordToFalse="changeShowReapeatPasswordToFalse"
             ></baseInput>
 
-            <span class="text-xl mt-3 font-bold text-red-400">{{
+            <span class="text-sm mt-3 font-bold text-red-400">{{
               errors[0]
             }}</span>
           </div>
@@ -115,8 +115,8 @@
             :disabled="loading"
             :class="[
               'w-full',
-              '!py-5',
-              'text-2xl',
+              '!py-3',
+              'text-sm',
               'bg-primary-yellow',
               '!text-primary-blue-200',
               { 'bg-opacity-30': loading },
@@ -130,13 +130,13 @@
           </ButtonPrimary>
         </div>
         <div class="mt-10 flex gap-4 items-center">
-          <div class="flex-grow h-1 bg-gray-200"></div>
-          <div class="text-xl font-bold text-center">Or Sign up With</div>
-          <div class="flex-grow h-1 bg-gray-300"></div>
+          <div class="flex-grow h-0.5 bg-gray-200"></div>
+          <div class="text-sm font-bold text-center">Or Sign up With</div>
+          <div class="flex-grow h-0.5 bg-gray-300"></div>
         </div>
-        <div class="mt-10 flex items-center gap-8 justify-center">
+        <div class="mt-5 flex items-center gap-8 justify-center">
           <div
-            class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+            class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +167,7 @@
             </svg>
           </div>
           <div
-            class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+            class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
           >
             <svg
               width="32px"
@@ -193,14 +193,14 @@
               path: '/login',
               query: { redirect: `${$route.query.redirect}` },
             }"
-            class="text-xl font-bold ml-2 text-blue-500"
+            class="text-sm font-bold ml-2 text-blue-500"
           >
             Register</nuxt-link
           >
         </div>
-        <div v-else class="mt-12 flex justify-center">
-          <span class="text-xl font-bold">Already have an account? </span
-          ><nuxt-link to="/login" class="text-xl font-bold ml-2 text-blue-500">
+        <div v-else class="mt-6 mb-6 flex justify-center">
+          <span class="text-sm font-bold">Already have an account? </span
+          ><nuxt-link to="/login" class="text-sm font-bold ml-2 text-blue-500">
             Login</nuxt-link
           >
         </div>

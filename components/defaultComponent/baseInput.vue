@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <label v-if="label" class="block text-gray-700 text-xl font-bold mb-2">{{
+    <label v-if="label" class="block text-gray-700 text-sm font-bold mb-2">{{
       label
     }}</label>
     <div class="relative">
@@ -14,11 +14,11 @@
           'border-gray-200',
           'focus:outline-none',
           'rounded',
-          'py-5',
-          'px-4',
+          'py-3',
+          'px-2',
           'text-gray-700',
           'w-full',
-          'text-xl',
+          'text-sm',
           { 'border-red-300': errorStyle },
         ]"
         :value="value"
@@ -29,7 +29,7 @@
         <svg
           v-if="showPassword"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8 cursor-pointer absolute top-2/4 bottom-2/4 -translate-x-1/2 -translate-y-1/2 right-5"
+          class="h-5 w-5 cursor-pointer absolute top-2/4 bottom-2/4 -translate-x-1/2 -translate-y-1/2 right-2"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -45,7 +45,7 @@
         <svg
           v-else
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8 cursor-pointer absolute top-2/4 bottom-2/4 -translate-x-1/2 -translate-y-1/2 right-5"
+          class="h-5 w-5 cursor-pointer absolute top-2/4 bottom-2/4 -translate-x-1/2 -translate-y-1/2 right-2"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

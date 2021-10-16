@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="py-4 px-6 bg-white flex justify-between items-center">
+    <div class="py-2 px-5 bg-white flex justify-between items-center">
       <burger></burger>
       <nuxt-link v-slot="{ href, navigate }" to="/" custom
         ><div
           :href="href"
-          class="text-primary-yellow text-5xl font-bold cursor-pointer font-spectral"
+          class="text-primary-yellow text-3xl font-bold cursor-pointer font-spectral"
           @click="navigate"
         >
           Cee

@@ -8,7 +8,7 @@
     @click="changeNavbarSliderState"
   >
     <div :class="[navbarSlider ? 'nav-item' : 'not-nav-item']" @click.stop>
-      <div class="flex flex-col items-center mt-20">
+      <div class="flex flex-col items-center mt-14">
         <div class="link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +203,6 @@
             viewBox="0 0 24 24"
             version="1.1"
           >
-            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
             <title>star</title>
             <desc>Created with Sketch.</desc>
             <defs />
@@ -240,7 +239,6 @@
             viewBox="0 0 24 24"
             version="1.1"
           >
-            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
             <title>book</title>
             <desc>Created with Sketch.</desc>
             <defs />
@@ -396,22 +394,6 @@
             </g></svg
           >How we work
         </div>
-        <nuxt-link to="/cart" class="link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-10 w-10"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            /></svg
-          >Your Cart
-        </nuxt-link>
         <div class="link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -604,7 +586,7 @@ export default {
 
 <style lang="postcss" scoped>
 .link {
-  @apply text-2xl py-4 font-bold cursor-pointer w-full flex justify-center gap-4 items-center mb-5 hover:bg-gray-200 last:mb-0;
+  @apply text-sm py-2 font-bold cursor-pointer w-full flex justify-center gap-4 items-center mb-5 hover:bg-gray-200 last:mb-0;
 }
 
 .nav-item {
