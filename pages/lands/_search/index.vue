@@ -154,7 +154,7 @@
 import axios from 'axios'
 import navbar from '~/components/buyComponent/navbar'
 import landCard from '~/components/defaultComponent/landCard'
-import filter from '~/components/defaultComponent/filter'
+import filter from '~/components/defaultComponent/landFilter.vue'
 import modal from '~/components/defaultComponent/modal'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 export default {
@@ -163,7 +163,6 @@ export default {
     landCard,
     modal,
     ButtonPrimary,
-    // skeletonLoader,
     filterResults: filter,
   },
   async asyncData({ store, params, route }) {
