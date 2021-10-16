@@ -8,7 +8,7 @@
     >
       <div
         :href="href"
-        class="w-7/7 mx-auto cursor-pointer mb-16 relative shadow-md rounded-2xl"
+        class="w-7/7 mx-auto cursor-pointer mb-16 relative shadow-md rounded-xl"
         @click="navigate"
       >
         <div class="absolute top-4 left-8 z-10" @click.stop>
@@ -45,7 +45,7 @@
             />
           </svg>
         </div>
-        <div class="h-88">
+        <div class="h-56">
           <ImageSwiper :images="land_images"></ImageSwiper>
         </div>
         <div class="px-4 pb-6">

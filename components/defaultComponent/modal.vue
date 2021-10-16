@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="fixed top-0 left-0 right-0 bottom-0 z-40" @click="close">
       <div
-        class="bg-white fixed py-5 px-8 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-50 h-full w-full overflow-scroll"
+        class="bg-white fixed py-5 px-5 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 z-50 h-full w-full overflow-scroll"
         @click.stop
       >
         <slot></slot>

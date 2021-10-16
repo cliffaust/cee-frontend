@@ -289,21 +289,21 @@
               Common monthly dues: GH¢{{ home.hoa_dues }}
             </div>
           </div>
-          <div class="mt-4">
-            <h1 class="font-bold font-mono text-sm">Description</h1>
-            <p v-if="home.describe_home.length < 500" class="text-sm mt-4">
+          <div class="mt-3">
+            <h1 class="font-bold font-mono text-base">Description</h1>
+            <p v-if="home.describe_home.length < 500" class="text-sm mt-3">
               {{ home.describe_home }}
             </p>
             <template v-if="home.describe_home.length >= 500">
-              <p v-if="readMore" class="text-sm mt-4">
+              <p v-if="readMore" class="text-sm mt-3">
                 {{ home.describe_home }}
               </p>
-              <p v-else class="text-sm mt-4">
+              <p v-else class="text-sm mt-3">
                 {{ home.describe_home.slice(0, 500) }}....
               </p>
               <button
                 v-if="readMore"
-                class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
+                class="text-sm my-3 text-blue-700 font-bold flex items-center gap-2"
                 @click="readMore = false"
               >
                 Read Less
@@ -322,7 +322,7 @@
               </button>
               <button
                 v-else
-                class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
+                class="text-sm my-3 text-blue-700 font-bold flex items-center gap-2"
                 @click="readMore = true"
               >
                 Read More
@@ -352,8 +352,8 @@
           "
         >
           <div>
-            <h1 class="font-bold font-mono text-sm">Features</h1>
-            <div class="shadow-md mt-4 p-4 rounded-lg">
+            <h1 class="font-bold font-mono text-base">Features</h1>
+            <div class="shadow-md mt-3 p-3 rounded-md">
               <div v-if="home.room_features.length > 0" class="features">
                 <div class="heading">Room Features</div>
                 <ul class="list-features">
@@ -528,7 +528,7 @@
               >
                 <button
                   v-if="readMore"
-                  class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
+                  class="text-sm my-3 text-blue-700 font-bold flex items-center gap-2"
                   @click="readMoreFeature = false"
                 >
                   Read Less Features
@@ -547,7 +547,7 @@
                 </button>
                 <button
                   v-else
-                  class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
+                  class="text-sm my-3 text-blue-700 font-bold flex items-center gap-2"
                   @click="readMoreFeature = true"
                 >
                   Read More Features
@@ -570,12 +570,12 @@
         </template>
       </div>
       <modal v-if="modal" @close="close">
-        <h1 class="font-bold font-mono text-sm mt-2">Contact List</h1>
-        <div class="mt-10">
+        <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
+        <div class="mt-4">
           <div
             v-for="(contact_number, index) in home.contact_numbers"
             :key="index"
-            class="flex items-center mb-4 bg-gray-100 justify-between box-content px-4 py-4 rounded-lg"
+            class="flex items-center mb-3 bg-gray-100 justify-between box-content px-4 py-2 rounded-md"
           >
             <div class="text-sm font-bold">{{ contact_number.number }}</div>
             <svg
@@ -603,7 +603,7 @@
       </modal>
       <modal v-if="modalMessage" @close="closeMessage">
         <div>
-          <h1 class="font-bold font-mono text-sm mt-2">
+          <h1 class="font-bold font-mono text-base mt-1">
             Request on this listing
           </h1>
           <div class="input-container">
@@ -635,8 +635,8 @@
               placeholder="Enter your message"
             ></baseTextArea>
           </div>
-          <div class="mt-8">
-            <ButtonPrimary :class="['w-full', '!py-5', 'text-sm']"
+          <div class="mt-6">
+            <ButtonPrimary :class="['w-full', '!py-3', 'text-sm']"
               >Send</ButtonPrimary
             >
           </div>
@@ -645,7 +645,7 @@
     </div>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
-        <h1 class="font-bold font-mono text-sm mt-2">Email this home</h1>
+        <h1 class="font-bold font-mono text-md mt-1">Email this home</h1>
         <div class="input-container">
           <baseInput
             v-model="shareRecipientEmail"
@@ -662,15 +662,10 @@
           ></baseInput>
         </div>
         <div class="mt-8">
-          <ButtonPrimary class="w-full h-16 text-sm">Share</ButtonPrimary>
-          <ButtonPrimaryOpen
-            class="w-full h-16 text-sm mt-4"
-            @click="closeShareModal"
-            >Cancel</ButtonPrimaryOpen
-          >
+          <ButtonPrimary class="w-full h-10 text-sm">Share</ButtonPrimary>
         </div>
         <div
-          class="flex items-center gap-1 px-4 py-4 rounded-lg bg-gray-100 mt-6"
+          class="flex items-center gap-1 px-3 py-3 rounded-md bg-gray-100 mt-4"
         >
           <div class="text-sm font-bold truncate">
             {{ formatLink }}
@@ -685,14 +680,14 @@
           </button>
           <div v-if="copyToolkit" class="copy-toolkit">Copied!</div>
         </div>
-        <div class="flex flex-col mt-10">
-          <div class="text-sm font-bold font-mono">
+        <div class="flex flex-col mt-6">
+          <div class="text-base font-bold font-mono">
             Or, Share This Home Via:
           </div>
-          <div class="flex gap-6 justify-center items-center mt-6">
+          <div class="flex gap-6 justify-center items-center mt-4">
             <a
               ref="facebookBtn"
-              class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+              class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
             >
               <svg
                 width="32px"
@@ -712,7 +707,7 @@
             </a>
             <a
               ref="twitterBtn"
-              class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+              class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
             >
               <svg
                 width="32px"
@@ -731,7 +726,7 @@
 
             <a
               ref="whatsappBtn"
-              class="w-20 h-20 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
+              class="w-14 h-14 rounded-full shadow-xl bg-white flex justify-center items-center cursor-pointer"
             >
               <svg
                 width="32px"
@@ -938,7 +933,7 @@ export default {
 
 <style lang="postcss" scoped>
 .list-features {
-  @apply flex list-none mt-4 flex-wrap;
+  @apply flex list-none mt-3 flex-wrap;
 }
 
 .item-features {
@@ -946,11 +941,11 @@ export default {
 }
 
 .features {
-  @apply mb-4;
+  @apply mb-3;
 }
 
 .input-container {
-  @apply mt-8;
+  @apply mt-4;
 }
 
 .heading {
@@ -958,6 +953,6 @@ export default {
 }
 
 .copy-link {
-  @apply inline-flex items-center justify-center h-auto px-3 text-center text-sm font-bold text-blue-700 cursor-pointer whitespace-nowrap;
+  @apply inline-flex items-center justify-center h-auto px-2 text-center text-sm font-bold text-blue-700 cursor-pointer whitespace-nowrap;
 }
 </style>
