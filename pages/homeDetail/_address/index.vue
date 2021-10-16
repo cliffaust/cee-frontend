@@ -13,12 +13,12 @@
       <div class="h-325 relative">
         <img :src="home.cover_image" class="w-full h-full" alt="Home Image" />
         <div
-          class="absolute py-1.5 px-2.5 top-6 text-sm left-8 z-10 bg-green-300 font-bold rounded-lg"
+          class="absolute py-1 px-1.5 top-4 text-sm left-5 z-10 bg-green-300 font-bold rounded-md"
         >
           {{ home.home_status }}
         </div>
         <div
-          class="cursor-pointer flex items-center gap-4 p-2 absolute bottom-6 right-4 bg-gray-700 bg-opacity-70 rounded-lg"
+          class="cursor-pointer flex items-center gap-4 p-1 absolute bottom-4 right-4 bg-gray-700 bg-opacity-70 rounded-md"
           @click="seeAllImages"
         >
           <svg
@@ -76,7 +76,7 @@
           </svg>
           <p class="text-sm text-white font-bold">See all</p>
         </div>
-        <div class="flex absolute top-6 right-4 gap-4 items-center">
+        <div class="flex absolute top-4 right-3 gap-4 items-center">
           <div class="cursor-pointer" @click.stop>
             <svg
               v-if="like"
@@ -158,11 +158,11 @@
       </div>
       <div class="p-4" @click.self="modal = false">
         <div>
-          <div class="text-sm truncate font-mono font-bold">
+          <div class="text-lg truncate font-mono font-bold">
             {{ home.address }}
           </div>
-          <div class="flex mb-3">
-            <div class="mr-4 flex items-center gap-2 mt-2">
+          <div class="flex mb-2">
+            <div class="mr-2.5 flex items-center gap-2 mt-1.5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -180,7 +180,7 @@
               </svg>
               <span class="text-sm">{{ home.number_bedrooms }}bd</span>
             </div>
-            <div class="mr-4 flex items-center gap-2">
+            <div class="mr-3 flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -235,7 +235,7 @@
           >
             <button
               :href="href"
-              class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
+              class="text-sm my-3 text-blue-700 font-bold flex items-center gap-2"
               @click="navigate"
             >
               View in saved homes
@@ -244,25 +244,25 @@
           <button
             v-else
             :disabled="disableSaveBtn"
-            class="text-sm my-4 text-blue-700 font-bold flex items-center gap-2"
+            class="text-sm my-3 text-blue-700 font-bold flex items-center gap-2"
             @click="saveHome"
           >
             Save this home
           </button>
         </div>
-        <div class="flex flex-col gap-4 my-4">
+        <div class="flex flex-col gap-4 my-3">
           <ButtonPrimary
-            class="w-full !py-5 text-sm"
+            class="w-full !py-3 text-sm"
             @click="modalMessage = true"
             >Message</ButtonPrimary
           >
           <div class="flex gap-4">
             <ButtonPrimaryOpen
-              class="w-full !py-5 text-sm"
+              class="w-full !py-3 text-sm"
               @click="modal = true"
               >Call</ButtonPrimaryOpen
             >
-            <ButtonPrimaryOpen class="w-full !py-5 text-sm"
+            <ButtonPrimaryOpen class="w-full !py-3 text-sm"
               >Tour</ButtonPrimaryOpen
             >
           </div>
@@ -270,7 +270,7 @@
         <div>
           <div
             v-if="home.like_count > 4"
-            class="text-sm mb-2 font-bold text-blue-700"
+            class="text-sm mb-1 font-bold text-blue-700"
           >
             This listing has been liked by {{ home.like_count }} users
           </div>
@@ -280,16 +280,16 @@
           </div>
         </div>
         <div class="mt-6">
-          <h1 class="font-bold font-mono text-sm">Overview</h1>
-          <div class="flex mt-2 gap-4">
-            <div class="p-4 text-sm bg-gray-50 rounded-lg">
+          <h1 class="font-bold font-mono text-base">Overview</h1>
+          <div class="flex mt-1.5 gap-4">
+            <div class="p-3 text-sm bg-gray-50 rounded-md">
               Posted on 2nd September 2020
             </div>
-            <div class="p-4 text-sm bg-gray-50 rounded-lg">
+            <div class="p-3 text-sm bg-gray-50 rounded-md">
               Common monthly dues: GH¢{{ home.hoa_dues }}
             </div>
           </div>
-          <div class="mt-6">
+          <div class="mt-4">
             <h1 class="font-bold font-mono text-sm">Description</h1>
             <p v-if="home.describe_home.length < 500" class="text-sm mt-4">
               {{ home.describe_home }}
