@@ -569,6 +569,65 @@
           </div>
         </template>
       </div>
+      <!-- <div v-if="home.reviews.length > 0" class="mt-2 ml-4 mr-4 mb-8">
+        <div class="text-3xl font-mono mb-4 mt-8 font-bold">Reviews</div>
+        <div class="flex mb-6 items-center">
+          <div class="text-2xl font-bold font-mono">{{ averageRating }}</div>
+          <div class="flex items-center ml-4">
+            <StarRating :rating="averageRating" :font-size="20"></StarRating>
+            <div class="text-xl ml-2 font-bold font-mono">
+              {{ home.reviews.length }} Reviews
+            </div>
+          </div>
+        </div>
+
+        <div class="review-percentages">
+          <div
+            v-for="(rate, index) in rates"
+            :key="index"
+            class="flex items-center justify-between mb-4"
+          >
+            <div class="mt-3 ml-2 text-xl font-mono text-bold">{{ rate }}</div>
+            <div class="w-4/5 cursor-pointer" @click="filterReview(rate)">
+              <PercentageBar :percent="starPercentage(rate)"></PercentageBar>
+            </div>
+            <div class="text-2xl font-mono fond-bold">
+              {{ starPercentage(rate) }}%
+            </div>
+          </div>
+        </div>
+        <div
+          v-if="filterReviews"
+          class="text-primary-blue-300 cursor-pointer inline-block text-2xl mt-4 mb-4 ml-4"
+          @click="filterReviews = null"
+        >
+          Reset Filter
+        </div>
+        <div v-if="!spinner">
+          <template v-if="filterReviews">
+            <div
+              v-for="review in filterReviews.slice(0, 4)"
+              :key="review.id"
+              class="mt-8"
+            >
+              <UserReview :review="review"></UserReview>
+            </div>
+          </template>
+          <template v-else>
+            <div
+              v-for="review in home.reviews.slice(0, 4)"
+              :key="review.id"
+              class="mt-8"
+            >
+              <UserReview :review="review"></UserReview>
+            </div>
+          </template>
+        </div>
+      </div>
+      <div v-if="spinner">
+        <LoadingSpinner></LoadingSpinner>
+      </div> -->
+
       <modal v-if="modal" @close="close">
         <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
         <div class="mt-4">
@@ -786,6 +845,9 @@ import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open
 import smallImageContainer from '~/components/defaultComponent/smallImageContainer'
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import saveListing from '~/mixins/saveListing'
+// import StarRating from '~/components/defaultComponent/star-rating'
+// import PercentageBar from '~/components/defaultComponent/percentage-bar'
+// import UserReview from '~/components/defaultComponent/user-review'
 export default {
   components: {
     navbar,
@@ -796,6 +858,9 @@ export default {
     smallImageSelectedContainer,
     ButtonPrimary,
     ButtonPrimaryOpen,
+    // StarRating,
+    // PercentageBar,
+    // UserReview,
   },
   mixins: [saveListing],
   validate({ route }) {
@@ -805,12 +870,29 @@ export default {
       return false
     }
   },
+  // async asyncData({ params, store }) {
+  //   try {
+  //     const reviews = await axios.get(
+  //       `${process.env.baseUrl}/homes/${params.address}/reviews/`
+  //     )
+  //     return {
+  //       reviews: reviews.data.results,
+  //     }
+  //   } catch (error) {
+  //     console.log(error.response)
+  //   }
+  // },
   data() {
     return {
       readMore: false,
       modal: false,
+      rates: [5, 4, 3, 2, 1],
+      spinner: false,
+      showModal: false,
+      btnDisabled: false,
       modalMessage: false,
       readMoreFeature: false,
+      filterReviews: '',
       message: '',
       name: '',
       email: '',
@@ -871,6 +953,13 @@ export default {
     formatLink() {
       return process.client ? window.location.href : ''
     },
+    averageRating() {
+      let totalRating = 0
+      this.home.reviews.forEach((review) => {
+        totalRating += review.rate
+      })
+      return totalRating / this.home.reviews.length
+    },
   },
   mounted() {
     const postUrl = encodeURI(location.href)
@@ -894,6 +983,28 @@ export default {
     )
   },
   methods: {
+    starPercentage(star) {
+      let numberOfReviewers = 0
+      this.home.reviews.forEach((review) => {
+        if (review.rate === star) {
+          numberOfReviewers++
+        }
+      })
+      return Math.floor(
+        100 -
+          ((this.home.reviews.length - numberOfReviewers) /
+            this.home.reviews.length) *
+            100
+      )
+    },
+    async filterReview(rate) {
+      this.spinner = true
+      const { data } = await axios.get(
+        `${process.env.baseUrl}/homes/${this.$route.params.address}/reviews/?rate=${rate}`
+      )
+      this.filterReviews = data.results
+      this.spinner = false
+    },
     close() {
       this.modal = false
     },

@@ -40,7 +40,7 @@ export const actions = {
       `${process.env.baseUrl}/lands/${payload.slug}/land-coordinate/`
     )
     const landReview = await axios.get(
-      `${process.env.baseUrl}/lands/${payload.slug}/land-reviews/`
+      `${process.env.baseUrl}/lands/${payload.slug}/reviews/`
     )
     data.push(land.data)
     data.push({ land_video: landVideo.data.results })

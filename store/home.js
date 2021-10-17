@@ -40,7 +40,7 @@ export const actions = {
       `${process.env.baseUrl}/homes/${payload.slug}/home-coordinate/`
     )
     const homeReview = await axios.get(
-      `${process.env.baseUrl}/homes/${payload.slug}/home-reviews/`
+      `${process.env.baseUrl}/homes/${payload.slug}/reviews/`
     )
     const homeRoomFeature = await axios.get(
       `${process.env.baseUrl}/homes/${payload.slug}/room-features/`
@@ -65,7 +65,7 @@ export const actions = {
     data.push({ open_date_time: homeOpenDateTime.data.results })
     data.push({ contact_numbers: homeContactNumber.data.results })
     data.push({ home_coordinate: homeCoordinate.data.results })
-    data.push({ home_reviews: homeReview.data.results })
+    data.push({ reviews: homeReview.data.results })
     data.push({ room_features: homeRoomFeature.data.results })
     data.push({ kitchen_features: homeKitchenFeature.data.results })
     data.push({ general_home_features: homeGeneralHomeFeatures.data.results })
