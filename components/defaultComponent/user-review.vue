@@ -1,32 +1,32 @@
 <template>
   <div>
     <div class="flex items-center">
-      <div class="mr-4">
+      <div class="mr-2">
         <img
           :src="review.profile_pic"
-          class="rounded-full w-14 h-14 object-cover"
+          class="rounded-full w-12 h-12 object-cover"
           alt="Profile Pic"
         />
       </div>
       <div>
-        <div class="text-2xl font-bold">{{ review.name }}</div>
-        <div class="text-xl font-light">
+        <div class="text-base font-bold">{{ review.name }}</div>
+        <div class="text-sm font-light">
           {{ review.date_posted.split('-').join('/') }}
         </div>
         <StarRating :rating="review.rate" :font-size="15"></StarRating>
       </div>
     </div>
-    <div class="text-xl mt-4">
+    <div class="text-sm mt-4">
       {{ review.message }}
     </div>
 
-    <div class="flex items-center mt-4">
-      <div class="text-xl text-bold">Was this hepful?</div>
+    <div class="flex items-center mt-2">
+      <div class="text-xs text-bold">Was this hepful?</div>
 
-      <div class="ml-2">
+      <div class="ml-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8 cursor-pointer"
+          class="h-5 w-5 cursor-pointer"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

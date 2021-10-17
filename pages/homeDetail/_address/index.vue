@@ -598,7 +598,7 @@
         </div>
         <div
           v-if="filterReviews"
-          class="text-primary-blue-300 cursor-pointer inline-block text-base font-bold mt-2 mb-2 ml-2"
+          class="text-primary-blue-300 cursor-pointer inline-block text-sm font-bold mt-2 mb-2 ml-2"
           @click="filterReviews = null"
         >
           Reset Filter
@@ -846,6 +846,7 @@ import smallImageContainer from '~/components/defaultComponent/smallImageContain
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import saveListing from '~/mixins/saveListing'
 import StarRating from '~/components/defaultComponent/star-rating'
+import LoadingSpinner from '~/components/defaultComponent/loading-spinner'
 import PercentageBar from '~/components/defaultComponent/percentage-bar'
 import UserReview from '~/components/defaultComponent/user-review'
 export default {
@@ -861,6 +862,7 @@ export default {
     StarRating,
     PercentageBar,
     UserReview,
+    LoadingSpinner,
   },
   mixins: [saveListing],
   validate({ route }) {
