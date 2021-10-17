@@ -19,62 +19,7 @@
             version="1.1"
           >
             <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-            <title>bag</title>
-            <desc>Created with Sketch.</desc>
-            <defs />
-            <g
-              id="Page-1"
-              stroke="none"
-              stroke-width="1"
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <g
-                id="Artboard-4"
-                transform="translate(-620.000000, -291.000000)"
-              >
-                <g id="94" transform="translate(620.000000, 291.000000)">
-                  <rect
-                    id="Rectangle-40"
-                    stroke="#333333"
-                    stroke-width="2"
-                    x="4"
-                    y="7"
-                    width="16"
-                    height="16"
-                    rx="1"
-                  />
-                  <path
-                    id="Oval-21"
-                    d="M16,10 L16,5 C16,2.790861 14.209139,1 12,1 C9.790861,1 8,2.790861 8,5 L8,10"
-                    stroke="#333333"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                  <rect
-                    id="Rectangle-41"
-                    fill="#333333"
-                    x="5"
-                    y="18"
-                    width="14"
-                    height="2"
-                  />
-                </g>
-              </g>
-            </g></svg
-          >Buy a book
-        </div>
-        <div class="link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
-            version="1.1"
-          >
-            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-            <title>book</title>
+            <title>home</title>
             <desc>Created with Sketch.</desc>
             <defs />
             <g
@@ -84,151 +29,28 @@
               fill="none"
               fill-rule="evenodd"
               stroke-linecap="round"
-            >
-              <g
-                id="Artboard-4"
-                transform="translate(-884.000000, -203.000000)"
-                stroke="#333333"
-              >
-                <g id="60" transform="translate(884.000000, 203.000000)">
-                  <path
-                    id="Combined-Shape"
-                    d="M2,5.0068455 L2,16.9931549 C2,18.0067797 2.74224228,18.9663373 3.72245134,19.2113896 L10.7574644,20.9701425 L12,21.2807764 L12,20 L12,5.99999997 L12,5.21922356 L11.2425356,5.02985747 L4.20752254,3.27110423 C3.03799922,2.9787234 2,3.80374257 2,5.0068455 Z M12.7574644,5.02985755 L12,5.21922364 L12,6.00000005 L12,19.9999998 L12,21.2807762 L13.2425356,20.9701423 L20.2775487,19.2113892 C21.2590506,18.9660137 22,18.0066201 22,16.9931545 L22,5.00684547 C22,3.80328805 20.9604115,2.97912072 19.7924774,3.27110423 L12.7574644,5.02985755 Z"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                  />
-                  <path id="Path-144" d="M5,8 L9,9" stroke-linejoin="round" />
-                  <path id="Path-144" d="M5,11 L9,12" stroke-linejoin="round" />
-                  <path id="Path-144" d="M5,14 L9,15" stroke-linejoin="round" />
-                  <path id="Path-144" d="M15,9 L19,8" />
-                  <path id="Path-144" d="M15,12 L19,11" />
-                  <path id="Path-144" d="M15,15 L19,14" />
-                </g>
-              </g>
-            </g></svg
-          >Sell your book
-        </div>
-        <div class="link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
-            version="1.1"
-          >
-            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-            <title>backpack</title>
-            <desc>Created with Sketch.</desc>
-            <defs />
-            <g
-              id="Page-1"
-              stroke="none"
-              stroke-width="1"
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <g
-                id="Artboard-4"
-                transform="translate(-180.000000, -775.000000)"
-              >
-                <g id="304" transform="translate(180.000000, 775.000000)">
-                  <path
-                    id="Rectangle-209"
-                    d="M4,10.9907535 C4,6.57758222 7.59071231,3 12,3 L12,3 C16.418278,3 20,6.57559919 20,10.9907535 L20,21.0092049 C20,22.1086907 19.1054862,23 18.0059397,23 L5.99406028,23 C4.8927712,23 4,22.1017876 4,21.0092049 L4,10.9907535 Z"
-                    stroke="#333333"
-                    stroke-width="2"
-                  />
-                  <rect
-                    id="Rectangle-210"
-                    stroke="#333333"
-                    stroke-width="2"
-                    x="7"
-                    y="14"
-                    width="10"
-                    height="9"
-                    rx="1"
-                  />
-                  <rect
-                    id="Rectangle-211"
-                    fill="#333333"
-                    x="20"
-                    y="15"
-                    width="2"
-                    height="6"
-                    rx="1"
-                  />
-                  <rect
-                    id="Rectangle-211"
-                    fill="#333333"
-                    x="2"
-                    y="15"
-                    width="2"
-                    height="6"
-                    rx="1"
-                  />
-                  <rect
-                    id="Rectangle-212"
-                    fill="#333333"
-                    x="8"
-                    y="17"
-                    width="8"
-                    height="1"
-                  />
-                  <polygon
-                    id="Path-236"
-                    stroke="#333333"
-                    stroke-width="2"
-                    fill="#333333"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    points="12 7 11 8 12 9 13 8"
-                  />
-                  <path
-                    id="Rectangle-213"
-                    d="M9.52460577,2.5 C9.668914,1.12530889 10.4526876,0.5 12,0.5 C13.5473124,0.5 14.331086,1.12530889 14.4753942,2.5 L9.52460577,2.5 Z"
-                    stroke="#333333"
-                  />
-                </g>
-              </g>
-            </g></svg
-          >For student
-        </div>
-        <div class="link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
-            version="1.1"
-          >
-            <title>star</title>
-            <desc>Created with Sketch.</desc>
-            <defs />
-            <g
-              id="Page-1"
-              stroke="none"
-              stroke-width="1"
-              fill="none"
-              fill-rule="evenodd"
               stroke-linejoin="round"
             >
               <g
                 id="Artboard-4"
-                transform="translate(-488.000000, -203.000000)"
+                transform="translate(-620.000000, -159.000000)"
                 stroke="#333333"
                 stroke-width="2"
               >
-                <g id="51" transform="translate(488.000000, 203.000000)">
+                <g id="34" transform="translate(620.000000, 159.000000)">
                   <path
-                    id="Star-1"
-                    d="M12,18.6297757 L16.8247261,21.1662844 L18.6181983,22.1091685 L18.2756756,20.1121079 L17.3542349,14.7396964 L21.2575203,10.9349334 L22.7084698,9.52060725 L20.703307,9.22924004 L15.3090991,8.44541576 L12.8967361,3.55743429 L12,1.74044854 L11.1032639,3.55743429 L8.69090085,8.44541576 L3.29669304,9.22924004 L1.29153021,9.52060725 L2.74247966,10.9349334 L6.64576511,14.7396964 L5.72432441,20.1121079 L5.3818017,22.1091685 L7.17527386,21.1662844 L12,18.6297757 Z"
+                    id="Path-50"
+                    d="M1,11 L12,2 C12,2 22.9999989,11.0000005 23,11"
+                  />
+                  <path
+                    id="Path-51"
+                    d="M3,10 C3,10 3,10.4453982 3,10.9968336 L3,20.0170446 C3,20.5675806 3.43788135,21.0138782 4.00292933,21.0138781 L8.99707067,21.0138779 C9.55097324,21.0138779 10,20.5751284 10,20.0089602 L10,15.0049177 C10,14.449917 10.4433532,14 11.0093689,14 L12.9906311,14 C13.5480902,14 14,14.4387495 14,15.0049177 L14,20.0089602 C14,20.5639609 14.4378817,21.0138779 15.0029302,21.0138779 L19.9970758,21.0138781 C20.5509789,21.0138782 21.000006,20.56848 21.000006,20.0170446 L21.0000057,10"
                   />
                 </g>
               </g>
-            </g></svg
-          >Weekly special
+            </g>
+          </svg>
+          Buy a home
         </div>
         <div class="link">
           <svg
@@ -239,7 +61,8 @@
             viewBox="0 0 24 24"
             version="1.1"
           >
-            <title>book</title>
+            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+            <title>home</title>
             <desc>Created with Sketch.</desc>
             <defs />
             <g
@@ -249,29 +72,114 @@
               fill="none"
               fill-rule="evenodd"
               stroke-linecap="round"
+              stroke-linejoin="round"
             >
               <g
                 id="Artboard-4"
-                transform="translate(-884.000000, -203.000000)"
+                transform="translate(-620.000000, -159.000000)"
                 stroke="#333333"
+                stroke-width="2"
               >
-                <g id="60" transform="translate(884.000000, 203.000000)">
+                <g id="34" transform="translate(620.000000, 159.000000)">
                   <path
-                    id="Combined-Shape"
-                    d="M2,5.0068455 L2,16.9931549 C2,18.0067797 2.74224228,18.9663373 3.72245134,19.2113896 L10.7574644,20.9701425 L12,21.2807764 L12,20 L12,5.99999997 L12,5.21922356 L11.2425356,5.02985747 L4.20752254,3.27110423 C3.03799922,2.9787234 2,3.80374257 2,5.0068455 Z M12.7574644,5.02985755 L12,5.21922364 L12,6.00000005 L12,19.9999998 L12,21.2807762 L13.2425356,20.9701423 L20.2775487,19.2113892 C21.2590506,18.9660137 22,18.0066201 22,16.9931545 L22,5.00684547 C22,3.80328805 20.9604115,2.97912072 19.7924774,3.27110423 L12.7574644,5.02985755 Z"
-                    stroke-width="2"
-                    stroke-linejoin="round"
+                    id="Path-50"
+                    d="M1,11 L12,2 C12,2 22.9999989,11.0000005 23,11"
                   />
-                  <path id="Path-144" d="M5,8 L9,9" stroke-linejoin="round" />
-                  <path id="Path-144" d="M5,11 L9,12" stroke-linejoin="round" />
-                  <path id="Path-144" d="M5,14 L9,15" stroke-linejoin="round" />
-                  <path id="Path-144" d="M15,9 L19,8" />
-                  <path id="Path-144" d="M15,12 L19,11" />
-                  <path id="Path-144" d="M15,15 L19,14" />
+                  <path
+                    id="Path-51"
+                    d="M3,10 C3,10 3,10.4453982 3,10.9968336 L3,20.0170446 C3,20.5675806 3.43788135,21.0138782 4.00292933,21.0138781 L8.99707067,21.0138779 C9.55097324,21.0138779 10,20.5751284 10,20.0089602 L10,15.0049177 C10,14.449917 10.4433532,14 11.0093689,14 L12.9906311,14 C13.5480902,14 14,14.4387495 14,15.0049177 L14,20.0089602 C14,20.5639609 14.4378817,21.0138779 15.0029302,21.0138779 L19.9970758,21.0138781 C20.5509789,21.0138782 21.000006,20.56848 21.000006,20.0170446 L21.0000057,10"
+                  />
                 </g>
               </g>
-            </g></svg
-          >Buy used books
+            </g>
+          </svg>
+          Sell your home
+        </div>
+        <div class="link">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            version="1.1"
+          >
+            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+            <title>home</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <g
+                id="Artboard-4"
+                transform="translate(-620.000000, -159.000000)"
+                stroke="#333333"
+                stroke-width="2"
+              >
+                <g id="34" transform="translate(620.000000, 159.000000)">
+                  <path
+                    id="Path-50"
+                    d="M1,11 L12,2 C12,2 22.9999989,11.0000005 23,11"
+                  />
+                  <path
+                    id="Path-51"
+                    d="M3,10 C3,10 3,10.4453982 3,10.9968336 L3,20.0170446 C3,20.5675806 3.43788135,21.0138782 4.00292933,21.0138781 L8.99707067,21.0138779 C9.55097324,21.0138779 10,20.5751284 10,20.0089602 L10,15.0049177 C10,14.449917 10.4433532,14 11.0093689,14 L12.9906311,14 C13.5480902,14 14,14.4387495 14,15.0049177 L14,20.0089602 C14,20.5639609 14.4378817,21.0138779 15.0029302,21.0138779 L19.9970758,21.0138781 C20.5509789,21.0138782 21.000006,20.56848 21.000006,20.0170446 L21.0000057,10"
+                  />
+                </g>
+              </g>
+            </g>
+          </svg>
+          Rent a home
+        </div>
+        <div class="link">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            version="1.1"
+          >
+            <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+            <title>home</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <g
+                id="Artboard-4"
+                transform="translate(-620.000000, -159.000000)"
+                stroke="#333333"
+                stroke-width="2"
+              >
+                <g id="34" transform="translate(620.000000, 159.000000)">
+                  <path
+                    id="Path-50"
+                    d="M1,11 L12,2 C12,2 22.9999989,11.0000005 23,11"
+                  />
+                  <path
+                    id="Path-51"
+                    d="M3,10 C3,10 3,10.4453982 3,10.9968336 L3,20.0170446 C3,20.5675806 3.43788135,21.0138782 4.00292933,21.0138781 L8.99707067,21.0138779 C9.55097324,21.0138779 10,20.5751284 10,20.0089602 L10,15.0049177 C10,14.449917 10.4433532,14 11.0093689,14 L12.9906311,14 C13.5480902,14 14,14.4387495 14,15.0049177 L14,20.0089602 C14,20.5639609 14.4378817,21.0138779 15.0029302,21.0138779 L19.9970758,21.0138781 C20.5509789,21.0138782 21.000006,20.56848 21.000006,20.0170446 L21.0000057,10"
+                  />
+                </g>
+              </g>
+            </g>
+          </svg>
+          Rent your home
         </div>
         <div class="link">
           <svg
@@ -290,38 +198,23 @@
               fill="none"
               fill-rule="evenodd"
             >
-              <g id="Artboard-4" transform="translate(-92.000000, -115.000000)">
-                <g id="2" transform="translate(92.000000, 115.000000)">
-                  <circle
-                    id="Oval-1"
-                    stroke="#333333"
-                    stroke-width="2"
-                    cx="12"
-                    cy="12"
-                    r="10"
+              <g
+                id="Artboard-4"
+                transform="translate(-268.000000, -159.000000)"
+                stroke="#333333"
+                stroke-width="2"
+              >
+                <g id="26" transform="translate(268.000000, 159.000000)">
+                  <path
+                    id="Oval-214"
+                    d="M12,23 C12,23 20,15 20,9 C20,4.581722 16.418278,1 12,1 C7.581722,1 4,4.581722 4,9 C4,15 12,23 12,23 Z"
+                    stroke-linejoin="round"
                   />
-                  <rect
-                    id="Rectangle-1"
-                    fill="#333333"
-                    x="11"
-                    y="7"
-                    width="2"
-                    height="10"
-                    rx="1"
-                  />
-                  <rect
-                    id="Rectangle-1"
-                    fill="#333333"
-                    x="7"
-                    y="11"
-                    width="10"
-                    height="2"
-                    rx="1"
-                  />
+                  <circle id="Oval-34" cx="12" cy="9" r="3" />
                 </g>
               </g>
             </g></svg
-          >Buy new books
+          >Buy a land
         </div>
         <div class="link">
           <svg
