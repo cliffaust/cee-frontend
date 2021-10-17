@@ -53,7 +53,7 @@ export const actions = {
     data.push({ open_date_time: landOpenDateTime.data.results })
     data.push({ contact_numbers: landContactNumber.data.results })
     data.push({ land_coordinate: landCoordinate.data.results })
-    data.push({ land_reviews: landReview.data.results })
+    data.push({ reviews: landReview.data.results })
 
     commit('ADD_LAND', data)
   },

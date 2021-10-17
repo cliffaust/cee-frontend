@@ -569,36 +569,36 @@
           </div>
         </template>
       </div>
-      <!-- <div v-if="home.reviews.length > 0" class="mt-2 ml-4 mr-4 mb-8">
-        <div class="text-3xl font-mono mb-4 mt-8 font-bold">Reviews</div>
-        <div class="flex mb-6 items-center">
-          <div class="text-2xl font-bold font-mono">{{ averageRating }}</div>
-          <div class="flex items-center ml-4">
+      <div v-if="home.reviews.length > 0" class="mt-2 ml-4 mr-4 mb-8">
+        <div class="text-lg font-mono mb-2.5 mt-5 font-bold">Reviews</div>
+        <div class="flex mb-4 items-center">
+          <div class="text-xs font-bold font-mono">{{ averageRating }}</div>
+          <div class="flex items-center ml-2.5">
             <StarRating :rating="averageRating" :font-size="20"></StarRating>
-            <div class="text-xl ml-2 font-bold font-mono">
+            <div class="text-xs ml-1 font-bold font-mono">
               {{ home.reviews.length }} Reviews
             </div>
           </div>
         </div>
 
-        <div class="review-percentages">
+        <div>
           <div
             v-for="(rate, index) in rates"
             :key="index"
-            class="flex items-center justify-between mb-4"
+            class="flex items-center justify-between mb-2"
           >
-            <div class="mt-3 ml-2 text-xl font-mono text-bold">{{ rate }}</div>
+            <div class="mt-2 ml-1 text-xs font-mono text-bold">{{ rate }}</div>
             <div class="w-4/5 cursor-pointer" @click="filterReview(rate)">
               <PercentageBar :percent="starPercentage(rate)"></PercentageBar>
             </div>
-            <div class="text-2xl font-mono fond-bold">
+            <div class="text-xs font-mono fond-bold">
               {{ starPercentage(rate) }}%
             </div>
           </div>
         </div>
         <div
           v-if="filterReviews"
-          class="text-primary-blue-300 cursor-pointer inline-block text-2xl mt-4 mb-4 ml-4"
+          class="text-primary-blue-300 cursor-pointer inline-block text-base font-bold mt-2 mb-2 ml-2"
           @click="filterReviews = null"
         >
           Reset Filter
@@ -608,7 +608,7 @@
             <div
               v-for="review in filterReviews.slice(0, 4)"
               :key="review.id"
-              class="mt-8"
+              class="mt-5"
             >
               <UserReview :review="review"></UserReview>
             </div>
@@ -617,7 +617,7 @@
             <div
               v-for="review in home.reviews.slice(0, 4)"
               :key="review.id"
-              class="mt-8"
+              class="mt-5"
             >
               <UserReview :review="review"></UserReview>
             </div>
@@ -626,7 +626,7 @@
       </div>
       <div v-if="spinner">
         <LoadingSpinner></LoadingSpinner>
-      </div> -->
+      </div>
 
       <modal v-if="modal" @close="close">
         <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
@@ -845,9 +845,9 @@ import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open
 import smallImageContainer from '~/components/defaultComponent/smallImageContainer'
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import saveListing from '~/mixins/saveListing'
-// import StarRating from '~/components/defaultComponent/star-rating'
-// import PercentageBar from '~/components/defaultComponent/percentage-bar'
-// import UserReview from '~/components/defaultComponent/user-review'
+import StarRating from '~/components/defaultComponent/star-rating'
+import PercentageBar from '~/components/defaultComponent/percentage-bar'
+import UserReview from '~/components/defaultComponent/user-review'
 export default {
   components: {
     navbar,
@@ -858,9 +858,9 @@ export default {
     smallImageSelectedContainer,
     ButtonPrimary,
     ButtonPrimaryOpen,
-    // StarRating,
-    // PercentageBar,
-    // UserReview,
+    StarRating,
+    PercentageBar,
+    UserReview,
   },
   mixins: [saveListing],
   validate({ route }) {
@@ -870,18 +870,6 @@ export default {
       return false
     }
   },
-  // async asyncData({ params, store }) {
-  //   try {
-  //     const reviews = await axios.get(
-  //       `${process.env.baseUrl}/homes/${params.address}/reviews/`
-  //     )
-  //     return {
-  //       reviews: reviews.data.results,
-  //     }
-  //   } catch (error) {
-  //     console.log(error.response)
-  //   }
-  // },
   data() {
     return {
       readMore: false,

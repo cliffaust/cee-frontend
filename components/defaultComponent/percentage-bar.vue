@@ -1,5 +1,5 @@
 <template>
-  <div class="bar">
+  <div class="w-full bg-gray-200 h-2 rounded-full">
     <div class="percent" :style="{ '--percent': percent + '%' }"></div>
   </div>
 </template>
@@ -16,13 +16,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.bar {
-  background-color: #e4e4e4;
-  width: 100%;
-  height: 7px;
-  border-radius: 100px;
-}
-
 .percent {
   background-color: #fca311;
   width: var(--percent);
