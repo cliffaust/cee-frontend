@@ -16,8 +16,8 @@ export default {}
 
 /* Spinner Circle Rotation */
 .sp-circle {
-  border: 4px rgba(#002333, 0.25) solid;
-  border-top: 4px rgba(#002333, 1) solid;
+  border: 4px solid rgb(0, 35, 51, 0.25);
+  border-top: 4px solid rgb(0, 35, 51, 1);
   border-radius: 50%;
   -webkit-animation: spCircRot 0.6s infinite linear;
   animation: spCircRot 0.6s infinite linear;

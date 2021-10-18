@@ -585,10 +585,10 @@
           <div
             v-for="(rate, index) in rates"
             :key="index"
-            class="flex items-center justify-between mb-2"
+            class="flex items-center mb-2 gap-2"
           >
-            <div class="mt-2 ml-1 text-xs font-mono text-bold">{{ rate }}</div>
-            <div class="w-4/5 cursor-pointer" @click="filterReview(rate)">
+            <div class="text-xs font-mono text-bold">{{ rate }}</div>
+            <div class="flex-grow cursor-pointer" @click="filterReview(rate)">
               <PercentageBar :percent="starPercentage(rate)"></PercentageBar>
             </div>
             <div class="text-xs font-mono fond-bold">
@@ -598,7 +598,7 @@
         </div>
         <div
           v-if="filterReviews"
-          class="text-primary-blue-300 cursor-pointer inline-block text-sm font-bold mt-2 mb-2 ml-2"
+          class="text-blue-700 cursor-pointer inline-block text-sm font-bold mt-2 mb-2 ml-2"
           @click="filterReviews = null"
         >
           Reset Filter
@@ -830,6 +830,7 @@
         </div>
       </div>
     </client-only>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -846,6 +847,7 @@ import smallImageContainer from '~/components/defaultComponent/smallImageContain
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import saveListing from '~/mixins/saveListing'
 import StarRating from '~/components/defaultComponent/star-rating'
+import Footer from '~/components/defaultComponent/Footer.vue'
 import LoadingSpinner from '~/components/defaultComponent/loading-spinner'
 import PercentageBar from '~/components/defaultComponent/percentage-bar'
 import UserReview from '~/components/defaultComponent/user-review'
@@ -863,6 +865,7 @@ export default {
     PercentageBar,
     UserReview,
     LoadingSpinner,
+    Footer,
   },
   mixins: [saveListing],
   validate({ route }) {

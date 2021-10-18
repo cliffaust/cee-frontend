@@ -21,7 +21,7 @@
     </div>
 
     <div class="flex items-center mt-2">
-      <div class="text-xs text-bold">Was this hepful?</div>
+      <div class="text-xs text-bold text-blue-500">Was this hepful?</div>
 
       <div class="ml-1">
         <svg
