@@ -627,6 +627,7 @@
       <div v-if="spinner">
         <LoadingSpinner></LoadingSpinner>
       </div>
+      <Footer></Footer>
 
       <modal v-if="modal" @close="close">
         <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
@@ -830,7 +831,6 @@
         </div>
       </div>
     </client-only>
-    <Footer></Footer>
   </div>
 </template>
 

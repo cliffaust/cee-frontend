@@ -4,8 +4,8 @@
       :show-options="showOptions"
       @showUserOptions="showUserOptions"
     ></navbar>
-    <div v-if="saved_homes.length > 0" class="mt-8 ml-4">
-      <div class="font-bold text-sm font-mono">
+    <div v-if="saved_homes.length > 0" class="mt-5">
+      <div class="font-bold text-sm font-mono ml-4">
         Saved Homes ({{ saved_homes.length }})
       </div>
 
@@ -105,7 +105,7 @@
         :home="home.home"
         :save-home-id="home.id"
       ></homeCard>
-      <div v-if="!$store.state.signin.token" class="mt-2 mb-2 text-sm px-5">
+      <div v-if="!$store.state.signin.token" class="mt-2 mb-6 text-sm px-4">
         You are currently not signed in. To save these items or see your
         previously saved items across devices,
         <nuxt-link

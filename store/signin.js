@@ -69,6 +69,23 @@ export const actions = {
         }
         Cookies.remove('homes')
       }
+      if (Cookies.get('lands')) {
+        let lands = Cookies.get('lands')
+        lands = JSON.parse(decodeURIComponent(lands))
+
+        for (const item of lands) {
+          await axios
+            .post(`${process.env.baseUrl}/lands/${item.slug}/save/`, '', {
+              headers: {
+                Authorization: 'Token ' + response.data.key,
+              },
+            })
+            .catch((err) => {
+              console.log(err.response)
+            })
+        }
+        Cookies.remove('lands')
+      }
       this.$router.replace(payload.redirect, () => this.$router.go(0))
     } catch (error) {
       commit('STOP_LOADING_STATE')
@@ -101,6 +118,23 @@ export const actions = {
             })
         }
         Cookies.remove('homes')
+      }
+      if (Cookies.get('lands')) {
+        let lands = Cookies.get('lands')
+        lands = JSON.parse(decodeURIComponent(lands))
+
+        for (const item of lands) {
+          await axios
+            .post(`${process.env.baseUrl}/lands/${item.slug}/save/`, '', {
+              headers: {
+                Authorization: 'Token ' + response.data.key,
+              },
+            })
+            .catch((err) => {
+              console.log(err.response)
+            })
+        }
+        Cookies.remove('lands')
       }
       this.$router.replace(payload.redirect, () => this.$router.go(0))
     } catch (error) {
