@@ -768,6 +768,13 @@
             </div>
           </div>
         </client-only>
+        <div
+          v-if="selectedDateTime"
+          class="cursor-pointer text-blue-700 font-bold mt-4 text-sm"
+          @click="selectedDateTime = null"
+        >
+          reset
+        </div>
         <div class="mt-8">
           <ButtonPrimary class="w-full h-10 text-sm"
             >Request for this time</ButtonPrimary
