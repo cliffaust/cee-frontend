@@ -169,6 +169,7 @@
         <span class="text-sm">Map</span>
       </ButtonPrimary>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -179,6 +180,7 @@ import homeCard from '~/components/defaultComponent/homeCard'
 import filter from '~/components/defaultComponent/filter'
 import modal from '~/components/defaultComponent/modal'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
+import Footer from '~/components/defaultComponent/Footer.vue'
 export default {
   components: {
     navbar,
@@ -187,6 +189,7 @@ export default {
     ButtonPrimary,
     // skeletonLoader,
     filterResults: filter,
+    Footer,
   },
   async asyncData({ store, params, route }) {
     // const { store, params, route } = this.$nuxt.context

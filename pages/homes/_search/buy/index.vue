@@ -169,6 +169,7 @@
         <span class="text-sm">Map</span>
       </ButtonPrimary>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -177,6 +178,7 @@ import axios from 'axios'
 import navbar from '~/components/buyComponent/navbar'
 import homeCard from '~/components/defaultComponent/homeCard'
 import filter from '~/components/defaultComponent/filter'
+import Footer from '~/components/defaultComponent/Footer.vue'
 import modal from '~/components/defaultComponent/modal'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 export default {
@@ -185,6 +187,7 @@ export default {
     homeCard,
     modal,
     ButtonPrimary,
+    Footer,
     // skeletonLoader,
     filterResults: filter,
   },

@@ -147,6 +147,7 @@
         <span class="text-sm">Map</span>
       </ButtonPrimary>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -157,12 +158,14 @@ import landCard from '~/components/defaultComponent/landCard'
 import filter from '~/components/defaultComponent/landFilter.vue'
 import modal from '~/components/defaultComponent/modal'
 import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
+import Footer from '~/components/defaultComponent/Footer.vue'
 export default {
   components: {
     navbar,
     landCard,
     modal,
     ButtonPrimary,
+    Footer,
     filterResults: filter,
   },
   async asyncData({ store, params, route }) {
