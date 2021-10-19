@@ -724,6 +724,28 @@
     <modal v-show="modalTour" @close="closeTourModal">
       <div>
         <h1 class="font-bold font-mono text-base mt-1">Request for a tour</h1>
+        <div class="input-container">
+          <baseInput
+            v-model="tourName"
+            label="Full Name"
+            placeholder="Enter your name"
+          ></baseInput>
+        </div>
+        <div class="input-container">
+          <baseInput
+            v-model="tourEmail"
+            label="Email"
+            placeholder="Enter your email"
+            type="email"
+          ></baseInput>
+        </div>
+        <div class="input-container">
+          <baseInput
+            v-model="tourNumber"
+            label="Phone Number"
+            placeholder="Enter your phone number"
+          ></baseInput>
+        </div>
         <h1 class="font-bold font-mono text-base mt-4 mb-6">
           Select a preffered time
         </h1>
@@ -731,7 +753,7 @@
           <div v-swiper="swiperOption" class="swiper-container">
             <div class="swiper-wrapper">
               <div
-                v-for="n in Array.from(Array(10).keys())"
+                v-for="n in Array.from(Array(7).keys())"
                 :key="n"
                 :class="[
                   'swiper-slide',
@@ -931,6 +953,9 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
+      tourName: '',
+      tourEmail: '',
+      tourNumber: '',
       readMore: false,
       modal: false,
       rates: [5, 4, 3, 2, 1],
