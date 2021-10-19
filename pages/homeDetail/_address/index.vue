@@ -758,7 +758,7 @@
                 :class="[
                   'swiper-slide',
                   'date-time-card',
-                  [selectedDateTime === n ? '!bg-primary-yellow' : ''],
+                  [selectedDateTime === n + 1 ? '!bg-primary-yellow' : ''],
                 ]"
                 @click="changeSelectedDateTime(n + 1)"
               >
@@ -957,6 +957,17 @@ export default {
     }
   },
   data() {
+    const userName =
+      this.$store.state.user_profile.first_name &&
+      this.$store.state.user_profile.last_name
+        ? this.$store.state.user_profile.first_name +
+          ' ' +
+          this.$store.state.user_profile.last_name
+        : this.$store.state.user_profile.first_name
+        ? this.$store.state.user_profile.first_name
+        : this.$store.state.user_profile.last_name
+        ? this.$store.state.user_profile.last_name
+        : ''
     return {
       swiperOption: {
         slidesPerView: 'auto',
@@ -965,8 +976,8 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      tourName: '',
-      tourEmail: '',
+      tourName: userName || '',
+      tourEmail: this.$store.state.user_profile.email || '',
       tourNumber: '',
       readMore: false,
       modal: false,

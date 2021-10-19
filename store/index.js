@@ -53,14 +53,11 @@ export const actions = {
         if (token) {
           token = token.split('=')[1]
           try {
-            const response = await axios.get(
-              `${process.env.baseUrl}/user-profile/`,
-              {
-                headers: {
-                  Authorization: 'Token ' + token,
-                },
-              }
-            )
+            const response = await axios.get(`${process.env.baseUrl}/user/`, {
+              headers: {
+                Authorization: 'Token ' + token,
+              },
+            })
             commit('ADD_USER_PROFILE', response.data)
           } catch (error) {
             if (error.response.status === 401) {
