@@ -300,6 +300,65 @@
           </div>
         </div>
       </div>
+      <div v-if="land.reviews.length > 0" class="mt-2 ml-4 mr-4 mb-8">
+        <div class="text-lg font-mono mb-2.5 mt-5 font-bold">Reviews</div>
+        <div class="flex mb-4 items-center">
+          <div class="text-xs font-bold font-mono">{{ averageRating }}</div>
+          <div class="flex items-center ml-2.5">
+            <StarRating :rating="averageRating" :font-size="20"></StarRating>
+            <div class="text-xs ml-1 font-bold font-mono">
+              {{ land.reviews.length }} Reviews
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div
+            v-for="(rate, index) in rates"
+            :key="index"
+            class="flex items-center mb-2 gap-2"
+          >
+            <div class="text-xs font-mono text-bold">{{ rate }}</div>
+            <div class="flex-grow cursor-pointer" @click="filterReview(rate)">
+              <PercentageBar :percent="starPercentage(rate)"></PercentageBar>
+            </div>
+            <div class="text-xs font-mono fond-bold">
+              {{ starPercentage(rate) }}%
+            </div>
+          </div>
+        </div>
+        <div
+          v-if="filterReviews"
+          class="text-blue-700 cursor-pointer inline-block text-sm font-bold mt-2 mb-2 ml-2"
+          @click="filterReviews = null"
+        >
+          Reset Filter
+        </div>
+        <div v-if="!spinner">
+          <template v-if="filterReviews">
+            <div
+              v-for="review in filterReviews.slice(0, 4)"
+              :key="review.id"
+              class="mt-5"
+            >
+              <UserReview :review="review"></UserReview>
+            </div>
+          </template>
+          <template v-else>
+            <div
+              v-for="review in land.reviews.slice(0, 4)"
+              :key="review.id"
+              class="mt-5"
+            >
+              <UserReview :review="review"></UserReview>
+            </div>
+          </template>
+        </div>
+      </div>
+      <div v-if="spinner">
+        <LoadingSpinner></LoadingSpinner>
+      </div>
+      <Footer></Footer>
       <modal v-if="modal" @close="close">
         <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
         <div class="mt-4">
@@ -517,6 +576,11 @@ import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open
 import smallImageContainer from '~/components/defaultComponent/smallImageContainer'
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import landCardMixin from '~/mixins/landCardMixin'
+import StarRating from '~/components/defaultComponent/star-rating'
+import Footer from '~/components/defaultComponent/Footer.vue'
+import LoadingSpinner from '~/components/defaultComponent/loading-spinner'
+import PercentageBar from '~/components/defaultComponent/percentage-bar'
+import UserReview from '~/components/defaultComponent/user-review'
 export default {
   components: {
     navbar,
@@ -527,6 +591,11 @@ export default {
     smallImageSelectedContainer,
     ButtonPrimary,
     ButtonPrimaryOpen,
+    Footer,
+    StarRating,
+    LoadingSpinner,
+    PercentageBar,
+    UserReview,
   },
   mixins: [landCardMixin],
   validate({ route }) {
@@ -540,8 +609,13 @@ export default {
     return {
       readMore: false,
       modal: false,
+      rates: [5, 4, 3, 2, 1],
+      spinner: false,
+      showModal: false,
+      btnDisabled: false,
       modalMessage: false,
       readMoreFeature: false,
+      filterReviews: '',
       message: '',
       name: '',
       email: '',
@@ -602,6 +676,13 @@ export default {
     formatLink() {
       return process.client ? window.location.href : ''
     },
+    averageRating() {
+      let totalRating = 0
+      this.land.reviews.forEach((review) => {
+        totalRating += review.rate
+      })
+      return totalRating / this.land.reviews.length
+    },
   },
   mounted() {
     const postUrl = encodeURI(location.href)
@@ -623,6 +704,28 @@ export default {
     )
   },
   methods: {
+    starPercentage(star) {
+      let numberOfReviewers = 0
+      this.land.reviews.forEach((review) => {
+        if (review.rate === star) {
+          numberOfReviewers++
+        }
+      })
+      return Math.floor(
+        100 -
+          ((this.land.reviews.length - numberOfReviewers) /
+            this.land.reviews.length) *
+            100
+      )
+    },
+    async filterReview(rate) {
+      this.spinner = true
+      const { data } = await axios.get(
+        `${process.env.baseUrl}/lands/${this.$route.params.address}/reviews/?rate=${rate}`
+      )
+      this.filterReviews = data.results
+      this.spinner = false
+    },
     close() {
       this.modal = false
     },

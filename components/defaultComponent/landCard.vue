@@ -22,7 +22,7 @@
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="#e63946"
-            @click.stop="changeLandLikeState"
+            @click.prevent="changeLandLikeState"
           >
             <path
               fill-rule="evenodd"
@@ -38,7 +38,7 @@
             fill="none"
             viewBox="0 0 24 24"
             stroke="#fff"
-            @click.stop="changeLandUnLikeState"
+            @click.prevent="changeLandUnLikeState"
           >
             <path
               stroke-linecap="round"
