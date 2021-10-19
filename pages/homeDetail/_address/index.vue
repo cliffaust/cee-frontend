@@ -768,6 +768,11 @@
             </div>
           </div>
         </client-only>
+        <div class="mt-8">
+          <ButtonPrimary class="w-full h-10 text-sm"
+            >Request for this time</ButtonPrimary
+          >
+        </div>
       </div>
     </modal>
     <modal v-show="modalShare" @close="closeShareModal">
@@ -1133,7 +1138,10 @@ export default {
 
 .swiper-slide {
   width: 150px !important;
-  margin-left: 10px !important;
+}
+
+.swiper-slide:not(:last-child) {
+  margin-right: 10px !important;
 }
 
 .date-time-card {
