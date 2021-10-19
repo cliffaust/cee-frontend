@@ -760,7 +760,7 @@
                   'date-time-card',
                   [selectedDateTime === n ? '!bg-primary-yellow' : ''],
                 ]"
-                @click="changeSelectedDateTime(n)"
+                @click="changeSelectedDateTime(n + 1)"
               >
                 <div>Saturday</div>
                 <div>2pm - 6pm</div>
