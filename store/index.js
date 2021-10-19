@@ -58,7 +58,7 @@ export const actions = {
                 Authorization: 'Token ' + token,
               },
             })
-            commit('ADD_USER_PROFILE', response.data)
+            commit('ADD_USER_PROFILE', response.data[0])
           } catch (error) {
             if (error.response.status === 401) {
               context.redirect('/logout')
