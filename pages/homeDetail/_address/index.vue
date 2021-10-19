@@ -627,6 +627,22 @@
       <div v-if="spinner">
         <LoadingSpinner></LoadingSpinner>
       </div>
+      <div>
+        <AllReviews
+          :show-modal="showModal"
+          :reviews="filterReviews ? filterReviews : home.reviews"
+          @close="close"
+        ></AllReviews>
+      </div>
+
+      <div v-if="!spinner" class="flex justify-center">
+        <ButtonPrimaryOpen
+          v-if="home.reviews.length > 4"
+          class="w-7/7 py-4 text-2xl"
+          @click="showModal = true"
+          >View All Reviews</ButtonPrimaryOpen
+        >
+      </div>
       <Footer></Footer>
 
       <modal v-if="modal" @close="close">
@@ -851,6 +867,7 @@ import Footer from '~/components/defaultComponent/Footer.vue'
 import LoadingSpinner from '~/components/defaultComponent/loading-spinner'
 import PercentageBar from '~/components/defaultComponent/percentage-bar'
 import UserReview from '~/components/defaultComponent/user-review'
+import AllReviews from '~/components/defaultComponent/all-reviews.vue'
 export default {
   components: {
     navbar,
@@ -866,6 +883,7 @@ export default {
     UserReview,
     LoadingSpinner,
     Footer,
+    AllReviews,
   },
   mixins: [saveListing],
   validate({ route }) {
