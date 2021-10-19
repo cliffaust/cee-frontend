@@ -54,7 +54,7 @@ export default {}
 
 <style lang="postcss" scoped>
 .card {
-  @apply w-2/8 mx-auto mt-12 mb-8;
+  @apply w-7/7 mx-auto mt-12 mb-8 shadow-md px-6 pt-2 pb-6 rounded-md;
 }
 
 .image {
