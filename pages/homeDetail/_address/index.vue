@@ -262,7 +262,9 @@
               @click="modal = true"
               >Call</ButtonPrimaryOpen
             >
-            <ButtonPrimaryOpen class="w-full !py-3 text-sm"
+            <ButtonPrimaryOpen
+              class="w-full !py-3 text-sm"
+              @click="modalTour = true"
               >Tour</ButtonPrimaryOpen
             >
           </div>
@@ -719,6 +721,33 @@
         </div>
       </modal>
     </div>
+    <modal v-show="modalTour" @close="closeTourModal">
+      <div>
+        <h1 class="font-bold font-mono text-base mt-1">Request for a tour</h1>
+        <h1 class="font-bold font-mono text-base mt-4 mb-6">
+          Select a preffered time
+        </h1>
+        <client-only>
+          <div v-swiper="swiperOption" class="swiper-container">
+            <div class="swiper-wrapper">
+              <div
+                v-for="n in Array.from(Array(10).keys())"
+                :key="n"
+                :class="[
+                  'swiper-slide',
+                  'date-time-card',
+                  [selectedDateTime === n ? '!bg-primary-yellow' : ''],
+                ]"
+                @click="changeSelectedDateTime(n)"
+              >
+                <div>Saturday</div>
+                <div>2pm - 6pm</div>
+              </div>
+            </div>
+          </div>
+        </client-only>
+      </div>
+    </modal>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
         <h1 class="font-bold font-mono text-base mt-1">Email this home</h1>
@@ -895,6 +924,13 @@ export default {
   },
   data() {
     return {
+      swiperOption: {
+        slidesPerView: 'auto',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      },
       readMore: false,
       modal: false,
       rates: [5, 4, 3, 2, 1],
@@ -905,6 +941,8 @@ export default {
       readMoreFeature: false,
       filterReviews: '',
       message: '',
+      modalTour: false,
+      selectedDateTime: null,
       name: '',
       email: '',
       number: '',
@@ -1008,6 +1046,9 @@ export default {
             100
       )
     },
+    changeSelectedDateTime(n) {
+      this.selectedDateTime = n
+    },
     async filterReview(rate) {
       this.spinner = true
       const { data } = await axios.get(
@@ -1021,6 +1062,9 @@ export default {
     },
     closeShareModal() {
       this.modalShare = false
+    },
+    closeTourModal() {
+      this.modalTour = false
     },
     closeMessage() {
       this.modalMessage = false
@@ -1054,6 +1098,22 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.swiper-button-next,
+.swiper-button-prev {
+  width: 2rem;
+  height: 2rem;
+  color: #fca311;
+  transition: 0.2s ease;
+}
+
+.swiper-slide {
+  width: 150px !important;
+  margin-left: 10px !important;
+}
+
+.date-time-card {
+  @apply py-2 px-4 border-gray-500 rounded-md bg-gray-100 cursor-pointer;
+}
 .list-features {
   @apply flex list-none mt-3 flex-wrap;
 }
