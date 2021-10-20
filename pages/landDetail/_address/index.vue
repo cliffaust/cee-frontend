@@ -634,7 +634,7 @@
           ></smallImageSelectedContainer>
         </div>
         <div class="w-full px-5 fixed bottom-10">
-          <ButtonPrimary class="w-full !py-3 text-sm">
+          <ButtonPrimary class="w-full !py-3 text-sm" @click="modalTour = true">
             Request a tour</ButtonPrimary
           >
         </div>
