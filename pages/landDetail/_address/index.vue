@@ -219,7 +219,9 @@
               @click="modal = true"
               >Call</ButtonPrimaryOpen
             >
-            <ButtonPrimaryOpen class="w-full !py-3 text-sm"
+            <ButtonPrimaryOpen
+              class="w-full !py-3 text-sm"
+              @click="modalTour = true"
               >Tour</ButtonPrimaryOpen
             >
           </div>
@@ -375,7 +377,7 @@
         >
       </div>
       <Footer></Footer>
-      <modal v-if="modal" @close="close">
+      <modal v-show="modal" @close="close">
         <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
         <div class="mt-4">
           <div
@@ -407,7 +409,7 @@
           </div>
         </div>
       </modal>
-      <modal v-if="modalMessage" @close="closeMessage">
+      <modal v-show="modalMessage" @close="closeMessage">
         <div>
           <h1 class="font-bold font-mono text-base mt-1">
             Request on this listing
@@ -449,6 +451,67 @@
         </div>
       </modal>
     </div>
+    <modal v-show="modalTour" @close="closeTourModal">
+      <div>
+        <h1 class="font-bold font-mono text-base mt-1">Request for a tour</h1>
+        <div class="input-container">
+          <baseInput
+            v-model="tourName"
+            label="Full Name"
+            placeholder="Enter your name"
+          ></baseInput>
+        </div>
+        <div class="input-container">
+          <baseInput
+            v-model="tourEmail"
+            label="Email"
+            placeholder="Enter your email"
+            type="email"
+          ></baseInput>
+        </div>
+        <div class="input-container">
+          <baseInput
+            v-model="tourNumber"
+            label="Phone Number"
+            placeholder="Enter your phone number"
+          ></baseInput>
+        </div>
+        <h1 class="font-bold font-mono text-base mt-4 mb-6">
+          Select a preffered time
+        </h1>
+        <client-only>
+          <div v-swiper="swiperOption" class="swiper-container">
+            <div class="swiper-wrapper">
+              <div
+                v-for="n in Array.from(Array(7).keys())"
+                :key="n"
+                :class="[
+                  'swiper-slide',
+                  'date-time-card',
+                  [selectedDateTime === n + 1 ? '!bg-primary-yellow' : ''],
+                ]"
+                @click="changeSelectedDateTime(n + 1)"
+              >
+                <div>Saturday</div>
+                <div>2pm - 6pm</div>
+              </div>
+            </div>
+          </div>
+        </client-only>
+        <div
+          v-if="selectedDateTime"
+          class="cursor-pointer text-blue-700 font-bold mt-4 text-sm"
+          @click="selectedDateTime = null"
+        >
+          reset
+        </div>
+        <div class="mt-8">
+          <ButtonPrimary class="w-full h-10 text-sm"
+            >Request for this time</ButtonPrimary
+          >
+        </div>
+      </div>
+    </modal>
     <modal v-show="modalShare" @close="closeShareModal">
       <div>
         <h1 class="font-bold font-mono text-base mt-1">Email this land</h1>
