@@ -647,7 +647,7 @@
       </div>
       <Footer></Footer>
 
-      <modal v-if="modal" @close="close">
+      <modal v-show="modal" @close="close">
         <h1 class="font-bold font-mono text-base mt-1">Contact List</h1>
         <div class="mt-4">
           <div
@@ -679,7 +679,7 @@
           </div>
         </div>
       </modal>
-      <modal v-if="modalMessage" @close="closeMessage">
+      <modal v-show="modalMessage" @close="closeMessage">
         <div>
           <h1 class="font-bold font-mono text-base mt-1">
             Request on this listing
@@ -904,7 +904,7 @@
           ></smallImageSelectedContainer>
         </div>
         <div class="w-full px-5 fixed bottom-10">
-          <ButtonPrimary class="w-full !py-3 text-sm">
+          <ButtonPrimary class="w-full !py-3 text-sm" @click="modalTour = true">
             Request a tour</ButtonPrimary
           >
         </div>
