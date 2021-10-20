@@ -874,6 +874,26 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.swiper-button-next,
+.swiper-button-prev {
+  width: 2rem;
+  height: 2rem;
+  color: #fca311;
+  transition: 0.2s ease;
+}
+
+.swiper-slide {
+  width: 150px !important;
+}
+
+.swiper-slide:not(:last-child) {
+  margin-right: 10px !important;
+}
+
+.date-time-card {
+  @apply py-2 px-4 border-gray-500 rounded-md bg-gray-100 cursor-pointer;
+}
+
 .list-features {
   @apply flex list-none mt-3 flex-wrap;
 }
