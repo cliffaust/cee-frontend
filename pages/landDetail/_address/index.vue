@@ -839,6 +839,9 @@ export default {
     closeShareModal() {
       this.modalShare = false
     },
+    closeTourModal() {
+      this.modalTour = false
+    },
     closeMessage() {
       this.modalMessage = false
     },
