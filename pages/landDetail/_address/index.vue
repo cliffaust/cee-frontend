@@ -822,6 +822,9 @@ export default {
             100
       )
     },
+    changeSelectedDateTime(n) {
+      this.selectedDateTime = n
+    },
     async filterReview(rate) {
       this.spinner = true
       const { data } = await axios.get(
