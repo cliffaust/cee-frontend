@@ -753,16 +753,20 @@
           <div v-swiper="swiperOption" class="swiper-container">
             <div class="swiper-wrapper">
               <div
-                v-for="n in Array.from(Array(7).keys())"
-                :key="n"
+                v-for="date_time in home.open_date_time"
+                :key="date_time.id"
                 :class="[
                   'swiper-slide',
                   'date-time-card',
-                  [selectedDateTime === n + 1 ? '!bg-primary-yellow' : ''],
+                  [
+                    selectedDateTime === date_time.open_day
+                      ? '!bg-primary-yellow'
+                      : '',
+                  ],
                 ]"
-                @click="changeSelectedDateTime(n + 1)"
+                @click="changeSelectedDateTime(date_time.open_day)"
               >
-                <div>Saturday</div>
+                <div>{{ date_time.open_day }}</div>
                 <div>2pm - 6pm</div>
               </div>
             </div>
@@ -998,6 +1002,7 @@ export default {
     return {
       swiperOption: {
         slidesPerView: 'auto',
+        // centeredSlides: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
@@ -1121,8 +1126,8 @@ export default {
             100
       )
     },
-    changeSelectedDateTime(n) {
-      this.selectedDateTime = n
+    changeSelectedDateTime(openDay) {
+      this.selectedDateTime = openDay
     },
     async filterReview(rate) {
       this.spinner = true
