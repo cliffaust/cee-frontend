@@ -769,7 +769,7 @@
             <svg
               slot="button-prev"
               xmlns="http://www.w3.org/2000/svg"
-              class="swiper-button-prev h-5 w-5"
+              class="swiper-button-prev h-5 w-5 -ml-4"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
