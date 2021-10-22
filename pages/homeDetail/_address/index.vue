@@ -767,7 +767,10 @@
                 @click="changeSelectedDateTime(date_time.open_day)"
               >
                 <div>{{ date_time.open_day }}</div>
-                <div>2pm - 6pm</div>
+                <div>
+                  {{ date_time.open_time.split(':').splice(0, 2).join(':') }} -
+                  {{ date_time.end_time.split(':').splice(0, 2).join(':') }}
+                </div>
               </div>
             </div>
             <svg
