@@ -63,6 +63,7 @@
             ]"
             @input="searchApi"
             @click.stop
+            @keyup.enter="checkKeyUp"
           />
           <div
             v-if="searchResults.length > 0 && closeResults && search"
@@ -159,6 +160,10 @@ export default {
   methods: {
     removeSearchText() {
       this.search = ''
+    },
+
+    checkKeyUp() {
+      this.searchResults = []
     },
 
     buy() {
