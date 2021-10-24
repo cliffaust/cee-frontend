@@ -917,9 +917,7 @@
             </a>
           </div>
         </div>
-        <Message v-show="copyToolkit" :show-message-box="copyToolkit"
-          >Copied</Message
-        >
+        <Message :show-message-box="copyToolkit">Copied</Message>
       </div>
     </modal>
     <client-only>
