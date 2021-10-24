@@ -920,6 +920,7 @@
         </div>
       </div>
     </modal>
+    <Message :show-message-box="modalShare">Copied</Message>
     <client-only>
       <div v-show="$route.query.media === 'all'">
         <smallImageContainer
@@ -961,6 +962,7 @@ import smallImageContainer from '~/components/defaultComponent/smallImageContain
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import saveListing from '~/mixins/saveListing'
 import StarRating from '~/components/defaultComponent/star-rating'
+import Message from '~/components/defaultComponent/message'
 import Footer from '~/components/defaultComponent/Footer.vue'
 import LoadingSpinner from '~/components/defaultComponent/loading-spinner'
 import PercentageBar from '~/components/defaultComponent/percentage-bar'
@@ -981,6 +983,7 @@ export default {
     UserReview,
     LoadingSpinner,
     Footer,
+    Message,
     AllReviews,
   },
   mixins: [saveListing],
