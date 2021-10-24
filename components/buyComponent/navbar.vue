@@ -30,6 +30,7 @@
             ]"
             @input="searchApi"
             @click.stop
+            @keyup.enter="checkKeyUp"
           />
           <div
             v-if="searchResults.length > 0 && showResult && search"
@@ -133,6 +134,10 @@ export default {
       this.$router.push({ params: { search: this.search } })
     },
 
+    checkKeyUp() {
+      this.searchResults = []
+    },
+
     searchApi() {
       if (this.search) {
         if (this.$route.name === 'lands-search') {
@@ -148,7 +153,7 @@ export default {
         } else if (this.$route.name === 'homes-search-rent') {
           axios
             .get(
-              `${process.env.baseUrl}/lands/?search=${
+              `${process.env.baseUrl}/homes/?search=${
                 this.search
               }&home_status=${'For Rent'}`
             )
