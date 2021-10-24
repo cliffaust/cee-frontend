@@ -664,7 +664,7 @@
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              @click="makeAPhoneCall"
+              @click="makeAPhoneCall(contact_number.number)"
             >
               <path
                 stroke-linecap="round"
@@ -1130,8 +1130,8 @@ export default {
             100
       )
     },
-    makeAPhoneCall() {
-      location.href = `tel: +233555894688`
+    makeAPhoneCall(number) {
+      location.href = `tel: ${number}`
     },
 
     changeSelectedDateTime(openDay) {
