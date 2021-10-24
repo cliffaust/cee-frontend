@@ -24,7 +24,7 @@
             type="text"
             placeholder="Enter an address or city or town"
             :class="[
-              searchResults.length > 0 && search
+              searchResults.length > 0 && showResult && search
                 ? 'search-result-open !rounded-tr-md !rounded-tl-md !rounded-br-none !rounded-bl-none'
                 : 'search',
             ]"
