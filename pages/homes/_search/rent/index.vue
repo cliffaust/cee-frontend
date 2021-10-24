@@ -197,7 +197,7 @@ export default {
       const { data } = await axios.get(
         `${process.env.baseUrl}/homes/?search=${
           params.search
-        }&home_status=${'For Sale'}&min_price=${
+        }&home_status=${'For Rent'}&min_price=${
           route.query.minPrice
             ? route.query.minPrice.replace(/[^0-9.]+/g, '')
             : ''
