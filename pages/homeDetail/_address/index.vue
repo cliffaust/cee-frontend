@@ -917,7 +917,7 @@
             </a>
           </div>
         </div>
-        <Message :show-message-box="copyToolkit">Copied</Message>
+        <Message :show-message-box="copyToolkit">{{ messageModal }}</Message>
       </div>
     </modal>
     <client-only>
@@ -1029,6 +1029,7 @@ export default {
       message: '',
       modalTour: false,
       selectedDateTime: null,
+      messageModal: '',
       name: userName || '',
       email: this.$store.state.user_profile.email || '',
       number: '',
@@ -1175,13 +1176,18 @@ export default {
       this.modalShare = true
     },
     displayCopyToolkit() {
+      this.messageModal = 'Copied!'
       this.copyToolkit = true
       setTimeout(() => {
         this.copyToolkit = false
       }, 1500)
     },
     errorCopyToolkit() {
-      alert('Failed to copy texts')
+      this.messageModal = 'Failed to copy texts!'
+      this.copyToolkit = true
+      setTimeout(() => {
+        this.copyToolkit = false
+      }, 1500)
     },
   },
 }
