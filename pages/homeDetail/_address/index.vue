@@ -818,7 +818,7 @@
       </div>
     </modal>
     <modal v-show="modalShare" @close="closeShareModal">
-      <div>
+      <div class="min-h-screen">
         <h1 class="font-bold font-mono text-base mt-1">Email this home</h1>
         <div class="input-container">
           <baseInput
@@ -917,10 +917,10 @@
             </a>
           </div>
         </div>
+        <Message v-if="copyToolkit" :show-message-box="copyToolkit"
+          >Copied</Message
+        >
       </div>
-      <Message v-if="copyToolkit" :show-message-box="copyToolkit"
-        >Copied</Message
-      >
     </modal>
     <client-only>
       <div v-show="$route.query.media === 'all'">
