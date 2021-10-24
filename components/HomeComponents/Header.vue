@@ -57,7 +57,7 @@
             type="text"
             placeholder="Enter an address or city or town"
             :class="[
-              searchResults.length > 0 && search
+              searchResults.length > 0 && closeResults && search
                 ? 'search-result-open !rounded-tr-md !rounded-tl-md !rounded-br-none !rounded-bl-none !border-gray-100 !border-2'
                 : 'search',
             ]"
