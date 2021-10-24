@@ -679,6 +679,9 @@
             <a class="text-blue-700" href="#">call terms and conditions</a>
           </div>
         </div>
+        <Message v-if="copyToolkit" :show-message-box="copyToolkit"
+          >Copied</Message
+        >
       </modal>
       <modal v-show="modalMessage" @close="closeMessage">
         <div>
@@ -919,7 +922,6 @@
         </div>
       </div>
     </modal>
-    <Message :show-message-box="copyToolkit">Copied</Message>
     <client-only>
       <div v-show="$route.query.media === 'all'">
         <smallImageContainer
