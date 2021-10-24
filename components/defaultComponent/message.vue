@@ -18,7 +18,7 @@
       v-bind="$attrs"
       v-on="$listeners"
     >
-      <div class="text-base font-bold">
+      <div class="text-sm font-bold">
         <slot></slot>
       </div>
     </div>
