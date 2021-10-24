@@ -514,7 +514,7 @@
       </div>
     </modal>
     <modal v-show="modalShare" @close="closeShareModal">
-      <div>
+      <div class="min-h-screen">
         <h1 class="font-bold font-mono text-base mt-1">Email this land</h1>
         <div class="input-container">
           <baseInput
@@ -548,7 +548,6 @@
           >
             Copy Link
           </button>
-          <div v-if="copyToolkit" class="copy-toolkit">Copied!</div>
         </div>
         <div class="flex flex-col mt-6">
           <div class="text-base font-bold font-mono">
@@ -614,6 +613,7 @@
             </a>
           </div>
         </div>
+        <Message :show-message-box="copyToolkit">{{ messageModal }}</Message>
       </div>
     </modal>
     <client-only>
@@ -656,6 +656,7 @@ import ButtonPrimaryOpen from '~/components/defaultComponent/button-primary-open
 import smallImageContainer from '~/components/defaultComponent/smallImageContainer'
 import smallImageSelectedContainer from '~/components/defaultComponent/smallImageSelectedContainer'
 import landCardMixin from '~/mixins/landCardMixin'
+import Message from '~/components/defaultComponent/message'
 import StarRating from '~/components/defaultComponent/star-rating'
 import Footer from '~/components/defaultComponent/Footer.vue'
 import LoadingSpinner from '~/components/defaultComponent/loading-spinner'
@@ -678,6 +679,7 @@ export default {
     PercentageBar,
     UserReview,
     AllReviews,
+    Message,
   },
   mixins: [landCardMixin],
   validate({ route }) {
@@ -720,6 +722,7 @@ export default {
       readMoreFeature: false,
       filterReviews: '',
       message: '',
+      messageModal: '',
       modalTour: false,
       selectedDateTime: null,
       name: userName || '',
@@ -865,13 +868,18 @@ export default {
       this.modalShare = true
     },
     displayCopyToolkit() {
+      this.messageModal = 'Copied!'
       this.copyToolkit = true
       setTimeout(() => {
         this.copyToolkit = false
       }, 1500)
     },
     errorCopyToolkit() {
-      alert('Failed to copy texts')
+      this.messageModal = 'Failed to copy texts!'
+      this.copyToolkit = true
+      setTimeout(() => {
+        this.copyToolkit = false
+      }, 1500)
     },
   },
 }
