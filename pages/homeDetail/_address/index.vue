@@ -852,7 +852,6 @@
           >
             Copy Link
           </button>
-          <div v-if="copyToolkit" class="copy-toolkit">Copied!</div>
         </div>
         <div class="flex flex-col mt-6">
           <div class="text-base font-bold font-mono">
@@ -920,7 +919,7 @@
         </div>
       </div>
     </modal>
-    <Message :show-message-box="modalShare">Copied</Message>
+    <Message :show-message-box="copyToolkit">Copied</Message>
     <client-only>
       <div v-show="$route.query.media === 'all'">
         <smallImageContainer
