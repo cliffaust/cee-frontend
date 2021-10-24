@@ -374,29 +374,7 @@ export default {
       console.log(this.$router.currentRoute)
     },
     reset() {
-      this.$router.push({
-        path: 'homes/',
-        query: {
-          bathrooms: null,
-          beds: null,
-          minPrice: null,
-          maxPrice: null,
-          minLandSize: null,
-          maxLandSize: null,
-          minLotSize: null,
-          maxLotSize: null,
-          minYear: null,
-          maxYear: null,
-        },
-      })
-      this.selectedMinLandSize = 'Any Size'
-      this.selectedMaxLandSize = 'Any Size'
-      this.selectedMinLotSize = 'Any Size'
-      this.selectedMaxLotSize = 'Any Size'
-      this.selectedMinYear = ''
-      this.selectedMaxYear = ''
-      this.selectedMinPrice = 'Any Price'
-      this.selectedMaxPrice = 'Any Price'
+      this.$router.replace({ query: null })
     },
   },
 }
