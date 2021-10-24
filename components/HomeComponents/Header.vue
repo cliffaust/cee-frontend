@@ -188,25 +188,31 @@ export default {
     },
 
     searchLocation() {
-      if (this.search && this.optionState === 'buy') {
+      if (this.search) {
         this.$router.push(`homes/${this.search}/${this.optionState}`)
-      } else if (this.search && this.optionState === 'rent') {
-        this.$router.push(`homes/${this.search}/${this.optionState}`)
-      } else if (this.search && this.optionState === 'land') {
-        this.$router.push(`lands/${this.search}`)
       }
+      // if (this.search && this.optionState === 'buy') {
+      //   this.$router.push(`homes/${this.search}/${this.optionState}`)
+      // } else if (this.search && this.optionState === 'rent') {
+      //   this.$router.push(`homes/${this.search}/${this.optionState}`)
+      // } else if (this.search && this.optionState === 'land') {
+      //   this.$router.push(`lands/${this.search}`)
+      // }
     },
 
     apiSearchResult(result) {
       this.search = result
       this.searchResults = []
-      if (this.optionState === 'buy') {
+      if (this.search) {
         this.$router.push(`homes/${result}/${this.optionState}`)
-      } else if (this.optionState === 'rent') {
-        this.$router.push(`homes/${result}/${this.optionState}`)
-      } else if (this.optionState === 'land') {
-        this.$router.push(`lands/${result}`)
       }
+      // if (this.optionState === 'buy') {
+      //   this.$router.push(`homes/${result}/${this.optionState}`)
+      // } else if (this.optionState === 'rent') {
+      //   this.$router.push(`homes/${result}/${this.optionState}`)
+      // } else if (this.optionState === 'land') {
+      //   this.$router.push(`lands/${result}`)
+      // }
     },
 
     searchApi() {
