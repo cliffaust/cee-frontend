@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <navbar @showUserOptions="showUserOptions"></navbar>
+    <navbar></navbar>
     <div class="h-500 bg-header-image relative bg-center bg-cover">
       <h1
         class="text-4xl font-standard-tt absolute text-center w-2/8 left-2/4 top-1/3 -translate-y-2/4 -translate-x-2/4"
@@ -65,7 +65,7 @@
             @click.stop
           />
           <div
-            v-if="searchResults.length > 0 && showResult && search"
+            v-if="searchResults.length > 0 && closeResults && search"
             class="search-results"
           >
             <div
@@ -126,7 +126,7 @@ export default {
   },
 
   props: {
-    showResult: {
+    closeResults: {
       type: Boolean,
       required: true,
     },
@@ -159,10 +159,6 @@ export default {
   methods: {
     removeSearchText() {
       this.search = ''
-    },
-
-    showUserOptions() {
-      this.$emit('showOptionsMethod')
     },
 
     buy() {
@@ -252,7 +248,7 @@ export default {
       } else {
         this.searchResults = []
       }
-      this.$emit('showResult', this.showResult)
+      this.$emit('closeResults', this.closeResults)
     },
   },
 }

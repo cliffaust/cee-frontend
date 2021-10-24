@@ -11,7 +11,7 @@
           Cee
         </div></nuxt-link
       >
-      <nuxt-link v-if="!login" v-slot="{ href, navigate }" to="/signup" custom
+      <nuxt-link v-if="!login" v-slot="{ href, navigate }" to="/login" custom
         ><div
           :href="href"
           class="text-sm font-bold hover:underline cursor-pointer"
@@ -20,11 +20,11 @@
           Sign In
         </div></nuxt-link
       >
-      <div v-if="login" @click.stop="showUserOptions">
+      <div v-if="login">
         <img
           v-if="user_profile.profile_pic"
           :src="user_profile.profile_pic"
-          class="rounded-full w-14 h-14 object-cover"
+          class="rounded-full w-10 h-10 object-cover"
           alt="Profile Image"
         />
       </div>
@@ -49,11 +49,6 @@ export default {
     ...mapState({
       login: (state) => state.signin.token,
     }),
-  },
-  methods: {
-    showUserOptions() {
-      this.$emit('showUserOptions')
-    },
   },
 }
 </script>
