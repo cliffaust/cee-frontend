@@ -4,10 +4,10 @@
       v-if="showMessageBox"
       :css="false"
       :class="[
-        'py-4',
-        'px-8',
-        'rounded-lg',
-        'drop-shadow-xl',
+        'py-2',
+        'px-5',
+        'rounded-md',
+        'drop-shadow-md',
         'bg-white',
         'w-106',
         'fixed',
@@ -18,7 +18,7 @@
       v-bind="$attrs"
       v-on="$listeners"
     >
-      <div class="text-xl font-bold">
+      <div class="text-base font-bold">
         <slot></slot>
       </div>
     </div>
