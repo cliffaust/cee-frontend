@@ -1,8 +1,8 @@
 <template>
-  <div @click="closeResultsMethod">
+  <div @click="showResultsMethod">
     <Header
-      :close-results="closeResults"
-      @closeResults="changeCloseResults"
+      :show-results="showResults"
+      @showResults="changeShowResults"
     ></Header>
     <Section1></Section1>
     <Footer></Footer>
@@ -22,17 +22,17 @@ export default {
 
   data() {
     return {
-      closeResults: true,
+      showResults: true,
     }
   },
 
   methods: {
-    changeCloseResults() {
-      this.closeResults = true
+    changeShowResults() {
+      this.showResults = true
     },
-    closeResultsMethod() {
-      if (this.closeResults) {
-        this.closeResults = false
+    showResultsMethod() {
+      if (this.showResults) {
+        this.showResults = false
       } else if (this.showOptions) {
         this.showOptions = false
       }

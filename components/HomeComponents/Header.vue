@@ -57,7 +57,7 @@
             type="text"
             placeholder="Enter an address or city or town"
             :class="[
-              searchResults.length > 0 && closeResults && search
+              searchResults.length > 0 && showResults && search
                 ? 'search-result-open !rounded-tr-md !rounded-tl-md !rounded-br-none !rounded-bl-none !border-gray-100 !border-2'
                 : 'search',
             ]"
@@ -66,7 +66,7 @@
             @keyup.enter="checkKeyUp"
           />
           <div
-            v-if="searchResults.length > 0 && closeResults && search"
+            v-if="searchResults.length > 0 && showResults && search"
             class="search-results"
           >
             <div
@@ -127,7 +127,7 @@ export default {
   },
 
   props: {
-    closeResults: {
+    showResults: {
       type: Boolean,
       required: true,
     },
@@ -253,7 +253,7 @@ export default {
       } else {
         this.searchResults = []
       }
-      this.$emit('closeResults', this.closeResults)
+      this.$emit('showResults', this.showResults)
     },
   },
 }
