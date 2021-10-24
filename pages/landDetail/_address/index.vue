@@ -394,6 +394,7 @@
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              @click="makeAPhoneCall(contact_number.number)"
             >
               <path
                 stroke-linecap="round"
@@ -821,6 +822,9 @@ export default {
             this.land.reviews.length) *
             100
       )
+    },
+    makeAPhoneCall(number) {
+      location.href = `tel: ${number}`
     },
     changeSelectedDateTime(n) {
       this.selectedDateTime = n
