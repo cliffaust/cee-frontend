@@ -52,7 +52,7 @@
           </svg>
           Buy a home
         </div>
-        <div class="link">
+        <nuxt-link to="/sell" class="link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -94,7 +94,7 @@
             </g>
           </svg>
           Sell your home
-        </div>
+        </nuxt-link>
         <div class="link">
           <svg
             xmlns="http://www.w3.org/2000/svg"

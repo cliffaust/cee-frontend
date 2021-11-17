@@ -145,6 +145,7 @@ export default {
     navbar,
     homeCard,
   },
+  middleware: ['checkUser'],
   async asyncData({ store, route }) {
     if (store.state.signin.token) {
       const { data } = await axios.get(
