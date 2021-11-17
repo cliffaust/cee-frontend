@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar></navbar>
-    <div class="py-0 px-8 mt-4">
+    <div class="py-0 px-6 mt-4">
       <div class="font-bold text-2xl font-mono text-center mb-5">Register</div>
       <ValidationObserver ref="form" v-slot="{ handleSubmit }">
         <div class="flex justify-between mb-6">

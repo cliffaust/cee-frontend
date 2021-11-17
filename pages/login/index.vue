@@ -8,7 +8,7 @@
       We couldn’t find an account matching the email or password you entered.
       Please check your email or password and try again.
     </div>
-    <div class="py-0 px-8 mt-4">
+    <div class="py-0 px-6 mt-4">
       <div class="font-bold text-2xl font-mono text-center mb-5">Login</div>
       <ValidationObserver v-slot="{ handleSubmit }">
         <ValidationProvider
