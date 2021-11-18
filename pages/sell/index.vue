@@ -122,6 +122,19 @@
             ></baseTextArea>
           </div>
         </ValidationProvider>
+        <div class="mt-10">
+          <ButtonPrimary
+            :class="[
+              'w-full',
+              '!py-3',
+              'text-sm',
+              'bg-primary-yellow',
+              '!text-primary-blue-200',
+            ]"
+          >
+            <div>Register</div>
+          </ButtonPrimary>
+        </div>
       </ValidationObserver>
     </div>
   </div>
@@ -132,12 +145,14 @@ import navbar from '~/components/homeInstance/navbar.vue'
 import baseInput from '~/components/defaultComponent/baseInput'
 import baseSelect from '~/components/defaultComponent/baseSelect'
 import baseTextArea from '~/components/defaultComponent/baseTextArea'
+import ButtonPrimary from '~/components/defaultComponent/button-primary.vue'
 export default {
   components: {
     navbar,
     baseInput,
     baseSelect,
     baseTextArea,
+    ButtonPrimary,
   },
   // middleware: ['checkUser'],
 
