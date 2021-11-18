@@ -132,7 +132,7 @@
               '!text-primary-blue-200',
             ]"
           >
-            <div>Register</div>
+            <div>Sell your home</div>
           </ButtonPrimary>
         </div>
       </ValidationObserver>
